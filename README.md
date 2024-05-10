@@ -1,5 +1,7 @@
 # Existence
 
+![image](https://github.com/existence-master/Existence/assets/59280736/a9d1ec1d-ff57-489b-b827-2856d2ed33cf)
+
 ## Philosophy
 
 In a world often characterized by segmented efforts to serve specific aspects of existence, our startup envisions a paradigm shift – a departure from the conventional focus on humanity alone. Our philosophy centers around the upliftment of every form of existence, acknowledging the interconnectedness and interdependence that defines the fabric of our reality. Rather than limiting our efforts to the welfare of humanity, we embrace a holistic approach that encompasses all living beings, the environment, and even non-living entities. By recognizing the inherent value in every form of existence, we aim to break free from the siloed perspectives that have historically hindered true progress.
