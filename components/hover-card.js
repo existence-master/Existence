@@ -7,13 +7,9 @@ import { twMerge } from "tailwind-merge";
 
 const cn = (...inputs) => {
   return twMerge(clsx(inputs));
-}
+};
 
-
-export const EvervaultCard = ({
-  text,
-  className,
-}) => {
+export const EvervaultCard = ({ text, className }) => {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
@@ -52,7 +48,9 @@ export const EvervaultCard = ({
         <div className="relative z-10 flex items-center justify-center">
           <div className="relative h-44 w-44  rounded-full flex items-center justify-center text-white font-bold text-4xl">
             <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" />
-            <span className="dark:text-white text-black z-20">{text}</span>
+            <span className="dark:text-white text-black z-20 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl">
+              {text}
+            </span>
           </div>
         </div>
       </div>
