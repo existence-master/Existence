@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import Link from "next/link";
 
 /*prettier-ignore*/
 export const AnimatedTooltip = ({
@@ -40,6 +41,7 @@ export const AnimatedTooltip = ({
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
+          <Link href={item.link} >
           {hoveredIndex === item.id && (
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.6 }}
@@ -77,6 +79,7 @@ export const AnimatedTooltip = ({
             alt={item.name}
             className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
           />
+          </Link>
         </div>
       ))}
     </>
