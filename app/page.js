@@ -8,6 +8,7 @@ import { Meteors } from "@components/meteors";
 import Image from "next/image";
 import Link from "next/link";
 import { Parallax } from "react-scroll-parallax";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const team = [
@@ -61,8 +62,41 @@ export default function Home() {
       link: "https://github.com/Abhishekkange",
     },
   ];
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const x = event.pageX;
+      const y = event.pageY;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []); // Empty dependency array ensures useEffect runs only once after initial render
+
   return (
     <>
+      {/* Render the glow effect div */}
+      <div
+        className="absolute pointer-events-none z-50 rounded-full"
+        style={{
+          top: `${mousePosition.y}px`,
+          left: `${mousePosition.x}px`,
+          width: "100px", // Adjusted width
+          height: "100px", // Adjusted height
+          transform: "translate(-50%, -50%)",
+          zIndex: 10, // You can control the z-index here
+          background:
+            "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 100%)", // Smoother radial gradient
+          filter: "blur(10px)", // Adding blur
+        }}
+      />
+
       <div className="w-full h-screen bg-black">
         <section className="h-screen flex justify-center items-center overflow-hidden">
           <Image
