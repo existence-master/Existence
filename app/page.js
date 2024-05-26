@@ -232,10 +232,16 @@ export default function Home() {
         </section>
         <footer className="bg-black">
           <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono flex">
               2024{" "}
               <a href="#" className="hover:underline">
-                Existence
+                <Image
+                  src="/logobanner.png"
+                  width={65.625}
+                  height={18.75}
+                  alt="Existence Banner"
+                  className="ml-1"
+                />
               </a>
               . All Rights Reserved.
             </span>

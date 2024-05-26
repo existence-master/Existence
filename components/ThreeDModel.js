@@ -6,21 +6,25 @@ import * as THREE from "three";
 
 const vertexShader = `
 varying vec3 vNormal;
+varying vec3 vPosition;
 
 void main() {
   vNormal = normalize(normalMatrix * normal);
+  vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `;
 
 const fragmentShader = `
 varying vec3 vNormal;
+varying vec3 vPosition;
 
 void main() {
   vec3 lightDirection = normalize(vec3(0.5, 1.0, 0.75)); // Light direction
-  float lightIntensity = dot(vNormal, lightDirection);
-  vec3 color = vec3(0.8); // Shade of gray
-  gl_FragColor = vec4(color * lightIntensity, 1.0); // Flat shading
+  float lightIntensity = max(dot(vNormal, lightDirection), 0.0); // Lambertian reflectance
+  vec3 color = vec3(1.5); // Bright white color, scaled above 1.0 for higher brightness
+  vec3 shadedColor = color * lightIntensity;
+  gl_FragColor = vec4(shadedColor, 1.0); // Flat shading with diffuse reflection
 }
 `;
 
@@ -63,7 +67,7 @@ const ThreeDModel = () => {
     <Canvas>
       <ambientLight intensity={1} />{" "}
       {/* Increase the intensity of the ambient light */}
-      <pointLight position={[10, 10, 10]} intensity={1} />{" "}
+      <pointLight position={[5, 5, 0]} intensity={1} />{" "}
       {/* Optionally increase point light intensity */}
       <Model />
       <OrbitControls enableZoom={false} />
