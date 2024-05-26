@@ -1,5 +1,4 @@
 "use client";
-
 import { BackgroundBeams } from "@components/background-beams";
 import { EvervaultCard } from "@components/hover-card";
 import { PinContainer } from "@components/3dpin";
@@ -7,8 +6,9 @@ import { AnimatedTooltip } from "@components/animatedtooltip";
 import { Meteors } from "@components/meteors";
 import Image from "next/image";
 import Link from "next/link";
-import { Parallax } from "react-scroll-parallax";
-import { useState, useEffect } from "react";
+import DotBackground from "@components/DotBackground";
+import ThreeDModel from "@components/ThreeDModel";
+// import ThreeDModel from "@components/ThreeDModel";
 
 export default function Home() {
   const team = [
@@ -63,40 +63,8 @@ export default function Home() {
     },
   ];
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      const x = event.pageX;
-      const y = event.pageY;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []); // Empty dependency array ensures useEffect runs only once after initial render
-
   return (
     <>
-      {/* Render the glow effect div */}
-      <div
-        className="absolute pointer-events-none z-50 rounded-full"
-        style={{
-          top: `${mousePosition.y}px`,
-          left: `${mousePosition.x}px`,
-          width: "100px", // Adjusted width
-          height: "100px", // Adjusted height
-          transform: "translate(-50%, -50%)",
-          zIndex: 10, // You can control the z-index here
-          background:
-            "radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 100%)", // Smoother radial gradient
-          filter: "blur(10px)", // Adding blur
-        }}
-      />
-
       <div className="w-full h-screen bg-black">
         <section className="h-screen flex justify-center items-center overflow-hidden">
           <Image
@@ -104,11 +72,20 @@ export default function Home() {
             width={1050}
             height={300}
             alt="Existence Banner"
+            className="md:hidden"
           />
+          <div className="xs:max-md:hidden h-screen w-screen">
+            <ThreeDModel />
+          </div>
+
           <BackgroundBeams />
         </section>
         <section className="h-screen flex justify-center items-center bg-black overflow-hidden">
-          <div className="h-full w-full bg-black bg-dot-white/[0.4] relative flex flex-col items-center justify-center">
+          <div
+            className="h-full w-full relative flex flex-col items-center justify-center"
+            style={{ position: "relative", zIndex: 1 }}
+          >
+            <DotBackground />
             {/* Radial gradient for the container to give a faded look */}
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
             <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-2/3 font-mono text-gray-400 text-center p-2 md:w-1/2 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
@@ -185,9 +162,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="h-screen flex justify-center items-center bg-black overflow-hidden">
-          <div className="h-2/3 md:w-1/2 xs:w-2/3 relative xs:ml-5 md:ml-5">
-            <div className="relative shadow-xl bg-black border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+        <section
+          className="h-screen flex justify-center items-center bg-black overflow-hidden"
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          {/* Radial gradient for the container to give a faded look */}
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+          <DotBackground />
+          <div
+            className="h-2/3 md:w-1/2 xs:w-2/3 relative xs:ml-5 md:ml-5"
+            style={{ position: "relative" }}
+          >
+            <div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
               <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -227,16 +213,6 @@ export default function Home() {
               <Meteors number={20} />
             </div>
           </div>
-          {/*
-            <div className="h-2/3 w-1/2 p-5 flex justify-center items-center xs:max-md:hidden">
-              <a
-                href="https://chat.whatsapp.com/L7AV0xSGxH292WbXBHErbB"
-                className="hover:underline me-4 md:me-6"
-              >
-                <p className="text-white text-xl">Image here</p>
-              </a>
-            </div>
-          */}
         </section>
         <section className="h-screen flex flex-col justify-center items-center bg-black overflow-hidden">
           <div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex items-center justify-center">
