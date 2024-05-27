@@ -29,50 +29,50 @@ void main() {
 `;
 
 const Model = () => {
-  const model = useGLTF("/existenceLogov2.glb");
-  const ref = useRef();
+	const model = useGLTF("/logo.glb");
+	const ref = useRef();
 
-  // Rotate the model based on mouse movement
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      const x = (event.clientX / window.innerWidth) * 2 - 1;
-      const y = -(event.clientY / window.innerHeight) * 2 + 1;
-      ref.current.rotation.y = x * 0.2; // Adjust the multiplier to change the sensitivity
-      ref.current.rotation.x = y * 0.4;
-    };
+	// Rotate the model based on mouse movement
+	useEffect(() => {
+		const handleMouseMove = (event) => {
+			const x = (event.clientX / window.innerWidth) * 2 - 1;
+			const y = -(event.clientY / window.innerHeight) * 2 + 1;
+			ref.current.rotation.y = x * 0.2; // Adjust the multiplier to change the sensitivity
+			ref.current.rotation.x = y * 0.4;
+		};
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+		window.addEventListener("mousemove", handleMouseMove);
+		return () => window.removeEventListener("mousemove", handleMouseMove);
+	}, []);
 
-  // Create a shader material
-  const shaderMaterial = new THREE.ShaderMaterial({
-    vertexShader,
-    fragmentShader,
-    uniforms: {},
-  });
+	// Create a shader material
+	const shaderMaterial = new THREE.ShaderMaterial({
+		vertexShader,
+		fragmentShader,
+		uniforms: {},
+	});
 
-  // Apply the shader material to the model
-  model.scene.traverse((child) => {
-    if (child.isMesh) {
-      child.material = shaderMaterial;
-    }
-  });
+	// Apply the shader material to the model
+	model.scene.traverse((child) => {
+		if (child.isMesh) {
+			child.material = shaderMaterial;
+		}
+	});
 
-  return <primitive ref={ref} object={model.scene} scale={1.5} />;
+	return <primitive ref={ref} object={model.scene} scale={1.5} />;
 };
 
 const ThreeDModel = () => {
-  return (
-    <Canvas>
-      <ambientLight intensity={1} />{" "}
-      {/* Increase the intensity of the ambient light */}
-      <pointLight position={[5, 5, 0]} intensity={1} />{" "}
-      {/* Optionally increase point light intensity */}
-      <Model />
-      <OrbitControls enableZoom={false} />
-    </Canvas>
-  );
+	return (
+		<Canvas>
+			<ambientLight intensity={1} />{" "}
+			{/* Increase the intensity of the ambient light */}
+			<pointLight position={[5, 5, 0]} intensity={1} />{" "}
+			{/* Optionally increase point light intensity */}
+			<Model />
+			<OrbitControls enableZoom={false} />
+		</Canvas>
+	);
 };
 
 export default ThreeDModel;
