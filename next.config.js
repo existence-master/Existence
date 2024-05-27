@@ -1,8 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
 
-module.exports = nextConfig;
+const withPlugins = require("next-compose-plugins");
+const withImages = require("next-images");
+const withVideos = require("next-videos");
 
-const withVideos = require('next-videos')
+const nextConfig = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+                hostname: "**.licdn.com",
+				port: "",
+			},
+		],
+	},
+};
 
-module.exports = withVideos()
+module.exports = withPlugins([[withImages, withVideos]], nextConfig);

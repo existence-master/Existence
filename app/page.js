@@ -1,24 +1,24 @@
 "use client";
-import { BackgroundBeams } from "@components/background-beams";
-import { EvervaultCard } from "@components/hover-card";
-import { PinContainer } from "@components/3dpin";
-import { AnimatedTooltip } from "@components/animatedtooltip";
-import { Meteors } from "@components/meteors";
+import { BackgroundBeams } from "@components/BackgroundBeams";
+import { EvervaultCard } from "@components/HoverCard";
+import { PinContainer } from "@components/Animated3DPin";
+import { AnimatedTooltip } from "@components/AnimatedTip";
+import { Meteors } from "@components/AnimatedMeteors"
 import Image from "next/image";
 import Link from "next/link";
 import DotBackground from "@components/DotBackground";
-import ThreeDModel from "@components/ThreeDModel";
+import ThreeDModel from "@components/3DModel";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
 	TextRevealCard,
 	TextRevealCardDescription,
 	TextRevealCardTitle,
-} from "@components/text-reveal-card";
+} from "@components/TextRevealCard";
 
 const Home = () => {
-  const pageRef = useRef();
-  const pageScrollProgress = useScroll(pageRef);
+	const pageRef = useRef();
+	const pageScrollProgress = useScroll(pageRef);
 
 	const heroSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
@@ -109,49 +109,49 @@ const Home = () => {
 			id: 1,
 			name: "Sarthak Karandikar",
 			designation: "Co-Founder",
-			image: "/sarthak.jpeg",
+			image: "https://media.licdn.com/dms/image/D4D03AQHRJYw1qo6xJQ/profile-displayphoto-shrink_800_800/0/1680586521971?e=1722470400&v=beta&t=NxgH4gMnSyWStc8OiZFNqJ-Mr__u0hIWbwxMeBtxczM",
 			link: "https://github.com/itsskofficial",
 		},
 		{
 			id: 2,
 			name: "Kabeer Ahmed Merchant",
 			designation: "Co-Founder",
-			image: "/kabeer.jpeg",
+			image: "https://media.licdn.com/dms/image/D4D03AQEMuNC-u2rRMg/profile-displayphoto-shrink_400_400/0/1713373786015?e=1722470400&v=beta&t=zsqlhEdspr1xekmWePSUmde9SL5hXp9GWmFM2AHVXtU",
 			link: "https://github.com/Kabeer2004",
 		},
 		{
 			id: 3,
 			name: "Abhijeet Suryawanshi",
 			designation: "Data Scientist",
-			image: "/temp.png",
+			image: "https://media.licdn.com/dms/image/C4D03AQGQwbIUH8_J4Q/profile-displayphoto-shrink_400_400/0/1655274054114?e=1722470400&v=beta&t=_TgDdVyB191SY97_rqBm6mrvMMJfFvSPBK_2bEaVz0E",
 			link: "https://github.com/abhijeetsuryawanshi12",
 		},
 		{
 			id: 4,
 			name: "Ojaswini Prabhune",
 			designation: "UI/UX Designer",
-			image: "/temp.png",
+			image: "https://media.licdn.com/dms/image/D4D03AQHbGVe-IpHK4g/profile-displayphoto-shrink_400_400/0/1684558328615?e=1722470400&v=beta&t=yeViHdvM2h3f5DTazWdHzXJ59hPFK2rhx1ELzM4RLaM",
 			link: "https://github.com/ojaswini1410",
 		},
 		{
 			id: 5,
 			name: "Varad Deshpande",
 			designation: "Full Stack Developer",
-			image: "/varad.jpeg",
+			image: "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
 			link: "https://github.com/varaddeshpande15",
 		},
 		{
 			id: 6,
 			name: "Heramb Patil",
 			designation: "Generative AI Engineer",
-			image: "/heramb.jpeg",
+			image: "https://media.licdn.com/dms/image/D4D03AQEdHWjySzETsw/profile-displayphoto-shrink_800_800/0/1691663883682?e=1722470400&v=beta&t=kcGtLDl3FXaCYGj9rcFHP-3GySNNwoEEKByIsNH91Uk",
 			link: "https://github.com/herambpatilofficial",
 		},
 		{
 			id: 7,
 			name: "Abhishek Kange",
 			designation: "Full Stack App Developer",
-			image: "/abhishek.jpeg",
+			image: "https://media.licdn.com/dms/image/D4D03AQGew4PsN4Py6g/profile-displayphoto-shrink_800_800/0/1705497532440?e=1722470400&v=beta&t=NpRk0CdmIVTuDvdXSG7aHZ2JkX1ONZ_lXeXlz8LPPOc",
 			link: "https://github.com/Abhishekkange",
 		},
 	];
@@ -165,7 +165,7 @@ const Home = () => {
 							scale: heroSectionScale,
 							opacity: heroSectionOpacity,
 						}}
-						className="fixed top-0 h-screen w-screen"
+						className="fixed top-0 h-screen w-screen flex justify-center items-center"
 					>
 						<Image
 							src="/logobanner.png"
@@ -217,20 +217,20 @@ const Home = () => {
 						}}
 						className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-2/3 xs:p-0 font-mono text-gray-400 text-center p-3 w-1/2 mb-10">
+						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-2/3 xs:p-0 font-mono text-gray-400 text-justify p-3 w-1/2 mb-10">
 							At Existence, our mission is twofold: to craft
 							groundbreaking products that redefine industries and
 							to provide unparalleled services that empower our
 							clients to thrive in a dynamic marketplace.
 						</p>
-						<div className="flex justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
+						<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
 							<EvervaultCard
 								text="Product Innovation"
-								className="w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
 							/>
 							<EvervaultCard
 								text="Service Excellence"
-								className="w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
 							/>
 						</div>
 					</motion.div>
@@ -241,17 +241,16 @@ const Home = () => {
 							scale: productsSectionScale,
 							opacity: productsSectionOpacity,
 						}}
-						className="fixed h-screen w-screen top-[30px] flex flex-col items-center justify-center"
+						className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
 					>
-						<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 mb-10 xs:mb-32 md:mb-20">
+						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-[100px] xs:max-md:mb-[100px] mb-20">
 							Our Products
 						</p>
-						<div className="flex justify-center w-full h-1/2 p-20 xs:mb-20">
+						<div className="flex justify-center w-full h-1/2 p-20">
 							<div className="w-full flex md:flex-row items-center justify-center gap-20 xs:gap-10 xs:flex-col">
 								<Link href="https://existence-bloomify.vercel.app/">
 									<PinContainer
-										title="🌎 bloomify.app"
+										title="🌎 bloomify.app (alpha)"
 										href="https://existence-bloomify.vercel.app/"
 										className=""
 									>
@@ -264,17 +263,23 @@ const Home = () => {
 													Elevating assessment to an
 													art form with AI-driven
 													precision, fostering
-													academic excellence one
-													question at a time.
+													academic excellence.
 												</span>
 											</div>
-											<div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+												<Image
+													src="/bloomify.svg"
+													width={125}
+													height={125}
+													className="glow-effect"
+												/>
+											</div>
 										</div>
 									</PinContainer>
 								</Link>
 								<PinContainer
-									title="🌎 mindsync.app"
-									href=""
+									title="🌎 mindsync.app (mvp)"
+									href="https://existence-mindsync.vercel.app"
 									className=""
 								>
 									<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
@@ -288,7 +293,14 @@ const Home = () => {
 												with the power of AI.
 											</span>
 										</div>
-										<div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+										<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+											<Image
+												src="/mindsync.svg"
+												width={125}
+												height={125}
+												className="glow-effect"
+											/>
+										</div>
 									</div>
 								</PinContainer>
 							</div>
@@ -301,13 +313,13 @@ const Home = () => {
 							scale: servicesSectionScale,
 							opacity: servicesSectionOpacity,
 						}}
-						className="fixed h-screen w-screen top-[30px] flex flex-col items-center justify-center"
+						className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 mb-10 xs:mb-32 md:mb-20">
+						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
 							Our Services
 						</p>
-						<div className="flex w-full gap-[30px]">
-							<div className="flex items-center justify-center bg-[#0E0E10] h-[30rem] rounded-2xl w-1/3">
+						<div className="flex xs:max-md:flex-col justify-center items-center w-full xs:max-md:gap-[20px] gap-[30px]">
+							<div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
 								<TextRevealCard
 									text="How can we help?"
 									revealText="Web Development"
@@ -323,7 +335,7 @@ const Home = () => {
 									</TextRevealCardDescription>
 								</TextRevealCard>
 							</div>
-							<div className="flex items-center justify-center bg-[#0E0E10] h-[30rem] rounded-2xl w-1/3">
+							<div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
 								<TextRevealCard
 									text="How can we help?"
 									revealText="App Development"
@@ -334,18 +346,19 @@ const Home = () => {
 									<TextRevealCardDescription>
 										Elevate your business with our mobile
 										app development services. We specialize
-										in creating intuitive, minimalistic and feature-rich
-										mobile applications for Android platform.
+										in creating intuitive, minimalistic and
+										feature-rich mobile applications for
+										Android platform.
 									</TextRevealCardDescription>
 								</TextRevealCard>
 							</div>
-							<div className="flex items-center justify-center bg-[#0E0E10] h-[30rem] rounded-2xl w-1/3">
+							<div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
 								<TextRevealCard
 									text="How can we help?"
 									revealText="AI Integration"
 								>
 									<TextRevealCardTitle>
-                    We are trendy
+										We are trendy
 									</TextRevealCardTitle>
 									<TextRevealCardDescription>
 										Harness the power of artificial
@@ -436,9 +449,9 @@ const Home = () => {
 						<div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
 							{/* Radial gradient for the container to give a faded look */}
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-							<div className="flex flex-col justify-center  w-full p-20 gap-10">
+							<div className="flex flex-col justify-center w-full p-20 gap-10">
 								<div className="flex justify-center">
-									<p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 mb-10">
+									<p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-10 mb-10">
 										Our Team
 									</p>
 								</div>
@@ -447,8 +460,8 @@ const Home = () => {
 								</div>
 							</div>
 						</div>
-						<div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-							<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono flex">
+						<div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
+							<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
 								2024 Existence. All Rights Reserved.
 							</span>
 							<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
@@ -465,7 +478,7 @@ const Home = () => {
 									existence.master@gmail.com
 								</a>
 							</span>
-							<ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 gap-5">
+							<ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
 								<li>
 									<a
 										href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
@@ -512,6 +525,6 @@ const Home = () => {
 			</div>
 		</>
 	);
-}
+};
 
-export default Home
+export default Home;
