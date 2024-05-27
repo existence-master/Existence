@@ -4,6 +4,7 @@ import { EvervaultCard } from "@components/HoverCard";
 import { PinContainer } from "@components/Animated3DPin";
 import { AnimatedTooltip } from "@components/AnimatedTip";
 import { Meteors } from "@components/AnimatedMeteors";
+
 import Image from "next/image";
 import Link from "next/link";
 import DotBackground from "@components/DotBackground";
