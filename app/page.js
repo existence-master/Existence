@@ -2,7 +2,7 @@
 import { BackgroundBeams } from "@components/BackgroundBeams";
 import { EvervaultCard } from "@components/HoverCard";
 import { PinContainer } from "@components/3DPin";
-import { AnimatedTooltip } from "@components/AnimatedToolTip";
+import { AnimatedTooltip } from "@components/AnimatedTip";
 import { Meteors } from "@components/Meteors"
 import Image from "next/image";
 import Link from "next/link";
