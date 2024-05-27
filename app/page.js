@@ -3,7 +3,7 @@ import { BackgroundBeams } from "@components/BackgroundBeams";
 import { EvervaultCard } from "@components/HoverCard";
 import { PinContainer } from "@components/Animated3DPin";
 import { AnimatedTooltip } from "@components/AnimatedTip";
-import { Meteors } from "@components/AnimatedMeteors"
+import { Meteors } from "@components/AnimatedMeteors";
 import Image from "next/image";
 import Link from "next/link";
 import DotBackground from "@components/DotBackground";
@@ -34,73 +34,73 @@ const Home = () => {
 
 	const philosophySectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.1429, 0.2143, 0.2857],
+		[0.1229, 0.2143, 0.2857],
 		[0, 1, 0]
 	);
 
 	const philosophySectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.1429, 0.2143, 0.2857],
+		[0.1229, 0.2143, 0.2857],
 		[0, 1, 2.5]
 	);
 
 	const missionSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.2857, 0.3571, 0.4286],
+		[0.2657, 0.3571, 0.4286],
 		[0, 1, 0]
 	);
 
 	const missionSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.2857, 0.3571, 0.4286],
+		[0.2657, 0.3571, 0.4286],
 		[0, 1, 2.5]
 	);
 
 	const productsSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.4286, 0.5, 0.5714],
+		[0.4086, 0.5, 0.5714],
 		[0, 1, 0]
 	);
 
 	const productsSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.4286, 0.5, 0.5714],
+		[0.4086, 0.5, 0.5714],
 		[0, 1, 2.5]
 	);
 
 	const servicesSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.5714, 0.6429, 0.7143],
+		[0.5514, 0.6429, 0.7143],
 		[0, 1, 0]
 	);
 
 	const servicesSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.5714, 0.6429, 0.7143],
+		[0.5514, 0.6429, 0.7143],
 		[0, 1, 2.5]
 	);
 
 	const communitySectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.7143, 0.7857, 0.8571],
+		[0.6943, 0.7857, 0.8571],
 		[0, 1, 0]
 	);
 
 	const communitySectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.7143, 0.7857, 0.8571],
+		[0.6943, 0.7857, 0.8571],
 		[0, 1, 2.5]
 	);
 
 	const teamSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.8571, 0.9286, 1.0],
+		[0.8371, 0.9286, 1.0],
 		[0, 1, 1]
 	);
 
 	const teamSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.8571, 0.9286, 1.0],
+		[0.8371, 0.9286, 1.0],
 		[0, 1, 1]
 	);
 
@@ -110,49 +110,49 @@ const Home = () => {
 			name: "Sarthak Karandikar",
 			designation: "Co-Founder",
 			image: "https://media.licdn.com/dms/image/D4D03AQHRJYw1qo6xJQ/profile-displayphoto-shrink_800_800/0/1680586521971?e=1722470400&v=beta&t=NxgH4gMnSyWStc8OiZFNqJ-Mr__u0hIWbwxMeBtxczM",
-			link: "https://github.com/itsskofficial",
+			link: "https://www.linkedin.com/in/sarthak-karandikar-0223b7228/",
 		},
 		{
 			id: 2,
 			name: "Kabeer Ahmed Merchant",
 			designation: "Co-Founder",
 			image: "https://media.licdn.com/dms/image/D4D03AQEMuNC-u2rRMg/profile-displayphoto-shrink_400_400/0/1713373786015?e=1722470400&v=beta&t=zsqlhEdspr1xekmWePSUmde9SL5hXp9GWmFM2AHVXtU",
-			link: "https://github.com/Kabeer2004",
+			link: "https://www.linkedin.com/in/kabeer-ahmed-merchant/",
 		},
 		{
 			id: 3,
 			name: "Abhijeet Suryawanshi",
 			designation: "Data Scientist",
 			image: "https://media.licdn.com/dms/image/C4D03AQGQwbIUH8_J4Q/profile-displayphoto-shrink_400_400/0/1655274054114?e=1722470400&v=beta&t=_TgDdVyB191SY97_rqBm6mrvMMJfFvSPBK_2bEaVz0E",
-			link: "https://github.com/abhijeetsuryawanshi12",
+			link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/",
 		},
 		{
 			id: 4,
 			name: "Ojaswini Prabhune",
 			designation: "UI/UX Designer",
 			image: "https://media.licdn.com/dms/image/D4D03AQHbGVe-IpHK4g/profile-displayphoto-shrink_400_400/0/1684558328615?e=1722470400&v=beta&t=yeViHdvM2h3f5DTazWdHzXJ59hPFK2rhx1ELzM4RLaM",
-			link: "https://github.com/ojaswini1410",
+			link: "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/",
 		},
 		{
 			id: 5,
 			name: "Varad Deshpande",
 			designation: "Full Stack Developer",
 			image: "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
-			link: "https://github.com/varaddeshpande15",
+			link: "https://www.linkedin.com/in/varaddeshpande15/",
 		},
 		{
 			id: 6,
 			name: "Heramb Patil",
 			designation: "Generative AI Engineer",
 			image: "https://media.licdn.com/dms/image/D4D03AQEdHWjySzETsw/profile-displayphoto-shrink_800_800/0/1691663883682?e=1722470400&v=beta&t=kcGtLDl3FXaCYGj9rcFHP-3GySNNwoEEKByIsNH91Uk",
-			link: "https://github.com/herambpatilofficial",
+			link: "https://www.linkedin.com/in/herambvpatil/",
 		},
 		{
 			id: 7,
 			name: "Abhishek Kange",
 			designation: "Full Stack App Developer",
 			image: "https://media.licdn.com/dms/image/D4D03AQGew4PsN4Py6g/profile-displayphoto-shrink_800_800/0/1705497532440?e=1722470400&v=beta&t=NpRk0CdmIVTuDvdXSG7aHZ2JkX1ONZ_lXeXlz8LPPOc",
-			link: "https://github.com/Abhishekkange",
+			link: "https://www.linkedin.com/in/abhishekkange/",
 		},
 	];
 
@@ -168,10 +168,10 @@ const Home = () => {
 						className="fixed top-0 h-screen w-screen flex justify-center items-center"
 					>
 						<Image
-							src="/logobanner.png"
+							src="/logo.svg"
 							width={1050}
 							height={300}
-							alt="Existence Banner"
+							alt="Existence Logo"
 							className="md:hidden"
 						/>
 						<div className="xs:max-md:hidden h-screen w-screen">
@@ -195,7 +195,7 @@ const Home = () => {
 							<DotBackground />
 							{/* Radial gradient for the container to give a faded look */}
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-2/3 font-mono text-gray-400 text-justify p-2 md:w-1/2 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-3/4 font-mono text-gray-400 text-justify p-2 md:w-1/2 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
 								Our philosophy promotes a holistic upliftment of
 								all forms of existence, emphasizing
 								interconnectedness, sustainability, and
@@ -217,7 +217,7 @@ const Home = () => {
 						}}
 						className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-2/3 xs:p-0 font-mono text-gray-400 text-justify p-3 w-1/2 mb-10">
+						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-3/4 xs:p-0 font-mono text-gray-400 xs:max-md:text-justify p-3 w-1/2 mb-10">
 							At Existence, our mission is twofold: to craft
 							groundbreaking products that redefine industries and
 							to provide unparalleled services that empower our
@@ -243,7 +243,7 @@ const Home = () => {
 						}}
 						className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-[100px] xs:max-md:mb-[100px] mb-20">
+						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
 							Our Products
 						</p>
 						<div className="flex justify-center w-full h-1/2 p-20">
@@ -389,7 +389,7 @@ const Home = () => {
 						<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 						<DotBackground />
 						<div
-							className="h-2/3 md:w-1/2 xs:w-2/3 relative xs:ml-5 md:ml-5"
+							className="h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
 							style={{ position: "relative" }}
 						>
 							<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
