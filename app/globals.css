@@ -23,6 +23,10 @@
   );
 }
 
+.glow-effect {
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
 .glow-overlay {
   --glow-size: 25rem;
   position: absolute;
