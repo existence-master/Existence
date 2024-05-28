@@ -1,21 +1,23 @@
 "use client";
+
 import { BackgroundBeams } from "@components/BackgroundBeams";
 import { EvervaultCard } from "@components/HoverCard";
 import { PinContainer } from "@components/Animated3DPin";
 import { AnimatedTooltip } from "@components/AnimatedTip";
 import { Meteors } from "@components/AnimatedMeteors";
-
+import { shuffleArray } from "@utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import DotBackground from "@components/DotBackground";
 import ThreeDModel from "@components/3DModel";
 import { useScroll, motion, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
 	TextRevealCard,
 	TextRevealCardDescription,
 	TextRevealCardTitle,
 } from "@components/TextRevealCard";
+import ScrollIndicator from "@components/ScrollIndicator";
 
 const Home = () => {
 	const pageRef = useRef();
@@ -35,73 +37,73 @@ const Home = () => {
 
 	const philosophySectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.1229, 0.2143, 0.2857],
+		[0.1029, 0.2143, 0.2857],
 		[0, 1, 0]
 	);
 
 	const philosophySectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.1229, 0.2143, 0.2857],
+		[0.1029, 0.2143, 0.2857],
 		[0, 1, 2.5]
 	);
 
 	const missionSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.2657, 0.3571, 0.4286],
+		[0.2457, 0.3571, 0.4286],
 		[0, 1, 0]
 	);
 
 	const missionSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.2657, 0.3571, 0.4286],
+		[0.2457, 0.3571, 0.4286],
 		[0, 1, 2.5]
 	);
 
 	const productsSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.4086, 0.5, 0.5714],
+		[0.3886, 0.5, 0.5714],
 		[0, 1, 0]
 	);
 
 	const productsSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.4086, 0.5, 0.5714],
+		[0.3886, 0.5, 0.5714],
 		[0, 1, 2.5]
 	);
 
 	const servicesSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.5514, 0.6429, 0.7143],
+		[0.5314, 0.6429, 0.7143],
 		[0, 1, 0]
 	);
 
 	const servicesSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.5514, 0.6429, 0.7143],
+		[0.5314, 0.6429, 0.7143],
 		[0, 1, 2.5]
 	);
 
 	const communitySectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.6943, 0.7857, 0.8571],
+		[0.6743, 0.7857, 0.8571],
 		[0, 1, 0]
 	);
 
 	const communitySectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.6943, 0.7857, 0.8571],
+		[0.6743, 0.7857, 0.8571],
 		[0, 1, 2.5]
 	);
 
 	const teamSectionOpacity = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.8371, 0.9286, 1.0],
+		[0.8171, 0.9286, 1.0],
 		[0, 1, 1]
 	);
 
 	const teamSectionScale = useTransform(
 		pageScrollProgress.scrollYProgress,
-		[0.8371, 0.9286, 1.0],
+		[0.8171, 0.9286, 1.0],
 		[0, 1, 1]
 	);
 
@@ -157,6 +159,25 @@ const Home = () => {
 		},
 	];
 
+	const [shuffledTeam, setShuffledTeam] = useState([]);
+	const [scrollIndicator, setScrollIndicator] = useState(true);
+
+	 useEffect(() => {
+			setShuffledTeam(shuffleArray([...team]));
+	 }, []);
+	
+	useEffect(() => {
+		return pageScrollProgress.scrollYProgress.on("change", (value) => {
+			if (value > 0.8171) {
+				setScrollIndicator(false)
+			}
+
+			else {
+				setScrollIndicator(true)
+			}
+		});
+	}, [pageScrollProgress.scrollYProgress]);
+
 	return (
 		<>
 			<div className="h-[950vh] overflow-hidden bg-black" ref={pageRef}>
@@ -180,6 +201,7 @@ const Home = () => {
 						</div>
 						<BackgroundBeams />
 					</motion.div>
+					{scrollIndicator && <ScrollIndicator />}
 				</section>
 				<section className="h-full flex justify-center items-center">
 					<motion.div
@@ -196,7 +218,7 @@ const Home = () => {
 							<DotBackground />
 							{/* Radial gradient for the container to give a faded look */}
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-3/4 font-mono text-gray-400 text-justify p-2 md:w-1/2 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
 								Our philosophy promotes a holistic upliftment of
 								all forms of existence, emphasizing
 								interconnectedness, sustainability, and
@@ -218,7 +240,7 @@ const Home = () => {
 						}}
 						className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-3/4 xs:p-0 font-mono text-gray-400 xs:max-md:text-justify p-3 w-1/2 mb-10">
+						<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
 							At Existence, our mission is twofold: to craft
 							groundbreaking products that redefine industries and
 							to provide unparalleled services that empower our
@@ -242,9 +264,9 @@ const Home = () => {
 							scale: productsSectionScale,
 							opacity: productsSectionOpacity,
 						}}
-						className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
+						className="fixed h-screen w-screen xs:max-md:-top-[30px] top-[30px] flex flex-col items-center justify-center"
 					>
-						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+						<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20">
 							Our Products
 						</p>
 						<div className="flex justify-center w-full h-1/2 p-20">
@@ -272,7 +294,7 @@ const Home = () => {
 													src="/bloomify.svg"
 													width={125}
 													height={125}
-													className="glow-effect"
+													className="glow-effect-image"
 												/>
 											</div>
 										</div>
@@ -299,7 +321,7 @@ const Home = () => {
 												src="/mindsync.svg"
 												width={125}
 												height={125}
-												className="glow-effect"
+												className="glow-effect-image"
 											/>
 										</div>
 									</div>
@@ -390,7 +412,7 @@ const Home = () => {
 						<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 						<DotBackground />
 						<div
-							className="h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
+							className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
 							style={{ position: "relative" }}
 						>
 							<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
@@ -457,7 +479,7 @@ const Home = () => {
 									</p>
 								</div>
 								<div className="flex md:flex-row xs:flex-col xs:gap-2 items-center justify-center mb-10 w-full md:gap-10">
-									<AnimatedTooltip items={team} />
+									<AnimatedTooltip items={shuffledTeam} />
 								</div>
 							</div>
 						</div>

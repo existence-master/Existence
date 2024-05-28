@@ -1,19 +1,37 @@
+/* Import Tailwind's base styles, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Utilities Layer */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .animate-blink {
+    animation: blink 3s infinite;
+  }
 }
 
+/* Custom Base Layer */
 @layer base {
   html {
     @apply scroll-smooth;
   }
 }
 
+/* Keyframes */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Custom Styles */
 .gradient-bg {
   background: rgb(31, 31, 31);
   background: radial-gradient(
@@ -23,9 +41,13 @@
   );
 }
 
-.glow-effect {
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-        }
+.glow-effect-image {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.glow-effect-text {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 12px rgba(255, 255, 255, 0.5);
+}
 
 .glow-overlay {
   --glow-size: 25rem;
