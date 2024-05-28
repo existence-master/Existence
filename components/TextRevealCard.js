@@ -63,7 +63,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
 		>
 			{children}
 
-			<div className="xs:max-md:h-10 h-60 relative flex items-center overflow-hidden">
+			<div className="xs:max-md:h-10 h-40 relative flex items-center overflow-hidden">
 				<motion.div
 					style={{
 						width: "100%",
@@ -90,7 +90,6 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
 					<p
 						style={{
                             textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
-                            lineHeight: "1.2"
 						}}
 						className="text-base sm:text-[3rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300"
 					>
@@ -106,7 +105,7 @@ export const TextRevealCard = ({ text, revealText, children, className }) => {
 					transition={
 						isMouseOver ? { duration: 0 } : { duration: 0.4 }
 					}
-					className="xs:max-md:h-30 h-60 w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+					className="xs:max-md:h-30 h-40 w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
 				></motion.div>
 
 				<div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">

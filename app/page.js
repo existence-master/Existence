@@ -221,8 +221,8 @@ const Home = () => {
 							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
 								Our philosophy promotes a holistic upliftment of
 								all forms of existence, emphasizing
-								interconnectedness, sustainability, and
-								inclusivity. We seek to transcend human-centric
+								progress, sustainability, and
+								unification. We seek to transcend human-centric
 								perspectives by valuing every entity, fostering
 								innovation that harmonizes with nature, and
 								committing to ethical responsibility. Our vision
