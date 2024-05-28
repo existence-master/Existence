@@ -187,11 +187,13 @@ const Home = () => {
     <>
       <div
         className={`${
-          isParallaxEnabled ? "h-[950vh]" : "h-screen"
-        } overflow-hidden bg-black`}
+          isParallaxEnabled
+            ? "h-[950vh] overflow-hidden"
+            : "h-screen overflow-y-scroll"
+        } bg-black w-screen overflow-x-hidden`}
         ref={pageRef}
       >
-        <section className="h-full flex justify-center items-center">
+        <section className="h-full flex justify-center items-center relative">
           {isParallaxEnabled ? (
             <motion.div
               style={{
@@ -214,7 +216,7 @@ const Home = () => {
               {scrollIndicator && <ScrollIndicator />}
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex justify-center items-center">
+            <div className="h-screen w-screen flex justify-center items-center relative">
               <Image
                 src="/logo.svg"
                 width={1050}
@@ -230,9 +232,9 @@ const Home = () => {
           )}
           <button
             onClick={() => setIsParallaxEnabled(!isParallaxEnabled)}
-            className="absolute top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded"
+            className="absolute top-4 right-4 px-4 py-2 bg-transparent text-gray-400 border border-gray-400 rounded-2xl"
           >
-            Toggle Parallax
+            {isParallaxEnabled ? <>Disable Parallax</> : <>Enable Parallax</>}
           </button>
         </section>
         <section className="h-full flex justify-center items-center">
@@ -262,7 +264,7 @@ const Home = () => {
               </div>
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex items-center justify-center">
+            <div className="h-screen w-screen flex items-center justify-center relative">
               <div
                 className="h-full w-full relative flex flex-col items-center justify-center"
                 style={{ position: "relative", zIndex: 1 }}
@@ -309,7 +311,7 @@ const Home = () => {
               </div>
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex flex-col items-center justify-center">
+            <div className="h-screen w-screen flex flex-col items-center justify-center relative">
               <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
                 At Existence, our mission is twofold: to craft groundbreaking
                 products that redefine industries and to provide unparalleled
@@ -329,7 +331,7 @@ const Home = () => {
             </div>
           )}
         </section>
-        <section className="gradient-bg h-full flex flex-col justify-center items-center">
+        <section className="h-full flex flex-col justify-center items-center">
           {isParallaxEnabled ? (
             <motion.div
               style={{
@@ -399,10 +401,12 @@ const Home = () => {
               </div>
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex flex-col items-center justify-center">
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20">
+            <div className="h-screen w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
+              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]">
                 Our Products
               </p>
+              {/* Radial gradient for the container to give a faded look */}
+              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
               <div className="flex justify-center w-full h-1/2 p-20">
                 <div className="w-full flex md:flex-row items-center justify-center gap-20 xs:gap-10 xs:flex-col">
                   <Link href="https://existence-bloomify.vercel.app/">
@@ -462,7 +466,7 @@ const Home = () => {
             </div>
           )}
         </section>
-        <section className="gradient-bg h-full flex justify-center items-center">
+        <section className="h-full flex justify-center items-center">
           {isParallaxEnabled ? (
             <motion.div
               style={{
@@ -475,7 +479,7 @@ const Home = () => {
                 Our Services
               </p>
               <div className="flex xs:max-md:flex-col justify-center items-center w-full xs:max-md:gap-[20px] gap-[30px]">
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="Web Development"
@@ -488,7 +492,7 @@ const Home = () => {
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="App Development"
@@ -502,7 +506,7 @@ const Home = () => {
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="AI Integration"
@@ -519,12 +523,12 @@ const Home = () => {
               </div>
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex flex-col items-center justify-center">
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+            <div className="h-screen w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
+              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-20">
                 Our Services
               </p>
-              <div className="flex xs:max-md:flex-col justify-center items-center w-full xs:max-md:gap-[20px] gap-[30px]">
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+              <div className="flex md:flex-row xs:flex-col justify-center items-center w-full md:gap-20 xs:gap-20">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:p-0 md:py-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="Web Development"
@@ -537,7 +541,7 @@ const Home = () => {
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0 xs:mb-5 md:mb-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="App Development"
@@ -551,7 +555,7 @@ const Home = () => {
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[30rem] rounded-2xl w-1/3 xs:max-md:w-[90%]">
+                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0">
                   <TextRevealCard
                     text="How can we help?"
                     revealText="AI Integration"
