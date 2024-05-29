@@ -513,9 +513,9 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of artificial intelligence with our
-                      cutting-edge solutions. From machine learning algorithms
-                      to natural language processing, we deliver innovative AI
+                      Harness the power of AI with our
+                      cutting-edge solutions. From machine learning
+                      to natural language processing, we deliver innovative
                       solutions tailored to your business objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
@@ -562,9 +562,9 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of artificial intelligence with our
-                      cutting-edge solutions. From machine learning algorithms
-                      to natural language processing, we deliver innovative AI
+                      Harness the power of AI with our
+                      cutting-edge solutions. From machine learning
+                      to natural language processing, we deliver innovative
                       solutions tailored to your business objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
