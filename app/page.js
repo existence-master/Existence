@@ -148,22 +148,6 @@ const Home = () => {
         "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
       link: "https://www.linkedin.com/in/varaddeshpande15/",
     },
-    {
-      id: 6,
-      name: "Heramb Patil",
-      designation: "Generative AI Engineer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQEdHWjySzETsw/profile-displayphoto-shrink_800_800/0/1691663883682?e=1722470400&v=beta&t=kcGtLDl3FXaCYGj9rcFHP-3GySNNwoEEKByIsNH91Uk",
-      link: "https://www.linkedin.com/in/herambvpatil/",
-    },
-    {
-      id: 7,
-      name: "Abhishek Kange",
-      designation: "Full Stack App Developer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQGew4PsN4Py6g/profile-displayphoto-shrink_800_800/0/1705497532440?e=1722470400&v=beta&t=NpRk0CdmIVTuDvdXSG7aHZ2JkX1ONZ_lXeXlz8LPPOc",
-      link: "https://www.linkedin.com/in/abhishekkange/",
-    },
   ];
   const [isParallaxEnabled, setIsParallaxEnabled] = useState(true);
   const [shuffledTeam, setShuffledTeam] = useState([]);
