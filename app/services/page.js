@@ -352,7 +352,7 @@ const Services = () => {
           </p>
         </div>
 
-        <form class="w-full px-36">
+        <form class="w-full xs:px-4 md:px-36">
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="email"
