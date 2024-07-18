@@ -420,31 +420,33 @@ const Home = () => {
                       </div>
                     </PinContainer>
                   </Link>
-                  <PinContainer
-                    title="🌎 mindsync.app (mvp)"
-                    href="https://existence-mindsync.vercel.app"
-                    className=""
-                  >
-                    <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                      <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                        MindSync
-                      </h3>
-                      <div className="text-base !m-0 !p-0 font-normal">
-                        <span className="text-slate-500 font-mono">
-                          Transforming ideas into beautiful mind maps instantly
-                          with the power of AI.
-                        </span>
+                  <Link href="https://existence-mindsync.vercel.app/">
+                    <PinContainer
+                      title="🌎 mindsync.app (mvp)"
+                      href="https://existence-mindsync.vercel.app"
+                      className=""
+                    >
+                      <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+                        <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+                          MindSync
+                        </h3>
+                        <div className="text-base !m-0 !p-0 font-normal">
+                          <span className="text-slate-500 font-mono">
+                            Transforming ideas into beautiful mind maps
+                            instantly with the power of AI.
+                          </span>
+                        </div>
+                        <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+                          <Image
+                            src="/mindsync.svg"
+                            width={125}
+                            height={125}
+                            className="glow-effect-image"
+                          />
+                        </div>
                       </div>
-                      <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                        <Image
-                          src="/mindsync.svg"
-                          width={125}
-                          height={125}
-                          className="glow-effect-image"
-                        />
-                      </div>
-                    </div>
-                  </PinContainer>
+                    </PinContainer>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -497,10 +499,10 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of AI with our
-                      cutting-edge solutions. From machine learning
-                      to natural language processing, we deliver innovative
-                      solutions tailored to your business objectives.
+                      Harness the power of AI with our cutting-edge solutions.
+                      From machine learning to natural language processing, we
+                      deliver innovative solutions tailored to your business
+                      objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
@@ -546,10 +548,10 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of AI with our
-                      cutting-edge solutions. From machine learning
-                      to natural language processing, we deliver innovative
-                      solutions tailored to your business objectives.
+                      Harness the power of AI with our cutting-edge solutions.
+                      From machine learning to natural language processing, we
+                      deliver innovative solutions tailored to your business
+                      objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>

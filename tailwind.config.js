@@ -39,6 +39,7 @@ module.exports = {
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
         shimmer: "shimmer 2s linear infinite",
+        "logo-cloud": "logo-cloud 30s linear infinite",
       },
       keyframes: {
         meteor: {
@@ -51,6 +52,10 @@ module.exports = {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
           },
+        },
+        "logo-cloud": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - 4rem))" },
         },
         shimmer: {
           from: {
