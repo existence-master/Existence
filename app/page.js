@@ -148,22 +148,6 @@ const Home = () => {
         "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
       link: "https://www.linkedin.com/in/varaddeshpande15/",
     },
-    {
-      id: 6,
-      name: "Heramb Patil",
-      designation: "Generative AI Engineer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQEdHWjySzETsw/profile-displayphoto-shrink_800_800/0/1691663883682?e=1722470400&v=beta&t=kcGtLDl3FXaCYGj9rcFHP-3GySNNwoEEKByIsNH91Uk",
-      link: "https://www.linkedin.com/in/herambvpatil/",
-    },
-    {
-      id: 7,
-      name: "Abhishek Kange",
-      designation: "Full Stack App Developer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQGew4PsN4Py6g/profile-displayphoto-shrink_800_800/0/1705497532440?e=1722470400&v=beta&t=NpRk0CdmIVTuDvdXSG7aHZ2JkX1ONZ_lXeXlz8LPPOc",
-      link: "https://www.linkedin.com/in/abhishekkange/",
-    },
   ];
   const [isParallaxEnabled, setIsParallaxEnabled] = useState(true);
   const [shuffledTeam, setShuffledTeam] = useState([]);
@@ -436,31 +420,33 @@ const Home = () => {
                       </div>
                     </PinContainer>
                   </Link>
-                  <PinContainer
-                    title="🌎 mindsync.app (mvp)"
-                    href="https://existence-mindsync.vercel.app"
-                    className=""
-                  >
-                    <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                      <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                        MindSync
-                      </h3>
-                      <div className="text-base !m-0 !p-0 font-normal">
-                        <span className="text-slate-500 font-mono">
-                          Transforming ideas into beautiful mind maps instantly
-                          with the power of AI.
-                        </span>
+                  <Link href="https://existence-mindsync.vercel.app/">
+                    <PinContainer
+                      title="🌎 mindsync.app (mvp)"
+                      href="https://existence-mindsync.vercel.app"
+                      className=""
+                    >
+                      <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+                        <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+                          MindSync
+                        </h3>
+                        <div className="text-base !m-0 !p-0 font-normal">
+                          <span className="text-slate-500 font-mono">
+                            Transforming ideas into beautiful mind maps
+                            instantly with the power of AI.
+                          </span>
+                        </div>
+                        <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+                          <Image
+                            src="/mindsync.svg"
+                            width={125}
+                            height={125}
+                            className="glow-effect-image"
+                          />
+                        </div>
                       </div>
-                      <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                        <Image
-                          src="/mindsync.svg"
-                          width={125}
-                          height={125}
-                          className="glow-effect-image"
-                        />
-                      </div>
-                    </div>
-                  </PinContainer>
+                    </PinContainer>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -513,10 +499,10 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of AI with our
-                      cutting-edge solutions. From machine learning
-                      to natural language processing, we deliver innovative
-                      solutions tailored to your business objectives.
+                      Harness the power of AI with our cutting-edge solutions.
+                      From machine learning to natural language processing, we
+                      deliver innovative solutions tailored to your business
+                      objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
@@ -562,10 +548,10 @@ const Home = () => {
                   >
                     <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
                     <TextRevealCardDescription>
-                      Harness the power of AI with our
-                      cutting-edge solutions. From machine learning
-                      to natural language processing, we deliver innovative
-                      solutions tailored to your business objectives.
+                      Harness the power of AI with our cutting-edge solutions.
+                      From machine learning to natural language processing, we
+                      deliver innovative solutions tailored to your business
+                      objectives.
                     </TextRevealCardDescription>
                   </TextRevealCard>
                 </div>
