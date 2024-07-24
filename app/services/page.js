@@ -10,22 +10,48 @@ import {
   TextRevealCardDescription,
 } from "@components/TextRevealCard";
 import TextTicker from "@components/TextTicker";
-import TextRotate from "@components/TextRotate";
+import { TypeAnimation } from "react-type-animation";
+import { FloatingNav } from "@components/FloatingNavbar";
 
 const Services = () => {
+  const navItems = [
+    {
+      name: "Services",
+      link: "#services-types",
+      //icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Projects",
+      link: "#past-projects",
+      /*icon: (
+        <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),*/
+    },
+    {
+      name: "Contact",
+      link: "#get-in-touch",
+      /*icon: (
+        <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),*/
+    },
+  ];
+
   const words = [
     {
       text: "Transforming",
+      className: "text-white xs:text-3xl md:text-6xl",
     },
     {
       text: "ideas",
+      className: "text-white xs:text-3xl md:text-6xl",
     },
     {
       text: "to",
+      className: "text-white xs:text-3xl md:text-6xl",
     },
     {
       text: "reality.",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "xs:text-3xl md:text-6xl text-blue-400",
     },
   ];
 
@@ -139,28 +165,21 @@ const Services = () => {
 
   return (
     <main>
+      <FloatingNav navItems={navItems} className="xs:hidden md:flex" />
       <section
         id="hero"
         className="bg-black w-screen h-screen relative flex flex-row"
       >
-        <Link href="/">
-          <div className="absolute top-3 right-3" style={{ zIndex: 10 }}>
-            <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                Back to Home
-              </span>
-            </button>
-          </div>
-        </Link>
         <div className="flex flex-col h-full w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-center">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-          <Image
-            src="/logo-transparent.png"
-            width={400}
-            height={400}
-            alt="logo"
-          />
+          <Link href="/">
+            <Image
+              src="/logo-transparent.png"
+              width={400}
+              height={400}
+              alt="logo"
+            />
+          </Link>
           <TypewriterEffect words={words} />
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-16">
             <button className="inline-flex h-[50px] w-[200px] animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#ffffff,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
@@ -173,14 +192,6 @@ const Services = () => {
         id="services-tech"
         className="bg-black w-screen relative flex flex-col"
       >
-        <Image
-          src="/blob.svg"
-          width={400}
-          height={400}
-          alt="blob"
-          className="absolute top-0 right-0 brightness-0"
-          style={{ zIndex: 50, transform: "scaleX(-1)" }}
-        />
         <div className="w-full py-12">
           <div className="mx-auto w-full px-4 md:px-8">
             <div
@@ -231,9 +242,27 @@ const Services = () => {
         </div>
         <div className="w-full h-[80px] flex flex-row items-center justify-center">
           <p className="font-mono text-white md:text-2xl xs:ml-4">
-            Serving clients in
+            Serving clients in{" "}
+            <TypeAnimation
+              sequence={[
+                "AI",
+                3000,
+                "Education",
+                3000,
+                "Healthcare",
+                3000,
+                "Finance",
+                3000,
+                "Retail",
+                3000,
+                "Automation",
+                3000,
+              ]}
+              repeat={Infinity}
+              speed={20}
+              deletionSpeed={20}
+            />
           </p>
-          <TextRotate />
         </div>
 
         <div className="flex md:flex-row xs:flex-col justify-center items-center w-full md:gap-20 xs:gap-24 mt-12">
@@ -292,22 +321,24 @@ const Services = () => {
             containerClassName="col-span-1 lg:col-span-2 h-full bg-gray-800 min-h-[500px] lg:min-h-[300px]"
             className=""
           >
-            <div className="max-w-xs">
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Mindsync makes mindmapping easy.
-              </h2>
-              <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                Go from text, images, audio and video to mindmaps in seconds.
-                Easily edit your mindmaps with our AI Editor.
-              </p>
-            </div>
-            <Image
-              src="/MindSyncExample.png"
-              width={500}
-              height={500}
-              alt="linear demo image"
-              className="absolute -right-4 lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-            />
+            <Link href="https://existence-mindsync.vercel.app">
+              <div className="max-w-xs">
+                <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Mindsync makes mindmapping easy.
+                </h2>
+                <p className="mt-4 text-left  text-base/6 text-neutral-200">
+                  Go from text, images, audio and video to mindmaps in seconds.
+                  Easily edit your mindmaps with our AI Editor.
+                </p>
+              </div>
+              <Image
+                src="/MindSyncExample.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-4 lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
+              />
+            </Link>
           </WobbleCard>
           <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gray-600">
             <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
@@ -318,29 +349,31 @@ const Services = () => {
             </p>
           </WobbleCard>
           <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-gray-800 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-            <div className="max-w-sm">
-              <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Bloomify makes assessment creation easy for educators
-                everywhere.
-              </h2>
-              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                Powered by AI, Bloomify makes it easy for educators to create
-                balanced assessments that test various cognitive abilities of a
-                student.
-              </p>
-            </div>
-            <Image
-              src="/BloomifyExample.png"
-              width={500}
-              height={500}
-              alt="linear demo image"
-              className="absolute -right-10 md:-right-[20%] lg:-right-[10%] -bottom-10 object-contain rounded-2xl"
-            />
+            <Link href="https://existence-bloomify.vercel.app">
+              <div className="max-w-sm">
+                <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  Bloomify makes assessment creation easy for educators
+                  everywhere.
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  Powered by AI, Bloomify makes it easy for educators to create
+                  balanced assessments that test various cognitive abilities of
+                  a student.
+                </p>
+              </div>
+              <Image
+                src="/BloomifyExample.png"
+                width={500}
+                height={500}
+                alt="linear demo image"
+                className="absolute -right-10 md:-right-[20%] lg:-right-[10%] -bottom-10 object-contain rounded-2xl"
+              />
+            </Link>
           </WobbleCard>
         </div>
       </section>
       <section
-        id="past-projects"
+        id="get-in-touch"
         className="bg-black w-screen md:h-[500px] xs:h-[600px] relative flex flex-col"
       >
         <div className="w-full">
@@ -352,18 +385,51 @@ const Services = () => {
           </p>
         </div>
 
-        <form class="w-full xs:px-4 md:px-36">
+        <form
+          class="w-full xs:px-4 md:px-36"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const email = e.target.email.value;
+            const description = e.target.description.value;
+            const available = e.target.available.value;
+            const first_name = e.target.first_name.value;
+            const last_name = e.target.last_name.value;
+            const phone = e.target.phone.value;
+            const company = e.target.company.value;
+            const response = await fetch("/api/send-services-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email,
+                description,
+                available,
+                first_name,
+                last_name,
+                phone,
+                company,
+              }),
+            });
+            if (response.ok) {
+              console.log("Thank you for signing up!");
+              setBetaSignedUp(true);
+            } else {
+              console.log("Something went wrong. Please try again later.");
+            }
+          }}
+        >
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="email"
-              name="floating_email"
-              id="floating_email"
+              name="email"
+              id="email"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
             />
             <label
-              for="floating_email"
+              for="email"
               class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Email address
@@ -372,13 +438,13 @@ const Services = () => {
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="name"
-              name="floating_description"
-              id="floating_description"
+              name="description"
+              id="description"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              for="floating_description"
+              for="description"
               class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Short Description of Project (Optional)
@@ -387,14 +453,14 @@ const Services = () => {
           <div class="relative z-0 w-full mb-5 group">
             <input
               type="name"
-              name="repeat_password"
-              id="floating_repeat_password"
+              name="available"
+              id="available"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
             />
             <label
-              for="floating_repeat_password"
+              for="available"
               class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               When are you available for meetings?
@@ -404,14 +470,14 @@ const Services = () => {
             <div class="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_first_name"
-                id="floating_first_name"
+                name="first_name"
+                id="first_name"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
-                for="floating_first_name"
+                for="first_name"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 First name
@@ -420,14 +486,14 @@ const Services = () => {
             <div class="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_last_name"
-                id="floating_last_name"
+                name="last_name"
+                id="last_name"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
-                for="floating_last_name"
+                for="last_name"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Last name
@@ -439,14 +505,14 @@ const Services = () => {
               <input
                 type="tel"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                name="floating_phone"
-                id="floating_phone"
+                name="phone"
+                id="phone"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
-                for="floating_phone"
+                for="phone"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Phone number (123-456-7890)
@@ -455,14 +521,14 @@ const Services = () => {
             <div class="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_company"
-                id="floating_company"
+                name="company"
+                id="company"
                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
-                for="floating_company"
+                for="company"
                 class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Company (Ex. Google)
@@ -489,7 +555,7 @@ const Services = () => {
                 src="/logo-transparent.png"
                 width={200}
                 height={50}
-                alt="Flowbite Logo"
+                alt="Existence Logo"
               />
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
@@ -518,7 +584,7 @@ const Services = () => {
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             2024{" "}
-            <a href="https://flowbite.com/" class="hover:underline">
+            <a href="/" class="hover:underline">
               Existence
             </a>
             . All Rights Reserved.
