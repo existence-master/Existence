@@ -10,7 +10,7 @@ const MindSync = () => {
   useEffect(() => {
     // Show loading screen for a short duration before redirecting
     const timer = setTimeout(() => {
-      window.location.replace("https://existence-mindsync.vercel.app");
+      router.push("https://existence-mindsync.vercel.app");
     }, 3000); // 1 second delay for loading screen
 
     return () => clearTimeout(timer);
