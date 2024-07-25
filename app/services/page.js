@@ -4,16 +4,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { TypewriterEffect } from "@components/TypewriterEffect";
 import { WobbleCard } from "@components/WobbleCard";
-import {
-  TextRevealCard,
-  TextRevealCardTitle,
-  TextRevealCardDescription,
-} from "@components/TextRevealCard";
 import TextTicker from "@components/TextTicker";
 import { TypeAnimation } from "react-type-animation";
 import { FloatingNav } from "@components/FloatingNavbar";
+import { useState } from "react";
+import {
+  GlowingStarsBackgroundCard,
+  GlowingStarsDescription,
+  GlowingStarsTitle,
+} from "@components/GlowingStarsCard";
 
 const Services = () => {
+  const [buttonText, setButtonText] = useState("Submit");
   const navItems = [
     {
       name: "Services",
@@ -230,14 +232,14 @@ const Services = () => {
       </section>
       <section
         id="services-types"
-        className="bg-black w-screen md:h-[600px] xs:h-[1000px] relative flex flex-col"
+        className="bg-black w-screen md:h-[500px] xs:h-[1200px] relative flex flex-col"
       >
         <div className="w-full h-[80px]">
           <p
             className="text-[100px] xs:text-5xl xs:mt-4 xs:ml-4 md:ml-24 md:mt-4 text-white font-mono xs:text-center md:text-left"
             style={{ zIndex: 10 }}
           >
-            Services
+            Our Services
           </p>
         </div>
         <div className="w-full h-[80px] flex flex-row items-center justify-center">
@@ -264,44 +266,32 @@ const Services = () => {
             />
           </p>
         </div>
-
-        <div className="flex md:flex-row xs:flex-col justify-center items-center w-full md:gap-20 xs:gap-24 mt-12">
-          <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:p-0 md:py-0">
-            <TextRevealCard
-              text="How can we help?"
-              revealText="Web Development"
-            >
-              <TextRevealCardTitle>We are consistent</TextRevealCardTitle>
-              <TextRevealCardDescription>
+        <div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center xs:px-5 justify-center antialiased">
+          <GlowingStarsBackgroundCard>
+            <GlowingStarsTitle>We are consistent.</GlowingStarsTitle>
+            <div className="flex justify-between items-end">
+              <GlowingStarsDescription>
                 We provide tailored web development solutions to suit your
-                business needs. From e-commerce platforms to custom web
-                applications, we've got you covered.
-              </TextRevealCardDescription>
-            </TextRevealCard>
-          </div>
-          <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0 xs:mb-5 md:mb-0">
-            <TextRevealCard
-              text="How can we help?"
-              revealText="App Development"
-            >
-              <TextRevealCardTitle>We are agile</TextRevealCardTitle>
-              <TextRevealCardDescription>
+                business needs.
+              </GlowingStarsDescription>
+            </div>
+          </GlowingStarsBackgroundCard>
+          <GlowingStarsBackgroundCard>
+            <GlowingStarsTitle>We are agile.</GlowingStarsTitle>
+            <div className="flex justify-between items-end">
+              <GlowingStarsDescription>
                 Elevate your business with our mobile app development services.
-                We specialize in creating intuitive, minimalistic and
-                feature-rich mobile applications for Android platform.
-              </TextRevealCardDescription>
-            </TextRevealCard>
-          </div>
-          <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0">
-            <TextRevealCard text="How can we help?" revealText="AI Integration">
-              <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
-              <TextRevealCardDescription>
-                Harness the power of AI with our cutting-edge solutions. From
-                machine learning to natural language processing, we deliver
-                innovative solutions tailored to your business objectives.
-              </TextRevealCardDescription>
-            </TextRevealCard>
-          </div>
+              </GlowingStarsDescription>
+            </div>
+          </GlowingStarsBackgroundCard>
+          <GlowingStarsBackgroundCard>
+            <GlowingStarsTitle>We are trendy.</GlowingStarsTitle>
+            <div className="flex justify-between items-end">
+              <GlowingStarsDescription>
+                Harness the power of AI with our cutting-edge solutions.
+              </GlowingStarsDescription>
+            </div>
+          </GlowingStarsBackgroundCard>
         </div>
       </section>
       <section
@@ -341,7 +331,7 @@ const Services = () => {
             </Link>
           </WobbleCard>
           <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gray-600">
-            <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+            <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Future Projects
             </h2>
             <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
@@ -386,7 +376,7 @@ const Services = () => {
         </div>
 
         <form
-          class="w-full xs:px-4 md:px-36"
+          className="w-full xs:px-4 md:px-36"
           onSubmit={async (e) => {
             e.preventDefault();
             const email = e.target.email.value;
@@ -413,123 +403,122 @@ const Services = () => {
             });
             if (response.ok) {
               console.log("Thank you for signing up!");
-              setBetaSignedUp(true);
+              setButtonText("Thank you");
             } else {
               console.log("Something went wrong. Please try again later.");
             }
           }}
         >
-          <div class="relative z-0 w-full mb-5 group">
+          <div className="relative z-0 w-full mb-5 group">
             <input
               type="email"
               name="email"
               id="email"
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
             />
             <label
               for="email"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Email address
             </label>
           </div>
-          <div class="relative z-0 w-full mb-5 group">
+          <div className="relative z-0 w-full mb-5 group">
             <input
               type="name"
               name="description"
               id="description"
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
               for="description"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Short Description of Project (Optional)
             </label>
           </div>
-          <div class="relative z-0 w-full mb-5 group">
+          <div className="relative z-0 w-full mb-5 group">
             <input
               type="name"
               name="available"
               id="available"
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
             />
             <label
               for="available"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               When are you available for meetings?
             </label>
           </div>
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
+          <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
                 name="first_name"
                 id="first_name"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
                 for="first_name"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 First name
               </label>
             </div>
-            <div class="relative z-0 w-full mb-5 group">
+            <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
                 name="last_name"
                 id="last_name"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
                 for="last_name"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Last name
               </label>
             </div>
           </div>
-          <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-5 group">
+          <div className="grid md:grid-cols-2 md:gap-6">
+            <div className="relative z-0 w-full mb-5 group">
               <input
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 name="phone"
                 id="phone"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
                 for="phone"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Phone number (123-456-7890)
               </label>
             </div>
-            <div class="relative z-0 w-full mb-5 group">
+            <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
                 name="company"
                 id="company"
-                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
               />
               <label
                 for="company"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Company (Ex. Google)
               </label>
@@ -539,17 +528,17 @@ const Services = () => {
             type="submit"
             className="inline-flex mt-4 h-[50px] w-[200px] animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#ffffff,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
           >
-            Book a Call
+            {buttonText}
           </button>
         </form>
       </section>
 
-      <footer class="bg-black shadow">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-          <div class="sm:flex sm:items-center sm:justify-between">
+      <footer className="bg-black shadow">
+        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+          <div className="sm:flex sm:items-center sm:justify-between">
             <a
               href="/"
-              class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+              className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
             >
               <Image
                 src="/logo-transparent.png"
@@ -558,33 +547,33 @@ const Services = () => {
                 alt="Existence Logo"
               />
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
               <li>
-                <a href="#" class="hover:underline me-4 md:me-6">
+                <a href="#" className="hover:underline me-4 md:me-6">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline me-4 md:me-6">
+                <a href="#" className="hover:underline me-4 md:me-6">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline me-4 md:me-6">
+                <a href="#" className="hover:underline me-4 md:me-6">
                   Licensing
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline">
+                <a href="#" className="hover:underline">
                   Contact
                 </a>
               </li>
             </ul>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             2024{" "}
-            <a href="/" class="hover:underline">
+            <a href="/" className="hover:underline">
               Existence
             </a>
             . All Rights Reserved.

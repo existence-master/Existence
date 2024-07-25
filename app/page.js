@@ -9,14 +9,14 @@ import { shuffleArray } from "@utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import DotBackground from "@components/DotBackground";
+import {
+  GlowingStarsBackgroundCard,
+  GlowingStarsDescription,
+  GlowingStarsTitle,
+} from "@components/GlowingStarsCard";
 import ThreeDModel from "@components/3DModel";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import {
-  TextRevealCard,
-  TextRevealCardDescription,
-  TextRevealCardTitle,
-} from "@components/TextRevealCard";
 import ScrollIndicator from "@components/ScrollIndicator";
 
 const Home = () => {
@@ -149,7 +149,7 @@ const Home = () => {
       link: "https://www.linkedin.com/in/varaddeshpande15/",
     },
   ];
-  const [isParallaxEnabled, setIsParallaxEnabled] = useState(true);
+  const [isParallaxEnabled, setIsParallaxEnabled] = useState(false);
   const [shuffledTeam, setShuffledTeam] = useState([]);
   const [scrollIndicator, setScrollIndicator] = useState(true);
 
@@ -452,7 +452,7 @@ const Home = () => {
             </div>
           )}
         </section>
-        <section className="h-full flex justify-center items-center">
+        <section className="xs:h-[1200px] md:h-[600px] flex justify-center items-center">
           {isParallaxEnabled ? (
             <motion.div
               style={{
@@ -464,97 +464,77 @@ const Home = () => {
               <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
                 Our Services
               </p>
-              <div className="flex xs:max-md:flex-col justify-center items-center w-full xs:max-md:gap-[20px] gap-[30px]">
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="Web Development"
-                  >
-                    <TextRevealCardTitle>We are consistent</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+              <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+                Click here to learn more.
+              </p>
+              <div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are consistent.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       We provide tailored web development solutions to suit your
-                      business needs. From e-commerce platforms to custom web
-                      applications, we've got you covered.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="App Development"
-                  >
-                    <TextRevealCardTitle>We are agile</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+                      business needs.
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are agile.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       Elevate your business with our mobile app development
-                      services. We specialize in creating intuitive,
-                      minimalistic and feature-rich mobile applications for
-                      Android platform.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[15rem] h-[25rem] rounded-2xl w-1/3 xs:max-md:w-[90%] md:p-4 xs:p-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="AI Integration"
-                  >
-                    <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+                      services.
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are trendy.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       Harness the power of AI with our cutting-edge solutions.
-                      From machine learning to natural language processing, we
-                      deliver innovative solutions tailored to your business
-                      objectives.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
               </div>
             </motion.div>
           ) : (
-            <div className="h-screen w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-20">
+            <div className="h-full w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
+              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-5">
                 Our Services
               </p>
-              <div className="flex md:flex-row xs:flex-col justify-center items-center w-full md:gap-20 xs:gap-20">
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:p-0 md:py-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="Web Development"
-                  >
-                    <TextRevealCardTitle>We are consistent</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+              <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
+                Click{" "}
+                <a href="/services" className="underline">
+                  here
+                </a>{" "}
+                to learn more.
+              </p>
+              <div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are consistent.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       We provide tailored web development solutions to suit your
-                      business needs. From e-commerce platforms to custom web
-                      applications, we've got you covered.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0 xs:mb-5 md:mb-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="App Development"
-                  >
-                    <TextRevealCardTitle>We are agile</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+                      business needs.
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are agile.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       Elevate your business with our mobile app development
-                      services. We specialize in creating intuitive,
-                      minimalistic and feature-rich mobile applications for
-                      Android platform.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
-                <div className="flex items-center justify-center bg-[#0E0E10] xs:max-md:h-[10rem] h-[20rem] rounded-2xl xs:w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-6 xs:py-2 md:py-0">
-                  <TextRevealCard
-                    text="How can we help?"
-                    revealText="AI Integration"
-                  >
-                    <TextRevealCardTitle>We are trendy</TextRevealCardTitle>
-                    <TextRevealCardDescription>
+                      services.
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
+                <GlowingStarsBackgroundCard>
+                  <GlowingStarsTitle>We are trendy.</GlowingStarsTitle>
+                  <div className="flex justify-between items-end">
+                    <GlowingStarsDescription>
                       Harness the power of AI with our cutting-edge solutions.
-                      From machine learning to natural language processing, we
-                      deliver innovative solutions tailored to your business
-                      objectives.
-                    </TextRevealCardDescription>
-                  </TextRevealCard>
-                </div>
+                    </GlowingStarsDescription>
+                  </div>
+                </GlowingStarsBackgroundCard>
               </div>
             </div>
           )}

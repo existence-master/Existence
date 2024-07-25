@@ -19,7 +19,7 @@ export const POST = async (req) => {
     service: "gmail", // Gmail as the email service
     auth: {
       user: process.env.GMAIL_USER, // Gmail user from environment variables
-      pass: process.env.GMAIL_PASSWORD, // Gmail password from environment variables
+      pass: process.env.GMAIL_PASS, // Gmail password from environment variables
     },
     tls: {
       rejectUnauthorized: false, // Accept self-signed certificates
@@ -29,9 +29,9 @@ export const POST = async (req) => {
   try {
     // Send the email to the user's email
     await transporter.sendMail({
-      from: `"MindSync" <${process.env.GMAIL_USER}>`, // Email sender
+      from: `"Existence Services" <${process.env.GMAIL_USER}>`, // Email sender
       to: email, // Recipient email
-      subject: "Thank you for signing up!", // Email subject
+      subject: "Thank you for your interest in Existence Services!", // Email subject
       text: `Hello, ${first_name} ${last_name}, \n\nThank you for your interest in Existence's Development Services. \n\nYou have enquired for a project with the following description: ${description}. \n\nYou are available at/on "${available}". We will try to reach out to you as soon as possible. \n\nOther details you submitted are as follows: \nCompany: ${company}, \nPhone: ${phone}.`, // Email content
     });
 
