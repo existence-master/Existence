@@ -9,7 +9,7 @@ const Bloomify = () => {
 	useEffect(() => {
 		// Show loading screen for a short duration before redirecting
 		const timer = setTimeout(() => {
-			window.location.href = "https://existence-bloomify.vercel.app";
+			window.location.replace("https://existence-bloomify.vercel.app");
 		}, 3000); // 1 second delay for loading screen
 
 		return () => clearTimeout(timer);
