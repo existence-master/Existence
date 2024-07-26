@@ -25,6 +25,7 @@ const MindSync = () => {
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 3 }}
       />
+      <p className="text-white font-mono text-3xl mt-2">Loading MindSync...</p>
     </div>
   );
 };
