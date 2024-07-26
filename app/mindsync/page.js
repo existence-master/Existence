@@ -17,7 +17,7 @@ const MindSync = () => {
   }, [router]);
 
   return (
-    <div className="h-screen w-screen bg-black flex items-center justify-center">
+    <div className="h-screen w-screen bg-black flex flex-col items-center justify-center">
       <motion.img
         src="/existencering.png"
         className="w-[200px] h-[200px]"
@@ -25,7 +25,7 @@ const MindSync = () => {
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 3 }}
       />
-      <p className="text-white font-mono text-3xl mt-2">Loading MindSync...</p>
+      <p className="text-white font-mono text-3xl mt-8">Loading MindSync...</p>
     </div>
   );
 };
