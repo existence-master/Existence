@@ -148,6 +148,14 @@ const Home = () => {
         "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
       link: "https://www.linkedin.com/in/varaddeshpande15/",
     },
+    {
+      id: 6,
+      name: "Sanjog Bora",
+      designation: "UI/UX Designer",
+      image:
+        "https://media.licdn.com/dms/image/D4D03AQG5DVPlwbjCGA/profile-displayphoto-shrink_400_400/0/1694408160785?e=1727913600&v=beta&t=1aULd1TBuYWd2iJaMkE9UFnwcAucJtym6gzf5lCB-xI",
+      link: "https://www.linkedin.com/in/sanjogbora/",
+    },
   ];
   const [isParallaxEnabled, setIsParallaxEnabled] = useState(false);
   const [shuffledTeam, setShuffledTeam] = useState([]);
