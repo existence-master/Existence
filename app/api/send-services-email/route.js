@@ -19,7 +19,7 @@ export const POST = async (req) => {
     service: "gmail", // Gmail as the email service
     auth: {
       user: process.env.GMAIL_USER, // Gmail user from environment variables
-      pass: process.env.GMAIL_PASSWORD, // Gmail password from environment variables
+      pass: process.env.GMAIL_PASS, // Gmail password from environment variables
     },
     tls: {
       rejectUnauthorized: false, // Accept self-signed certificates
@@ -29,10 +29,10 @@ export const POST = async (req) => {
   try {
     // Send the email to the user's email
     await transporter.sendMail({
-      from: `"MindSync" <${process.env.GMAIL_USER}>`, // Email sender
+      from: `"Existence Services" <${process.env.GMAIL_USER}>`, // Email sender
       to: email, // Recipient email
-      subject: "Thank you for signing up!", // Email subject
-      text: `Hello, ${first_name} ${last_name}, \n\nThank you for your interest in Existence's Development Services. \n\nYou have enquired for a project with the following description: ${description}. \n\nYou are available at/on "${available}". We will try to reach out to you as soon as possible. \n\nOther details you submitted are as follows: \nCompany: ${company}, \nPhone: ${phone}.`, // Email content
+      subject: "Thank you for your interest in Existence Services!", // Email subject
+      text: `Hello, ${first_name} ${last_name}, \n\nThank you for your interest in Existence's Development Services. \n\nYou have enquired for a project with the following description: ${description}. \n\nYou are available at/on "${available}". We will try to reach out to you as soon as possible. \n\n In the meantime, you can go through this document to view detailed information about our past projects and more. https://docs.google.com/document/d/180NGAJ2bkVp0Mn5CofXUrSjnGXTo2sb6RqY3f8pa6qg/edit?usp=sharing \n\nOther details you submitted are as follows: \nCompany: ${company}, \nPhone: ${phone}.`, // Email content
     });
 
     return new NextResponse({ status: 200 }); // Return the hash as the response with HTTP status 200
