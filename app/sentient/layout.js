@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 export const metadata = {
-  title: "Existence | MindSync",
-  description: "MindSync - AI based Mindmap Generation",
+  title: "Existence | Sentient",
+  description: "Sentient - Personalized AI Companion",
   openGraph: {
-    title: "Existence | MindSync",
-    description: "MindSync - AI-based Mindmap Generation",
-    url: "https://existence-mindsync.vercel.app",
+    title: "Existence | Sentient",
+    description: "Sentient - Personalized AI Companion",
+    url: "https://existence-sentient.vercel.app",
     type: "website",
     images: "/existencering.png",
   },
