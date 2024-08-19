@@ -9,12 +9,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scrollbar-none">
-      <body>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
-  );
+		<html lang="en" className="scrollbar-none">
+			<body>
+				<Providers>
+          <div className="bg-black m-0">
+            {children}
+          </div>
+				</Providers>
+			</body>
+		</html>
+  )
 }
