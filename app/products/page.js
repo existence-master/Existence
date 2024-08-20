@@ -44,21 +44,21 @@ const Products = () => {
             id: 2,
             name: "Sentient",
             description: "A completely private and decentralized AI companion",
-            logo: "/sentient.svg",
+            logo: "/sentient-full.svg",
             link: "/sentient"
         },
         {
             id: 3,
             name: "MindSync",
             description: "Information compression using AI enabled mindmapping",
-            logo: "/mindsync.svg",
+            logo: "/mindsync-full.svg",
             link: "/mindsync"
         },
         {
             id: 4,
             name: "Bloomify",
             description: "A modern AI powered assessment creator based on Bloom's taxonomy",
-            logo: "/bloomify.svg",
+            logo: "/bloomify-full.svg",
             link: "/bloomify"
         }
     ]
@@ -66,49 +66,37 @@ const Products = () => {
     const checkpoints = [
         {
             id: 1,
-            name: "Phase 1",
+            name: "FinAdvise MVP",
             icon: "/icons/phase1.png",
             image: "idea.svg",
         },
         {
             id: 2,
-            name: "Phase 1",
+            name: "Sentient MVP",
             icon: "/icons/phase1.png",
             image: "/images/phase1.png",
         },
         {
             id: 3,
-            name: "Phase 1",
+            name: "MindSync Alpha",
             icon: "/icons/phase1.png",
             image: "/images/phase1.png",
         },
         {
             id: 4,
-            name: "Phase 1",
+            name: "Bloomify Alpha",
             icon: "/icons/phase1.png",
             image: "/images/phase1.png",
         },
         {
             id: 5,
-            name: "Phase 1",
+            name: "MindSync MVP",
             icon: "/icons/phase1.png",
             image: "idea.svg",
         },
         {
             id: 6,
-            name: "Phase 1",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-        {
-            id: 7,
-            name: "Phase 1",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-        {
-            id: 8,
-            name: "Phase 1",
+            name: "Bloomify MVP",
             icon: "/icons/phase1.png",
             image: "/images/phase1.png",
         },
@@ -161,7 +149,7 @@ const Products = () => {
 					<TypewriterEffect words={words} />
 					<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-16">
 						<button className="inline-flex h-[50px] w-[200px] animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#ffffff,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-							Book a Call
+							Explore
 						</button>
 					</div>
 				</div>

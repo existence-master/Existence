@@ -20,22 +20,22 @@ const ProductSlider = ({ products }) => {
 			<div className="flex items-center justify-between">
 				<button
 					onClick={prevProduct}
-					className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+					className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
 					←
 				</button>
 
-				<div className="flex justify-center items-center w-full relative overflow-hidden">
+				<div className="flex justify-center items-center w-full h-full relative">
 					{products.map((product, index) => (
 						<motion.div
 							key={product.id}
-							initial={{ opacity: 0, x: index === 0 ? 0 : 100 }}
+							initial={{ opacity: 0 }}
 							animate={{
-								opacity: index === currentIndex ? 1 : 0,
-								x: index === currentIndex ? 0 : 100
+								opacity: index === currentIndex ? 1 : 0
 							}}
 							transition={{ duration: 0.5 }}
-							className="absolute w-full"
+							className="w-full h-full"
+							style={index === currentIndex ? {display: "block"} : { display: "none" }}
 						>
 							<div
 								className="relative"
@@ -45,7 +45,7 @@ const ProductSlider = ({ products }) => {
 								<img
 									src={product.logo}
 									alt={product.name}
-									className="w-full h-full object-contain rounded-md shadow-md glow-effect-image"
+									className="w-full h-auto max-h-[400px] object-cover rounded-lg shadow-lg"
 								/>
 							</div>
 						</motion.div>
@@ -54,7 +54,7 @@ const ProductSlider = ({ products }) => {
 
 				<button
 					onClick={nextProduct}
-					className="p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+					className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
 					→
 				</button>
@@ -67,7 +67,7 @@ const ProductSlider = ({ products }) => {
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
 							exit={{ opacity: 0, scale: 0.8 }}
-							className="bg-white p-6 rounded-lg shadow-lg max-w-xs relative"
+							className="bg-white p-8 rounded-lg shadow-2xl max-w-md relative transform transition-transform hover:scale-105"
 							onMouseEnter={() =>
 								setHoveredProduct(hoveredProduct)
 							}
@@ -76,17 +76,17 @@ const ProductSlider = ({ products }) => {
 							<img
 								src={hoveredProduct.logo}
 								alt={hoveredProduct.name}
-								className="w-16 h-16 object-contain mb-4"
+								className="w-20 h-20 object-contain mb-6"
 							/>
-							<h2 className="text-xl font-semibold mb-2">
+							<h2 className="text-2xl font-semibold mb-4">
 								{hoveredProduct.name}
 							</h2>
-							<p className="text-gray-600 mb-4">
+							<p className="text-gray-700 mb-6">
 								{hoveredProduct.description}
 							</p>
 							<a
 								href={hoveredProduct.link}
-								className="text-blue-500 hover:underline"
+								className="text-blue-600 hover:text-blue-800 underline"
 							>
 								Learn More
 							</a>
