@@ -8,101 +8,109 @@ import Link from "next/link"
 import Image from "next/image"
 
 const Products = () => {
+	const words = [
+		{
+			text: "Products",
+			className: "text-white xs:text-3xl md:text-6xl"
+		},
+		{
+			text: "that",
+			className: "text-white xs:text-3xl md:text-6xl"
+		},
+		{
+			text: "enrich",
+			className: "text-white xs:text-3xl md:text-6xl"
+		},
+		{
+			text: "your",
+			className: "xs:text-3xl md:text-6xl text-blue-400"
+		},
+		{
+			text: "life",
+			className: "xs:text-3xl md:text-6xl text-blue-400"
+		}
+	]
 
-    const words = [
-        {
-            text: "Products",
-            className: "text-white xs:text-3xl md:text-6xl"
-        },
-        {
-            text: "that",
-            className: "text-white xs:text-3xl md:text-6xl"
-        },
-        {
-            text: "enrich",
-            className: "text-white xs:text-3xl md:text-6xl"
-        },
-        {
-            text: "your",
-            className: "xs:text-3xl md:text-6xl text-blue-400"
-        },
-        {
-            text: "life",
-            className: "xs:text-3xl md:text-6xl text-blue-400"
-        }
-    ]
+	const products = [
+		{
+			id: 1,
+			name: "Bloomify",
+			logo: "/bloomify.svg",
+			description: "AI-Based Assessment Creator",
+			desc1: "AI-Based Assessment Creator",
+			desc2: "Bloomify is a free and open-source assessment tool that helps educators create balanced assessments based on Bloom's Taxonomy.",
+			desc3: "It provides an intuitive interface to generate questions that align with various levels of cognitive skills.",
+			link: "/bloomify"
+		},
+		{
+			id: 2,
+			name: "Sentient",
+			logo: "/sentient-full.svg",
+			desc1: "Personalized AI Companion",
+			desc2: "Give us your data - but not really. All your data stays local!",
+			desc3: "We use blockchain-based federated learning.",
+			link: "/sentient"
+		},
+		{
+			id: 3,
+			name: "MindSync",
+			logo: "/mindsync-full.svg",
+			desc1: "AI-Powered Mindmap Creator with Multimodal Inputs",
+			desc2: "MindSync is an AI-powered mindmap creation tool for students.",
+			desc3: "We 💓 Mermaid",
+			link: "/mindsync"
+		},
+		{
+			id: 4,
+			name: "Finadvise",
+			logo: "/finadvise.svg",
+			desc1: "AI-based Financial Management and Advisory Platform",
+			desc2: "Finance has never been simpler!",
+			desc3: "We make finance easy for everyone.",
+			link: "/finadvise"
+		}
+	]
 
-    const products = [
-        {
-            id: 1,
-            name: "FinAdvise",
-            description: "One stop solution for AI driven personal finance",
-            logo: "/finadvise.svg",
-            link: "/finadvise"
-        },
-        {
-            id: 2,
-            name: "Sentient",
-            description: "A completely private and decentralized AI companion",
-            logo: "/sentient-full.svg",
-            link: "/sentient"
-        },
-        {
-            id: 3,
-            name: "MindSync",
-            description: "Information compression using AI enabled mindmapping",
-            logo: "/mindsync-full.svg",
-            link: "/mindsync"
-        },
-        {
-            id: 4,
-            name: "Bloomify",
-            description: "A modern AI powered assessment creator based on Bloom's taxonomy",
-            logo: "/bloomify-full.svg",
-            link: "/bloomify"
-        }
-    ]
+	const checkpoints = [
+		{
+			id: 1,
+			name: "FinAdvise MVP",
+			icon: "/icons/phase1.png",
+			image: "idea.svg"
+		},
+		{
+			id: 2,
+			name: "Sentient MVP",
+			icon: "/icons/phase1.png",
+			image: "/images/phase1.png"
+		},
+		{
+			id: 3,
+			name: "MindSync Alpha",
+			icon: "/icons/phase1.png",
+			image: "/images/phase1.png"
+		},
+		{
+			id: 4,
+			name: "Bloomify Alpha",
+			icon: "/icons/phase1.png",
+			image: "/images/phase1.png"
+		},
+		{
+			id: 5,
+			name: "MindSync MVP",
+			icon: "/icons/phase1.png",
+			image: "idea.svg"
+		},
+		{
+			id: 6,
+			name: "Bloomify MVP",
+			icon: "/icons/phase1.png",
+			image: "/images/phase1.png"
+		}
+	]
 
-    const checkpoints = [
-        {
-            id: 1,
-            name: "FinAdvise MVP",
-            icon: "/icons/phase1.png",
-            image: "idea.svg",
-        },
-        {
-            id: 2,
-            name: "Sentient MVP",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-        {
-            id: 3,
-            name: "MindSync Alpha",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-        {
-            id: 4,
-            name: "Bloomify Alpha",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-        {
-            id: 5,
-            name: "MindSync MVP",
-            icon: "/icons/phase1.png",
-            image: "idea.svg",
-        },
-        {
-            id: 6,
-            name: "Bloomify MVP",
-            icon: "/icons/phase1.png",
-            image: "/images/phase1.png",
-        },
-    ]
-
-    const testimonials = [
+	const testimonials = [
 		{
 			quote: "bro this app is awesome. mindmapping during class has never been easier.",
 			name: "Sarthak Karandikar",
@@ -130,7 +138,7 @@ const Products = () => {
 		}
 	]
 
-    return (
+	return (
 		<main>
 			<section
 				id="hero"
@@ -156,10 +164,10 @@ const Products = () => {
 			</section>
 			<section
 				id="products"
-				className="bg-black w-screen flex justify-center items-center h-screen relative my-10"
+				className="bg-black w-screen flex flex-col justify-center items-center h-[450px] relative my-10"
 			>
 				<div className="w-1/2">
-					<h1 className="text-3xl font-Poppins font-bold text-center mb-10">
+					<h1 className="text-3xl text-white font-Poppins font-bold text-center mb-10">
 						Our Products
 					</h1>
 					<ProductSlider products={products} />
@@ -167,7 +175,7 @@ const Products = () => {
 			</section>
 			<section
 				id="roadmap"
-				className="bg-black w-screen h-screen flex justify-center items-center relative my-10"
+				className="bg-black w-screen h-[600px] flex justify-center items-center relative my-10"
 			>
 				<div className="w-3/4">
 					<h1 className="text-3xl font-Poppins font-bold text-center mb-10">
@@ -178,7 +186,7 @@ const Products = () => {
 			</section>
 			<section
 				id="testimonials"
-				className="bg-black h-screen w-screen items-center relative my-10"
+				className="bg-black h-[500px] w-screen items-center relative my-10"
 			>
 				<div>
 					<h1 className="text-3xl font-Poppins font-bold text-center mb-10">
@@ -195,11 +203,71 @@ const Products = () => {
 						<Testimonials
 							items={testimonials}
 							direction="right"
-							speed="fast"
+							speed="slow"
 						/>
 					</div>
 				</div>
 			</section>
+			<div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
+				<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+					2024 Existence. All Rights Reserved.
+				</span>
+				<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+					<a
+						href="mailto:existence.master@gmail.com"
+						className="hover:underline flex flex-row gap-2"
+					>
+						<Image
+							src="/mail.svg"
+							width={20}
+							height={20}
+							alt="Mail Icon"
+						/>
+						existence.master@gmail.com
+					</a>
+				</span>
+				<ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
+					<li>
+						<a
+							href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
+							className="hover:underline me-4 md:me-6"
+						>
+							<Image
+								src="/whatsapp.svg"
+								width={20}
+								height={20}
+								alt="Whatsapp Community"
+							/>
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://github.com/existence-master"
+							className="hover:underline me-4 md:me-6"
+						>
+							<Image
+								src="/github.svg"
+								width={22}
+								height={22}
+								alt="GitHub"
+							/>
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.linkedin.com/company/existence-3/"
+							className="hover:underline me-4 md:me-6"
+						>
+							<Image
+								src="/linkedin.svg"
+								width={22}
+								height={22}
+								alt="LinkedIn"
+							/>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</main>
 	)
 }

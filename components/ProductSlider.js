@@ -1,9 +1,118 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import {
+	Dialog,
+	DialogTrigger,
+	DialogContent,
+	DialogTitle,
+	DialogImage,
+	DialogSubtitle,
+	DialogClose,
+	DialogDescription,
+	DialogContainer
+} from "@components/Dialog"
+import { PlusIcon } from "lucide-react"
+
+const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
+	return (
+		<Dialog
+			transition={{
+				type: "spring",
+				bounce: 0.05,
+				duration: 0.25
+			}}
+		>
+			<DialogTrigger
+				style={{
+					borderRadius: "12px"
+				}}
+				className="flex max-w-[270px] flex-col justify-center items-center overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+			>
+				<DialogImage
+					src={imagesrc}
+					alt={title}
+					className="w-full p-4 object-cover"
+				/>
+				<div className="flex flex-grow flex-row items-end justify-between p-2">
+					<div>
+						<DialogTitle className="text-zinc-950 dark:text-zinc-50">
+							{title}
+						</DialogTitle>
+						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+							{desc1}
+						</DialogSubtitle>
+					</div>
+					<button
+						type="button"
+						className="relative ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
+						aria-label="Open dialog"
+					>
+						<PlusIcon size={12} />
+					</button>
+				</div>
+			</DialogTrigger>
+			<DialogContainer>
+				<DialogContent
+					style={{
+						borderRadius: "24px"
+					}}
+					className="pointer-events-auto relative flex h-auto w-full flex-col items-center justify-center overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[500px]"
+				>
+					<DialogImage
+						src={imagesrc}
+						alt={title}
+						className="w-full p-8"
+					/>
+					<div className="p-6">
+						<DialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+							{title}
+						</DialogTitle>
+						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+							{desc1}
+						</DialogSubtitle>
+						<DialogDescription
+							disableLayoutAnimation
+							variants={{
+								initial: {
+									opacity: 0,
+									scale: 0.8,
+									y: 100
+								},
+								animate: {
+									opacity: 1,
+									scale: 1,
+									y: 0
+								},
+								exit: {
+									opacity: 0,
+									scale: 0.8,
+									y: 100
+								}
+							}}
+						>
+							<p className="mt-2 text-zinc-500 dark:text-zinc-500">
+								{desc2}
+							</p>
+							<p className="text-zinc-500">{desc3}</p>
+							<a
+								className="mt-2 inline-flex text-zinc-500 underline"
+								href={link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Learn More
+							</a>
+						</DialogDescription>
+					</div>
+					<DialogClose className="text-zinc-50" />
+				</DialogContent>
+			</DialogContainer>
+		</Dialog>
+	)
+}
 
 const ProductSlider = ({ products }) => {
 	const [currentIndex, setCurrentIndex] = useState(0)
-	const [hoveredProduct, setHoveredProduct] = useState(null)
 
 	const nextProduct = () => {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
@@ -16,7 +125,7 @@ const ProductSlider = ({ products }) => {
 	}
 
 	return (
-		<div className="relative">
+		<div className="relative mt-20">
 			<div className="flex items-center justify-between">
 				<button
 					onClick={prevProduct}
@@ -34,20 +143,21 @@ const ProductSlider = ({ products }) => {
 								opacity: index === currentIndex ? 1 : 0
 							}}
 							transition={{ duration: 0.5 }}
-							className="w-full h-full"
-							style={index === currentIndex ? {display: "block"} : { display: "none" }}
+							className=""
+							style={
+								index === currentIndex
+									? { display: "block" }
+									: { display: "none" }
+							}
 						>
-							<div
-								className="relative"
-								onMouseEnter={() => setHoveredProduct(product)}
-								onMouseLeave={() => setHoveredProduct(null)}
-							>
-								<img
-									src={product.logo}
-									alt={product.name}
-									className="w-full h-auto max-h-[400px] object-cover rounded-lg shadow-lg"
-								/>
-							</div>
+							<DialogSimple
+								title={product.name}
+								imagesrc={product.logo}
+								desc1={product.desc1}
+								desc2={product.desc2}
+								desc3={product.desc3}
+								link={product.link}
+							/>
 						</motion.div>
 					))}
 				</div>
@@ -59,41 +169,6 @@ const ProductSlider = ({ products }) => {
 					→
 				</button>
 			</div>
-
-			<AnimatePresence>
-				{hoveredProduct && (
-					<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-						<motion.div
-							initial={{ opacity: 0, scale: 0.8 }}
-							animate={{ opacity: 1, scale: 1 }}
-							exit={{ opacity: 0, scale: 0.8 }}
-							className="bg-white p-8 rounded-lg shadow-2xl max-w-md relative transform transition-transform hover:scale-105"
-							onMouseEnter={() =>
-								setHoveredProduct(hoveredProduct)
-							}
-							onMouseLeave={() => setHoveredProduct(null)}
-						>
-							<img
-								src={hoveredProduct.logo}
-								alt={hoveredProduct.name}
-								className="w-20 h-20 object-contain mb-6"
-							/>
-							<h2 className="text-2xl font-semibold mb-4">
-								{hoveredProduct.name}
-							</h2>
-							<p className="text-gray-700 mb-6">
-								{hoveredProduct.description}
-							</p>
-							<a
-								href={hoveredProduct.link}
-								className="text-blue-600 hover:text-blue-800 underline"
-							>
-								Learn More
-							</a>
-						</motion.div>
-					</div>
-				)}
-			</AnimatePresence>
 		</div>
 	)
 }
