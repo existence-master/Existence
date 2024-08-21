@@ -11,7 +11,7 @@ import {
 	DialogDescription,
 	DialogContainer
 } from "@components/Dialog"
-import { PlusIcon } from "lucide-react"
+import { PlusIcon, ArrowRightIcon, ArrowLeftIcon } from "lucide-react"
 
 const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
 	return (
@@ -129,9 +129,9 @@ const ProductSlider = ({ products }) => {
 			<div className="flex items-center justify-between">
 				<button
 					onClick={prevProduct}
-					className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white focus:outline-none transform transition-transform hover:scale-110"
+					className="p-3 rounded-full bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-700 hover:to-gray-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
-					←
+					<ArrowLeftIcon />
 				</button>
 
 				<div className="flex justify-center items-center w-full h-full relative">
@@ -164,9 +164,9 @@ const ProductSlider = ({ products }) => {
 
 				<button
 					onClick={nextProduct}
-					className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white focus:outline-none transform transition-transform hover:scale-110"
+					className="p-3 rounded-full bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-700 hover:to-gray-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
-					→
+					<ArrowRightIcon />
 				</button>
 			</div>
 		</div>

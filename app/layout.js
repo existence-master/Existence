@@ -12,9 +12,7 @@ export default function RootLayout({ children }) {
 		<html lang="en" className="scrollbar-none">
 			<body>
 				<Providers>
-          <div className="bg-black m-0">
-            {children}
-          </div>
+					<div className="bg-black m-0">{children}</div>
 				</Providers>
 			</body>
 		</html>

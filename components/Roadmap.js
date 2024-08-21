@@ -7,14 +7,14 @@ const Roadmap = ({ checkpoints }) => {
 
 	const handleScroll = (event) => {
 		const scrollY = event.target.scrollTop
-		const index = Math.floor(scrollY / 120) // Adjust based on your item height
+		const index = Math.floor(scrollY / 40) 
 		setActiveIndex(index)
 	}
 
 	return (
 		<div className="flex h-full">
 			<Scrollbars
-				style={{ width: "40%", height: "40vh" }}
+				style={{ width: "40%", height: "60vh" }}
 				onScroll={handleScroll}
 				autoHide
 				renderThumbVertical={({ style, ...props }) => (
@@ -22,31 +22,47 @@ const Roadmap = ({ checkpoints }) => {
 						{...props}
 						style={{
 							...style,
-							backgroundColor: "#6b7280",
-							borderRadius: "4px"
+							backgroundColor: "#a1a1aa",
+							borderRadius: "10px",
+							width: "14px",
+							marginRight: "2px"
+						}}
+					/>
+				)}
+				renderView={({ style, ...props }) => (
+					<div
+						{...props}
+						style={{
+							...style,
+							paddingRight: "15px",
+							marginRight: "-15px",
+							overflowX: "hidden"
 						}}
 					/>
 				)}
 			>
 				<div className="p-4 space-y-8">
 					{checkpoints.map((checkpoint, index) => (
-						<div
-							key={checkpoint.id}
-							className={`flex items-center p-4 space-x-4 rounded-lg transition-all duration-300 
-              ${
-					index === activeIndex
-						? "bg-blue-500 text-white shadow-lg"
-						: "bg-gray-200"
-				}`}
-						>
-							<img
-								src={checkpoint.icon}
-								alt={checkpoint.name}
-								className="w-10 h-10 object-contain"
-							/>
-							<span className="text-lg font-medium">
-								{checkpoint.name}
-							</span>
+						<div key={checkpoint.id}>
+							<div className="flex items-center p-4 space-x-4 rounded-lg transition-all duration-300 bg-gradient-to-r from-gray-300 to-gray-500 hover:from-gray-500 hover:to-gray-300 text-white focus:outline-none transform hover:scale-110">
+								<img
+									src={checkpoint.icon}
+									alt={checkpoint.name}
+									className="w-10 h-10 object-contain"
+								/>
+								<span className="text-lg font-Quicksand font-medium text-black">
+									{checkpoint.name}
+								</span>
+							</div>
+							{index === 1 && (
+								<div className="flex items-center mt-4">
+									<div className="flex-grow border-t border-dotted border-gray-400" />
+									<span className="mx-4 text-gray-600">
+										we are here
+									</span>
+									<div className="flex-grow border-t border-dotted border-gray-400" />
+								</div>
+							)}
 						</div>
 					))}
 				</div>
@@ -58,7 +74,7 @@ const Roadmap = ({ checkpoints }) => {
 						key={checkpoint.id}
 						src={checkpoint.image}
 						alt={checkpoint.name}
-						className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-auto object-contain 
+						className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-auto object-contain
                         ${index === activeIndex ? "block" : "hidden"}`}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: index === activeIndex ? 1 : 0 }}

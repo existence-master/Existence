@@ -45,7 +45,7 @@ const Products = () => {
 		{
 			id: 2,
 			name: "Sentient",
-			logo: "/sentient-full.svg",
+			logo: "/sentient.svg",
 			desc1: "Personalized AI Companion",
 			desc2: "Give us your data - but not really. All your data stays local!",
 			desc3: "We use blockchain-based federated learning.",
@@ -54,7 +54,7 @@ const Products = () => {
 		{
 			id: 3,
 			name: "MindSync",
-			logo: "/mindsync-full.svg",
+			logo: "/mindsync.svg",
 			desc1: "AI-Powered Mindmap Creator with Multimodal Inputs",
 			desc2: "MindSync is an AI-powered mindmap creation tool for students.",
 			desc3: "We 💓 Mermaid",
@@ -75,38 +75,38 @@ const Products = () => {
 		{
 			id: 1,
 			name: "FinAdvise MVP",
-			icon: "/icons/phase1.png",
-			image: "idea.svg"
+			icon: "/finadvise.svg",
+			image: "/idea.svg"
 		},
 		{
 			id: 2,
 			name: "Sentient MVP",
-			icon: "/icons/phase1.png",
-			image: "/images/phase1.png"
+			icon: "/sentient.svg",
+			image: "/documentation.svg"
 		},
 		{
 			id: 3,
 			name: "MindSync Alpha",
-			icon: "/icons/phase1.png",
-			image: "/images/phase1.png"
+			icon: "/mindsync.svg",
+			image: "/design.svg"
 		},
 		{
 			id: 4,
 			name: "Bloomify Alpha",
-			icon: "/icons/phase1.png",
-			image: "/images/phase1.png"
+			icon: "/bloomify.svg",
+			image: "/code.svg"
 		},
 		{
 			id: 5,
 			name: "MindSync MVP",
-			icon: "/icons/phase1.png",
-			image: "idea.svg"
+			icon: "/mindsync.svg",
+			image: "/deploy.svg"
 		},
 		{
 			id: 6,
 			name: "Bloomify MVP",
-			icon: "/icons/phase1.png",
-			image: "/images/phase1.png"
+			icon: "/bloomify.svg",
+			image: "/idea.svg"
 		}
 	]
 
