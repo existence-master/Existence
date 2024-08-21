@@ -164,10 +164,10 @@ const Products = () => {
 			</section>
 			<section
 				id="products"
-				className="bg-black w-screen flex flex-col justify-center items-center h-[450px] relative my-10"
+				className="bg-black w-screen flex flex-col justify-center items-center h-[600px] relative my-10"
 			>
 				<div className="w-1/2">
-					<h1 className="text-3xl text-white font-Poppins font-bold text-center mb-10">
+					<h1 className="text-6xl text-white font-mono font-bold text-center mb-10">
 						Our Products
 					</h1>
 					<ProductSlider products={products} />
@@ -178,7 +178,7 @@ const Products = () => {
 				className="bg-black w-screen h-[600px] flex justify-center items-center relative my-10"
 			>
 				<div className="w-3/4">
-					<h1 className="text-3xl font-Poppins font-bold text-center mb-10">
+					<h1 className="text-6xl text-white font-mono font-bold text-center mb-10">
 						Our Roadmap
 					</h1>
 					<Roadmap checkpoints={checkpoints} />
