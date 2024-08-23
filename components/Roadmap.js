@@ -41,16 +41,16 @@ const Roadmap = ({ checkpoints }) => {
 					/>
 				)}
 			>
-				<div className="p-4 space-y-8">
+				<div className="p-4 space-y-8 font-mono">
 					{checkpoints.map((checkpoint, index) => (
 						<div key={checkpoint.id}>
-							<div className="flex items-center p-4 space-x-4 rounded-lg transition-all duration-300 bg-gradient-to-r from-gray-300 to-gray-500 hover:from-gray-500 hover:to-gray-300 text-white focus:outline-none transform hover:scale-110">
+							<div className="flex items-center p-4 space-x-4 rounded-lg transition-all duration-300 bg-gradient-to-r from-zinc-500 to-zinc-700 hover:from-zinc-700 hover:to-zinc-500 text-white focus:outline-none transform hover:scale-110">
 								<img
 									src={checkpoint.icon}
 									alt={checkpoint.name}
 									className="w-10 h-10 object-contain"
 								/>
-								<span className="text-lg font-Quicksand font-medium text-black">
+								<span className="text-lg font-mono font-medium text-black">
 									{checkpoint.name}
 								</span>
 							</div>

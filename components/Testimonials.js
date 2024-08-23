@@ -91,7 +91,7 @@ const Testimonials = ({
 			>
 				{items.map((item, idx) => (
 					<li
-						className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px] bg-gray-900"
+						className="w-[350px] font-mono max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px] bg-zinc-900"
 						key={item.name}
 					>
 						<blockquote>
