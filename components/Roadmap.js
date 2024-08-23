@@ -7,7 +7,7 @@ const Roadmap = ({ checkpoints }) => {
 
 	const handleScroll = (event) => {
 		const scrollY = event.target.scrollTop
-		const index = Math.floor(scrollY / 40) 
+		const index = Math.floor(scrollY / 50) 
 		setActiveIndex(index)
 	}
 
