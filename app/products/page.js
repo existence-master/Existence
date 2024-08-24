@@ -34,21 +34,20 @@ const Products = () => {
 	const products = [
 		{
 			id: 1,
-			name: "Bloomify",
-			logo: "/bloomify.svg",
-			description: "AI-Based Assessment Creator",
-			desc1: "AI-Based Assessment Creator",
-			desc2: "Bloomify is a free and open-source assessment tool that helps educators create balanced assessments based on Bloom's Taxonomy.",
-			desc3: "It provides an intuitive interface to generate questions that align with various levels of cognitive skills.",
-			link: "/bloomify"
+			name: "Finadvise",
+			logo: "/finadvise.svg",
+			desc1: "AI-based Financial Management and Advisory Platform",
+			desc2: "If you're confused about managing your personal finances and are looking for an affordable solution, look no further!",
+			desc3: "We make finance easy for everyone, using the power of AI. FinAdvise allows you to resolve any finance-related queries, create investment strategies, track your expenses, stay up-to-date with financial news and much more!",
+			link: "/finadvise"
 		},
 		{
 			id: 2,
 			name: "Sentient",
 			logo: "/sentient.svg",
-			desc1: "Personalized AI Companion",
-			desc2: "Give us your data - but not really. All your data stays local!",
-			desc3: "We use blockchain-based federated learning.",
+			desc1: "Your Personalized AI Companion",
+			desc2: "Your personal AI companion that knows everything about you and continuously learns from you.",
+			desc3: "We use blockchain-based federated learning that allows all your data to stay private and completely local. Leverage the full power of generative AI without giving up your data.",
 			link: "/sentient"
 		},
 		{
@@ -56,18 +55,19 @@ const Products = () => {
 			name: "MindSync",
 			logo: "/mindsync.svg",
 			desc1: "AI-Powered Mindmap Creator with Multimodal Inputs",
-			desc2: "MindSync is an AI-powered mindmap creation tool for students.",
-			desc3: "We 💓 Mermaid",
+			desc2: "MindSync is an AI-powered mindmap creation tool for students. Mindmaps provide upto a 15% increase in learning ability compared to traditional note-taking. However, they are cumbersome to draw.",
+			desc3: "We simplified the process by allowing users to create mindmaps in one click! Simply upload your course notes, lecture recordings or textbooks and watch as a beautiful mindmap is created.",
 			link: "/mindsync"
 		},
 		{
 			id: 4,
-			name: "Finadvise",
-			logo: "/finadvise.svg",
-			desc1: "AI-based Financial Management and Advisory Platform",
-			desc2: "Finance has never been simpler!",
-			desc3: "We make finance easy for everyone.",
-			link: "/finadvise"
+			name: "Bloomify",
+			logo: "/bloomify.svg",
+			description: "AI-Based Assessment Creator",
+			desc1: "AI-Based Assessment Creator",
+			desc2: "Bloomify is a free and open-source assessment creation tool that helps educators create balanced assessments based on Bloom's Taxonomy.",
+			desc3: "It provides an intuitive interface to generate questions that align with various levels of cognitive skills - ensuring the holistic development of students.",
+			link: "/bloomify"
 		}
 	]
 
@@ -164,10 +164,10 @@ const Products = () => {
 			</section>
 			<section
 				id="products"
-				className="bg-black w-screen flex flex-col justify-center items-center h-[600px] relative my-10"
+				className="bg-black w-full flex flex-col justify-center items-center md:h-[600px] xs:h-[700px] relative my-10"
 			>
-				<div className="w-1/2">
-					<h1 className="text-6xl text-white font-mono font-bold text-center mb-10">
+				<div className="md:w-1/2 xs:w-full">
+					<h1 className="md:text-6xl xs:text-5xl text-white font-mono font-bold text-center mb-10">
 						Our Products
 					</h1>
 					<ProductSlider products={products} />
@@ -175,10 +175,10 @@ const Products = () => {
 			</section>
 			<section
 				id="roadmap"
-				className="bg-black w-screen h-[600px] flex justify-center items-center relative my-10"
+				className="bg-black w-screen h-[600px] xs:h-[700px] flex justify-center items-center relative my-10"
 			>
-				<div className="w-3/4">
-					<h1 className="text-6xl text-white font-mono font-bold text-center mb-10">
+				<div className="md:w-3/4 xs:w-full">
+					<h1 className="md:text-6xl xs:text-5xl text-white font-mono font-bold text-center mb-10">
 						Our Roadmap
 					</h1>
 					<Roadmap checkpoints={checkpoints} />
@@ -186,10 +186,10 @@ const Products = () => {
 			</section>
 			<section
 				id="testimonials"
-				className="bg-black h-[500px] w-screen items-center relative my-10"
+				className="bg-black md:h-[500px] xs:h-[600px] w-screen relative my-10"
 			>
 				<div>
-					<h1 className="text-3xl font-Poppins font-bold text-center mb-10">
+					<h1 className="xs:text-3xl md:text-6xl text-white font-mono font-bold text-center mb-10">
 						What Our Users Say
 					</h1>
 					<div className="h-full rounded-md flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">

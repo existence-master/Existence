@@ -26,7 +26,7 @@ const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
 				style={{
 					borderRadius: "12px"
 				}}
-				className="relative w-[300px] h-[350px] flex flex-col justify-center items-center overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+				className="relative md:w-[300px] md:h-[350px] xs:w-[300px] xs:h-[350px] flex flex-col justify-center items-center overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
 			>
 				<DialogImage
 					src={imagesrc}
@@ -126,12 +126,12 @@ const ProductSlider = ({ products }) => {
 
 	return (
 		<div className="relative mt-20">
-			<div className="flex items-center justify-between">
+			<div className="flex items-center justify-between xs:overflow-x-hidden md:overflow-auto">
 				<button
 					onClick={prevProduct}
-					className="p-3 rounded-full bg-gradient-to-r from-zinc-500 to-zinc-700 hover:from-zinc-700 hover:to-zinc-500 text-white focus:outline-none transform transition-transform hover:scale-110"
+					className="p-3 xs:ml-1 md:ml-0 rounded-full bg-gradient-to-r from-zinc-500 to-zinc-700 hover:from-zinc-700 hover:to-zinc-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
-					<ArrowLeftIcon />
+					<ArrowLeftIcon className="xs:w-6 xs:h-6 md:h-8 md:w-8" />
 				</button>
 
 				<div className="flex justify-center items-center w-full h-full relative">
@@ -164,9 +164,9 @@ const ProductSlider = ({ products }) => {
 
 				<button
 					onClick={nextProduct}
-					className="p-3 rounded-full bg-gradient-to-r from-zinc-500 to-zinc-700 hover:from-zinc-700 hover:to-zinc-500 text-white focus:outline-none transform transition-transform hover:scale-110"
+					className="p-3 xs:mr-2 md:mr-0 rounded-full bg-gradient-to-r from-zinc-500 to-zinc-700 hover:from-zinc-700 hover:to-zinc-500 text-white focus:outline-none transform transition-transform hover:scale-110"
 				>
-					<ArrowRightIcon />
+					<ArrowRightIcon className="xs:w-6 xs:h-6 md:h-8 md:w-8" />
 				</button>
 			</div>
 		</div>
