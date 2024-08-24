@@ -9,11 +9,13 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@om-tlh/react-custom-scrollbars": "^4.2.3",
 		"@react-three/drei": "^9.105.6",
 		"@react-three/fiber": "^8.16.6",
 		"clsx": "^2.1.1",
 		"framer-motion": "^11.2.6",
 		"jsonwebtoken": "^9.0.2",
+		"lucide-react": "^0.428.0",
 		"mini-svg-data-uri": "^1.4.4",
 		"next": "^14.2.3",
 		"next-compose-plugins": "^2.2.1",
