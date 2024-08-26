@@ -35,10 +35,10 @@ const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
 				/>
 				<div className="flex flex-row items-end justify-between p-2 w-full px-4">
 					<div>
-						<DialogTitle className="text-zinc-950 dark:text-zinc-50">
+						<DialogTitle className="text-zinc-950 dark:text-zinc-50 font-mono">
 							{title}
 						</DialogTitle>
-						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400 font-mono">
 							{desc1}
 						</DialogSubtitle>
 					</div>
@@ -64,10 +64,10 @@ const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
 						className="w-full p-8"
 					/>
 					<div className="p-6">
-						<DialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+						<DialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 font-mono">
 							{title}
 						</DialogTitle>
-						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+						<DialogSubtitle className="text-zinc-700 dark:text-zinc-400 font-mono">
 							{desc1}
 						</DialogSubtitle>
 						<DialogDescription
@@ -90,12 +90,12 @@ const DialogSimple = ({ title, imagesrc, desc1, desc2, desc3, link }) => {
 								}
 							}}
 						>
-							<p className="mt-2 text-zinc-500 dark:text-zinc-500">
+							<p className="mt-2 text-zinc-500 dark:text-zinc-500 font-mono">
 								{desc2}
 							</p>
 							<p className="text-zinc-500">{desc3}</p>
 							<a
-								className="mt-2 inline-flex text-zinc-500 underline"
+								className="mt-2 inline-flex text-zinc-500 underline font-mono"
 								href={link}
 								target="_blank"
 								rel="noopener noreferrer"
@@ -125,7 +125,7 @@ const ProductSlider = ({ products }) => {
 	}
 
 	return (
-		<div className="relative mt-20">
+		<div className="relative mt-20 overflow-x-hidden">
 			<div className="flex items-center justify-between xs:overflow-x-hidden md:overflow-auto">
 				<button
 					onClick={prevProduct}

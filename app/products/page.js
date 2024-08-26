@@ -82,13 +82,13 @@ const Products = () => {
 			id: 2,
 			name: "Sentient MVP",
 			icon: "/sentient.svg",
-			image: "/documentation.svg"
+			image: "/idea.svg"
 		},
 		{
 			id: 3,
 			name: "MindSync Alpha",
 			icon: "/mindsync.svg",
-			image: "/design.svg"
+			image: "/code.svg"
 		},
 		{
 			id: 4,
@@ -106,35 +106,34 @@ const Products = () => {
 			id: 6,
 			name: "Bloomify MVP",
 			icon: "/bloomify.svg",
-			image: "/idea.svg"
+			image: "/deploy.svg"
 		}
 	]
 
 	const testimonials = [
 		{
-			quote: "bro this app is awesome. mindmapping during class has never been easier.",
-			name: "Sarthak Karandikar",
-			title: "billionaire, playboy, philanthropist"
+			quote: "bloomify really helps me prepare assessments with little to no effort.",
+			name: "Prof. Vijayalaxmi Kanade",
+			title: "Bloomify",
+			logo: "/bloomify.svg"
 		},
 		{
-			quote: "saved me from failing all my classes. i owe my life to mindsync. :D",
-			name: "kabeer ahmed merchant",
-			title: "an average student"
+			quote: "i see Bloomify as a tool which can radically change the education sector.",
+			name: "Dr. Prof. Minakshi Atre",
+			title: "Bloomify",
+			logo: "/bloomify.svg"
 		},
 		{
 			quote: "makes my daily work so much easier. now all i gotta do is record my lectures and i have a mindmap of the whole thing!",
-			name: "Abhijeet Suryawanshi",
-			title: "Your friendly neighbourhood data scientist"
+			name: "Rugved Joshi",
+			title: "MindSync",
+			logo: "/mindsync.svg"
 		},
 		{
-			quote: "bro i designed the whole damn frontend, of course i will enjoy using it. mindsync is the best.",
-			name: "Ojaswini Prabhune",
-			title: "UI/UX Designer"
-		},
-		{
-			quote: "i am so happy that i found mindsync. mindsync has saved my life in so many ways.",
-			name: "Varad Deshpande",
-			title: "casually became a trillionaire - thanks to mindsync"
+			quote: "minsync helps me compress information with ease, really love the concept.",
+			name: "Swanand Wagh",
+			title: "MindSync",
+			logo: "/mindsync.svg"
 		}
 	]
 

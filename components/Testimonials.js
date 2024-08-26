@@ -102,13 +102,23 @@ const Testimonials = ({
 							<span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
 								{item.quote}
 							</span>
-							<div className="relative z-20 mt-6 flex flex-row items-center">
+							<div className="relative z-20 mt-6 flex flex-row items-center gap-2">
 								<span className="flex flex-col gap-1">
-									<span className=" text-sm leading-[1.6] text-gray-400 font-normal">
+									<span className="text-sm leading-[1.6] text-gray-400 font-normal flex items-center">
+										{item.logo && (
+											<img
+												src={item.logo}
+												alt={`${item.name}'s logo`}
+												className="h-4 w-4 mr-2"
+											/>
+										)}
+										{item.title}
+									</span>
+									<span className="text-sm leading-[1.6] text-gray-400 font-normal">
 										{item.name}
 									</span>
-									<span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-										{item.title}
+									<span className="text-sm leading-[1.6] text-gray-400 font-normal">
+										{item.subtitle}
 									</span>
 								</span>
 							</div>
