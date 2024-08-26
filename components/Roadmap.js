@@ -54,7 +54,7 @@ const Roadmap = ({ checkpoints }) => {
 										alt={checkpoint.name}
 										className="w-10 h-10 object-contain"
 									/>
-									<span className="text-lg font-mono font-medium text-black">
+									<span className="text-lg font-mono font-medium text-white">
 										{checkpoint.name}
 									</span>
 								</div>
