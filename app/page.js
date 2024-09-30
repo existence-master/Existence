@@ -176,651 +176,818 @@ const Home = () => {
   }, [pageScrollProgress.scrollYProgress]);
 
   return (
-    <>
-      <div
-        className={`${
-          isParallaxEnabled
-            ? "h-[950vh] overflow-hidden"
-            : "h-screen overflow-y-scroll"
-        } bg-black w-screen overflow-x-hidden`}
-        ref={pageRef}
-      >
-        <section className="h-full flex justify-center items-center relative">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: heroSectionScale,
-                opacity: heroSectionOpacity,
-              }}
-              className="fixed top-0 h-screen w-screen flex justify-center items-center"
-            >
-              <Image
-                src="/logo.svg"
-                width={1050}
-                height={300}
-                alt="Existence Logo"
-                className="md:hidden"
-              />
-              <div className="xs:max-md:hidden h-screen w-screen">
-                <ThreeDModel />
-              </div>
-              <BackgroundBeams />
-              {scrollIndicator && <ScrollIndicator />}
-            </motion.div>
-          ) : (
-            <div className="h-screen w-screen flex justify-center items-center relative">
-              <Image
-                src="/logo.svg"
-                width={1050}
-                height={300}
-                alt="Existence Logo"
-                className="md:hidden"
-              />
-              <div className="xs:max-md:hidden h-screen w-screen">
-                <ThreeDModel />
-              </div>
-              <BackgroundBeams />
-            </div>
-          )}
-          <button
-            onClick={() => setIsParallaxEnabled(!isParallaxEnabled)}
-            className="absolute top-4 right-4 px-4 py-2 bg-transparent text-gray-400 border border-gray-400 rounded-2xl"
-          >
-            {isParallaxEnabled ? <>Disable Parallax</> : <>Enable Parallax</>}
-          </button>
-        </section>
-        <section className="h-full flex justify-center items-center">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: philosophySectionScale,
-                opacity: philosophySectionOpacity,
-              }}
-              className="fixed h-screen w-screen top-0 flex items-center justify-center"
-            >
-              <div
-                className="h-full w-full relative flex flex-col items-center justify-center"
-                style={{ position: "relative", zIndex: 1 }}
-              >
-                <DotBackground />
-                <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-                <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
-                  Our philosophy promotes a holistic upliftment of all forms of
-                  existence, emphasizing progress, sustainability, and
-                  unification. We seek to transcend human-centric perspectives
-                  by valuing every entity, fostering innovation that harmonizes
-                  with nature, and committing to ethical responsibility. Our
-                  vision is to create a future where all aspects of reality are
-                  uplifted and interconnected.
-                </p>
-              </div>
-            </motion.div>
-          ) : (
-            <div className="h-screen w-screen flex items-center justify-center relative">
-              <div
-                className="h-full w-full relative flex flex-col items-center justify-center"
-                style={{ position: "relative", zIndex: 1 }}
-              >
-                <DotBackground />
-                <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-                <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
-                  Our philosophy promotes a holistic upliftment of all forms of
-                  existence, emphasizing progress, sustainability, and
-                  unification. We seek to transcend human-centric perspectives
-                  by valuing every entity, fostering innovation that harmonizes
-                  with nature, and committing to ethical responsibility. Our
-                  vision is to create a future where all aspects of reality are
-                  uplifted and interconnected.
-                </p>
-              </div>
-            </div>
-          )}
-        </section>
-        <section className="h-full flex flex-col justify-center items-center">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: missionSectionScale,
-                opacity: missionSectionOpacity,
-              }}
-              className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
-            >
-              <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
-                At Existence, our mission is twofold: to craft groundbreaking
-                products that redefine industries and to provide unparalleled
-                services that empower our clients to thrive in a dynamic
-                marketplace.
-              </p>
-              <div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
-                <EvervaultCard
-                  text="Product Innovation"
-                  className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
-                />
-                <EvervaultCard
-                  text="Service Excellence"
-                  className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
-                />
-              </div>
-            </motion.div>
-          ) : (
-            <div className="h-screen w-screen flex flex-col items-center justify-center relative">
-              <p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
-                At Existence, our mission is twofold: to craft groundbreaking
-                products that redefine industries and to provide unparalleled
-                services that empower our clients to thrive in a dynamic
-                marketplace.
-              </p>
-              <div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
-                <EvervaultCard
-                  text="Product Innovation"
-                  className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
-                />
-                <EvervaultCard
-                  text="Service Excellence"
-                  className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
-                />
-              </div>
-            </div>
-          )}
-        </section>
-        <section className="h-full flex flex-col justify-center items-center">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: productsSectionScale,
-                opacity: productsSectionOpacity,
-              }}
-              className="fixed h-screen w-screen xs:max-md:-top-[30px] top-[30px] flex flex-col items-center justify-center"
-            >
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20">
-                Our Products
-              </p>
-              <div className="flex justify-center w-full h-1/2 p-20">
-                <div className="w-full flex md:flex-row items-center justify-center gap-20 xs:gap-10 xs:flex-col">
-                  <Link href="https://existence-bloomify.vercel.app/">
-                    <PinContainer
-                      title="🌎 bloomify.app (alpha)"
-                      href="https://existence-bloomify.vercel.app/"
-                      className=""
-                    >
-                      <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                        <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                          Bloomify
-                        </h3>
-                        <div className="text-base !m-0 !p-0 font-normal">
-                          <span className="text-slate-500 font-mono">
-                            Elevating assessment to an art form with AI-driven
-                            precision, fostering academic excellence.
-                          </span>
-                        </div>
-                        <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                          <Image
-                            src="/bloomify.svg"
-                            width={125}
-                            height={125}
-                            className="glow-effect-image"
-                          />
-                        </div>
-                      </div>
-                    </PinContainer>
-                  </Link>
-                  <PinContainer
-                    title="🌎 mindsync.app (mvp)"
-                    href="https://existence-mindsync.vercel.app"
-                    className=""
-                  >
-                    <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                      <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                        MindSync
-                      </h3>
-                      <div className="text-base !m-0 !p-0 font-normal">
-                        <span className="text-slate-500 font-mono">
-                          Transforming ideas into beautiful mind maps instantly
-                          with the power of AI.
-                        </span>
-                      </div>
-                      <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                        <Image
-                          src="/mindsync.svg"
-                          width={125}
-                          height={125}
-                          className="glow-effect-image"
-                        />
-                      </div>
-                    </div>
-                  </PinContainer>
-                </div>
-              </div>
-            </motion.div>
-          ) : (
-            <div className="h-screen w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]">
-                Our Products
-              </p>
-              {/* Radial gradient for the container to give a faded look */}
-              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-              <div className="flex justify-center w-full h-1/2 p-20">
-                <div className="w-full flex md:flex-row items-center justify-center gap-20 xs:gap-10 xs:flex-col">
-                  <Link href="https://existence-bloomify.vercel.app/">
-                    <PinContainer
-                      title="🌎 bloomify.app (alpha)"
-                      href="https://existence-bloomify.vercel.app/"
-                      className=""
-                    >
-                      <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                        <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                          Bloomify
-                        </h3>
-                        <div className="text-base !m-0 !p-0 font-normal">
-                          <span className="text-slate-500 font-mono">
-                            Elevating assessment to an art form with AI-driven
-                            precision, fostering academic excellence.
-                          </span>
-                        </div>
-                        <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                          <Image
-                            src="/bloomify.svg"
-                            width={125}
-                            height={125}
-                            className="glow-effect-image"
-                          />
-                        </div>
-                      </div>
-                    </PinContainer>
-                  </Link>
-                  <Link href="https://existence-mindsync.vercel.app/">
-                    <PinContainer
-                      title="🌎 mindsync.app (mvp)"
-                      href="https://existence-mindsync.vercel.app"
-                      className=""
-                    >
-                      <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-                        <h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-                          MindSync
-                        </h3>
-                        <div className="text-base !m-0 !p-0 font-normal">
-                          <span className="text-slate-500 font-mono">
-                            Transforming ideas into beautiful mind maps
-                            instantly with the power of AI.
-                          </span>
-                        </div>
-                        <div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-                          <Image
-                            src="/mindsync.svg"
-                            width={125}
-                            height={125}
-                            className="glow-effect-image"
-                          />
-                        </div>
-                      </div>
-                    </PinContainer>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
-        <section className="xs:h-[1200px] md:h-[600px] flex justify-center items-center">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: servicesSectionScale,
-                opacity: servicesSectionOpacity,
-              }}
-              className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
-            >
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
-                Our Services
-              </p>
-              <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
-                Click here to learn more.
-              </p>
-              <div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are consistent.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      We provide tailored web development solutions to suit your
-                      business needs.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are agile.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      Elevate your business with our mobile app development
-                      services.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are trendy.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      Harness the power of AI with our cutting-edge solutions.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-              </div>
-            </motion.div>
-          ) : (
-            <div className="h-full w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
-              <p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-5">
-                Our Services
-              </p>
-              <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
-                Click{" "}
-                <a href="/services" className="underline">
-                  here
-                </a>{" "}
-                to learn more.
-              </p>
-              <div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are consistent.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      We provide tailored web development solutions to suit your
-                      business needs.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are agile.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      Elevate your business with our mobile app development
-                      services.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-                <GlowingStarsBackgroundCard>
-                  <GlowingStarsTitle>We are trendy.</GlowingStarsTitle>
-                  <div className="flex justify-between items-end">
-                    <GlowingStarsDescription>
-                      Harness the power of AI with our cutting-edge solutions.
-                    </GlowingStarsDescription>
-                  </div>
-                </GlowingStarsBackgroundCard>
-              </div>
-            </div>
-          )}
-        </section>
-        <section
-          className="h-full flex justify-center items-center"
-          style={{ position: "relative", zIndex: 1 }}
-        >
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: communitySectionScale,
-                opacity: communitySectionOpacity,
-              }}
-              className="fixed h-screen w-screen top-0 flex items-center justify-center"
-            >
-              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-              <DotBackground />
-              <div
-                className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
-                style={{ position: "relative" }}
-              >
-                <div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                  <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-2 w-2 text-gray-300 xs:max-md:hidden"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                      />
-                    </svg>
-                  </div>
-                  <h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-                    Join the Existence Community!
-                  </h1>
-                  <p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
-                    At Existence, our community is where innovation and
-                    camaraderie thrive. We unite individuals passionate about
-                    science, technology, and philosophy to share ideas, explore
-                    new concepts, and engage in meaningful discussions. We
-                    participate in hackathons, foster continuous learning, and
-                    build lasting connections. Whether you're a tech enthusiast
-                    or a philosophy buff, you'll find inspiration and
-                    collaboration here. Join us today to be part of our vibrant
-                    network.
-                  </p>
-                  <Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
-                    <button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-                      Join Now!
-                    </button>
-                  </Link>
-                  <Meteors number={20} />
-                </div>
-              </div>
-            </motion.div>
-          ) : (
-            <div className="h-screen w-screen flex items-center justify-center">
-              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-              <DotBackground />
-              <div
-                className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
-                style={{ position: "relative" }}
-              >
-                <div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-                  <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="h-2 w-2 text-gray-300 xs:max-md:hidden"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                      />
-                    </svg>
-                  </div>
-                  <h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-                    Join the Existence Community!
-                  </h1>
-                  <p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
-                    At Existence, our community is where innovation and
-                    camaraderie thrive. We unite individuals passionate about
-                    science, technology, and philosophy to share ideas, explore
-                    new concepts, and engage in meaningful discussions. We
-                    participate in hackathons, foster continuous learning, and
-                    build lasting connections. Whether you're a tech enthusiast
-                    or a philosophy buff, you'll find inspiration and
-                    collaboration here. Join us today to be part of our vibrant
-                    network.
-                  </p>
-                  <Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
-                    <button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-                      Join Now!
-                    </button>
-                  </Link>
-                  <Meteors number={20} />
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
-        <section className="h-full flex flex-col justify-center items-center ">
-          {isParallaxEnabled ? (
-            <motion.div
-              style={{
-                scale: teamSectionScale,
-                opacity: teamSectionOpacity,
-              }}
-              className="fixed h-screen w-screen top-0 z-50 flex flex-col items-center justify-around"
-            >
-              <div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
-                {/* Radial gradient for the container to give a faded look */}
-                <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-                <div className="flex flex-col justify-center w-full p-20 gap-10">
-                  <div className="flex justify-center">
-                    <p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-10 mb-10">
-                      Our Team
-                    </p>
-                  </div>
-                  <div className="flex md:flex-row xs:flex-col xs:gap-2 items-center justify-center mb-10 w-full md:gap-10">
-                    <AnimatedTooltip items={shuffledTeam} />
-                  </div>
-                </div>
-              </div>
-              <div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
-                  2024 Existence. All Rights Reserved.
-                </span>
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
-                  <a
-                    href="mailto:existence.master@gmail.com"
-                    className="hover:underline flex flex-row gap-2"
-                  >
-                    <Image
-                      src="/mail.svg"
-                      width={20}
-                      height={20}
-                      alt="Mail Icon"
-                    />
-                    existence.master@gmail.com
-                  </a>
-                </span>
-                <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
-                  <li>
-                    <a
-                      href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/whatsapp.svg"
-                        width={20}
-                        height={20}
-                        alt="Whatsapp Community"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/existence-master"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/github.svg"
-                        width={22}
-                        height={22}
-                        alt="GitHub"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/company/existence-3/"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/linkedin.svg"
-                        width={22}
-                        height={22}
-                        alt="LinkedIn"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-          ) : (
-            <>
-              <div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
-                {/* Radial gradient for the container to give a faded look */}
-                <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-                <div className="flex flex-col justify-center w-full p-20 gap-10">
-                  <div className="flex justify-center">
-                    <p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-10 mb-10">
-                      Our Team
-                    </p>
-                  </div>
-                  <div className="flex md:flex-row xs:flex-col xs:gap-2 items-center justify-center mb-10 w-full md:gap-10">
-                    <AnimatedTooltip items={shuffledTeam} />
-                  </div>
-                </div>
-              </div>
-              <div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
-                  2024 Existence. All Rights Reserved.
-                </span>
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
-                  <a
-                    href="mailto:existence.master@gmail.com"
-                    className="hover:underline flex flex-row gap-2"
-                  >
-                    <Image
-                      src="/mail.svg"
-                      width={20}
-                      height={20}
-                      alt="Mail Icon"
-                    />
-                    existence.master@gmail.com
-                  </a>
-                </span>
-                <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
-                  <li>
-                    <a
-                      href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/whatsapp.svg"
-                        width={20}
-                        height={20}
-                        alt="Whatsapp Community"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/existence-master"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/github.svg"
-                        width={22}
-                        height={22}
-                        alt="GitHub"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/company/existence-3/"
-                      className="hover:underline me-4 md:me-6"
-                    >
-                      <Image
-                        src="/linkedin.svg"
-                        width={22}
-                        height={22}
-                        alt="LinkedIn"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </>
-          )}
-        </section>
-      </div>
-    </>
-  );
+		<>
+			<div
+				className={`${
+					isParallaxEnabled
+						? "h-[950vh] overflow-hidden"
+						: "h-screen overflow-y-scroll"
+				} bg-black w-screen overflow-x-hidden`}
+				ref={pageRef}
+			>
+				<section className="h-full flex justify-center items-center relative">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: heroSectionScale,
+								opacity: heroSectionOpacity
+							}}
+							className="fixed top-0 h-screen w-screen flex justify-center items-center"
+						>
+							<Image
+								src="/logo.svg"
+								width={1050}
+								height={300}
+								alt="Existence Logo"
+								className="md:hidden"
+							/>
+							<div className="xs:max-md:hidden h-screen w-screen">
+								<ThreeDModel />
+							</div>
+							<BackgroundBeams />
+							{scrollIndicator && <ScrollIndicator />}
+						</motion.div>
+					) : (
+						<div className="h-screen w-screen flex justify-center items-center relative">
+							<Image
+								src="/logo.svg"
+								width={1050}
+								height={300}
+								alt="Existence Logo"
+								className="md:hidden"
+							/>
+							<div className="xs:max-md:hidden h-screen w-screen">
+								<ThreeDModel />
+							</div>
+							<BackgroundBeams />
+						</div>
+					)}
+					<button
+						onClick={() => setIsParallaxEnabled(!isParallaxEnabled)}
+						className="absolute top-4 right-4 px-4 py-2 bg-transparent text-gray-400 border border-gray-400 rounded-2xl"
+					>
+						{isParallaxEnabled ? (
+							<>Disable Parallax</>
+						) : (
+							<>Enable Parallax</>
+						)}
+					</button>
+				</section>
+				<section className="h-full flex justify-center items-center">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: philosophySectionScale,
+								opacity: philosophySectionOpacity
+							}}
+							className="fixed h-screen w-screen top-0 flex items-center justify-center"
+						>
+							<div
+								className="h-full w-full relative flex flex-col items-center justify-center"
+								style={{ position: "relative", zIndex: 1 }}
+							>
+								<DotBackground />
+								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+								<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+									Our philosophy promotes a holistic
+									upliftment of all forms of existence,
+									emphasizing progress, sustainability, and
+									unification. We seek to transcend
+									human-centric perspectives by valuing every
+									entity, fostering innovation that harmonizes
+									with nature, and committing to ethical
+									responsibility. Our vision is to create a
+									future where all aspects of reality are
+									uplifted and interconnected.
+								</p>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-screen w-screen flex items-center justify-center relative">
+							<div
+								className="h-full w-full relative flex flex-col items-center justify-center"
+								style={{ position: "relative", zIndex: 1 }}
+							>
+								<DotBackground />
+								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+								<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:p-0 xs:w-[90%] font-mono text-gray-400 text-justify p-2 md:w-2/3 font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+									Our philosophy promotes a holistic
+									upliftment of all forms of existence,
+									emphasizing progress, sustainability, and
+									unification. We seek to transcend
+									human-centric perspectives by valuing every
+									entity, fostering innovation that harmonizes
+									with nature, and committing to ethical
+									responsibility. Our vision is to create a
+									future where all aspects of reality are
+									uplifted and interconnected.
+								</p>
+							</div>
+						</div>
+					)}
+				</section>
+				<section className="h-full flex flex-col justify-center items-center">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: missionSectionScale,
+								opacity: missionSectionOpacity
+							}}
+							className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
+						>
+							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
+								At Existence, our mission is twofold: to craft
+								groundbreaking products that redefine industries
+								and to provide unparalleled services that
+								empower our clients to thrive in a dynamic
+								marketplace.
+							</p>
+							<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
+								<EvervaultCard
+									text="Product Innovation"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
+								<EvervaultCard
+									text="Service Excellence"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-screen w-screen flex flex-col items-center justify-center relative">
+							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
+								At Existence, our mission is twofold: to craft
+								groundbreaking products that redefine industries
+								and to provide unparalleled services that
+								empower our clients to thrive in a dynamic
+								marketplace.
+							</p>
+							<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
+								<EvervaultCard
+									text="Product Innovation"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
+								<EvervaultCard
+									text="Service Excellence"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
+							</div>
+						</div>
+					)}
+				</section>
+				<section className="h-full flex flex-col justify-center items-center">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: productsSectionScale,
+								opacity: productsSectionOpacity
+							}}
+							className="fixed h-screen w-screen xs:max-md:-top-[30px] top-[30px] flex flex-col items-center justify-center"
+						>
+							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20">
+								Our Products
+							</p>
+							<div className="flex flex-col justify-center w-full h-1/2 p-20">
+								<div className="w-full flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
+									<div className="flex flex-col items-center gap-10">
+										<Link href="https://existence-bloomify.vercel.app/">
+											<PinContainer
+												title="🌎 bloomify.app (mvp)"
+												href="https://existence-bloomify.vercel.app/"
+												className=""
+											>
+												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+														Bloomify
+													</h3>
+													<div className="text-base !m-0 !p-0 font-normal">
+														<span className="text-slate-500 font-mono">
+															Elevating assessment
+															to an art form with
+															AI-driven precision,
+															fostering academic
+															excellence.
+														</span>
+													</div>
+													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+														<Image
+															src="/bloomify.svg"
+															width={125}
+															height={125}
+															className="glow-effect-image"
+														/>
+													</div>
+												</div>
+											</PinContainer>
+										</Link>
+										<Link href="https://existence-mindsync.vercel.app/">
+											<PinContainer
+												title="🌎 mindsync.app (alpha)"
+												href="https://existence-mindsync.vercel.app"
+												className=""
+											>
+												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+														MindSync
+													</h3>
+													<div className="text-base !m-0 !p-0 font-normal">
+														<span className="text-slate-500 font-mono">
+															Transforming ideas
+															into beautiful mind
+															maps instantly with
+															the power of AI.
+														</span>
+													</div>
+													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+														<Image
+															src="/mindsync.svg"
+															width={125}
+															height={125}
+															className="glow-effect-image"
+														/>
+													</div>
+												</div>
+											</PinContainer>
+										</Link>
+									</div>
+									<div className="flex flex-col items-center gap-10">
+										<Link href="https://existence-sentient.vercel.app/">
+											<PinContainer
+												title="🌎 sentient.app (mvp)"
+												href="https://existence-sentient.vercel.app"
+												className=""
+											>
+												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+														Sentient
+													</h3>
+													<div className="text-base !m-0 !p-0 font-normal">
+														<span className="text-slate-500 font-mono">
+															A completely private
+															decentralized and
+															interactive AI
+															companion
+														</span>
+													</div>
+													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+														<Image
+															src="/sentient.svg"
+															width={125}
+															height={125}
+															className="glow-effect-image"
+														/>
+													</div>
+												</div>
+											</PinContainer>
+										</Link>
+										<Link href="https://existence-finadvise.vercel.app/">
+											<PinContainer
+												title="🌎 finadvise.app (mvp)"
+												href="https://existence-finadvise.vercel.app"
+												className=""
+											>
+												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+														FinAdvise
+													</h3>
+													<div className="text-base !m-0 !p-0 font-normal">
+														<span className="text-slate-500 font-mono">
+															Your AI based
+															pesonalized
+															financial advisor
+														</span>
+													</div>
+													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+														<Image
+															src="/finadvise.svg"
+															width={125}
+															height={125}
+															className="glow-effect-image"
+														/>
+													</div>
+												</div>
+											</PinContainer>
+										</Link>
+									</div>
+								</div>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-screen w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
+							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]">
+								Our Products
+							</p>
+							{/* Radial gradient for the container to give a faded look */}
+							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+							<div className="w-full flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
+								<div className="flex flex-col items-center gap-10">
+									<Link href="https://existence-bloomify.vercel.app/">
+										<PinContainer
+											title="🌎 bloomify.app (mvp)"
+											href="https://existence-bloomify.vercel.app/"
+											className=""
+										>
+											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+													Bloomify
+												</h3>
+												<div className="text-base !m-0 !p-0 font-normal">
+													<span className="text-slate-500 font-mono">
+														Elevating assessment to
+														an art form with
+														AI-driven precision,
+														fostering academic
+														excellence.
+													</span>
+												</div>
+												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+													<Image
+														src="/bloomify.svg"
+														width={125}
+														height={125}
+														className="glow-effect-image"
+													/>
+												</div>
+											</div>
+										</PinContainer>
+									</Link>
+									<Link href="https://existence-mindsync.vercel.app/">
+										<PinContainer
+											title="🌎 mindsync.app (alpha)"
+											href="https://existence-mindsync.vercel.app"
+											className=""
+										>
+											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+													MindSync
+												</h3>
+												<div className="text-base !m-0 !p-0 font-normal">
+													<span className="text-slate-500 font-mono">
+														Transforming ideas into
+														beautiful mind maps
+														instantly with the power
+														of AI.
+													</span>
+												</div>
+												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+													<Image
+														src="/mindsync.svg"
+														width={125}
+														height={125}
+														className="glow-effect-image"
+													/>
+												</div>
+											</div>
+										</PinContainer>
+									</Link>
+								</div>
+								<div className="flex flex-col items-center gap-10">
+									<Link href="https://existence-sentient.vercel.app/">
+										<PinContainer
+											title="🌎 sentient.app (mvp)"
+											href="https://existence-sentient.vercel.app"
+											className=""
+										>
+											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+													Sentient
+												</h3>
+												<div className="text-base !m-0 !p-0 font-normal">
+													<span className="text-slate-500 font-mono">
+														A completely private
+														decentralized and
+														interactive AI companion
+													</span>
+												</div>
+												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+													<Image
+														src="/sentient.svg"
+														width={125}
+														height={125}
+														className="glow-effect-image"
+													/>
+												</div>
+											</div>
+										</PinContainer>
+									</Link>
+									<Link href="https://existence-finadvise.vercel.app/">
+										<PinContainer
+											title="🌎 finadvise.app (mvp)"
+											href="https://existence-finadvise.vercel.app"
+											className=""
+										>
+											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+													FinAdvise
+												</h3>
+												<div className="text-base !m-0 !p-0 font-normal">
+													<span className="text-slate-500 font-mono">
+														Your AI based
+														pesonalized financial
+														advisor
+													</span>
+												</div>
+												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+													<Image
+														src="/finadvise.svg"
+														width={125}
+														height={125}
+														className="glow-effect-image"
+													/>
+												</div>
+											</div>
+										</PinContainer>
+									</Link>
+								</div>
+							</div>
+						</div>
+					)}
+				</section>
+				<section className="xs:h-[1200px] md:h-[600px] flex justify-center items-center">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: servicesSectionScale,
+								opacity: servicesSectionOpacity
+							}}
+							className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
+						>
+							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+								Our Services
+							</p>
+							<p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+								Click here to learn more.
+							</p>
+							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are consistent.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											We provide tailored web development
+											solutions to suit your business
+											needs.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are agile.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											Elevate your business with our
+											mobile app development services.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are trendy.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											Harness the power of AI with our
+											cutting-edge solutions.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-full w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
+							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-5">
+								Our Services
+							</p>
+							<p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
+								Click{" "}
+								<a href="/services" className="underline">
+									here
+								</a>{" "}
+								to learn more.
+							</p>
+							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are consistent.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											We provide tailored web development
+											solutions to suit your business
+											needs.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are agile.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											Elevate your business with our
+											mobile app development services.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+								<GlowingStarsBackgroundCard>
+									<GlowingStarsTitle>
+										We are trendy.
+									</GlowingStarsTitle>
+									<div className="flex justify-between items-end">
+										<GlowingStarsDescription>
+											Harness the power of AI with our
+											cutting-edge solutions.
+										</GlowingStarsDescription>
+									</div>
+								</GlowingStarsBackgroundCard>
+							</div>
+						</div>
+					)}
+				</section>
+				<section
+					className="h-full flex justify-center items-center"
+					style={{ position: "relative", zIndex: 1 }}
+				>
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: communitySectionScale,
+								opacity: communitySectionOpacity
+							}}
+							className="fixed h-screen w-screen top-0 flex items-center justify-center"
+						>
+							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+							<DotBackground />
+							<div
+								className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
+								style={{ position: "relative" }}
+							>
+								<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+									<div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											strokeWidth="1.5"
+											stroke="currentColor"
+											className="h-2 w-2 text-gray-300 xs:max-md:hidden"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+											/>
+										</svg>
+									</div>
+									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
+										Join the Existence Community!
+									</h1>
+									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
+										At Existence, our community is where
+										innovation and camaraderie thrive. We
+										unite individuals passionate about
+										science, technology, and philosophy to
+										share ideas, explore new concepts, and
+										engage in meaningful discussions. We
+										participate in hackathons, foster
+										continuous learning, and build lasting
+										connections. Whether you're a tech
+										enthusiast or a philosophy buff, you'll
+										find inspiration and collaboration here.
+										Join us today to be part of our vibrant
+										network.
+									</p>
+									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
+										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
+											Join Now!
+										</button>
+									</Link>
+									<Meteors number={20} />
+								</div>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-screen w-screen flex items-center justify-center">
+							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+							<DotBackground />
+							<div
+								className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
+								style={{ position: "relative" }}
+							>
+								<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+									<div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											strokeWidth="1.5"
+											stroke="currentColor"
+											className="h-2 w-2 text-gray-300 xs:max-md:hidden"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+											/>
+										</svg>
+									</div>
+									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
+										Join the Existence Community!
+									</h1>
+									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
+										At Existence, our community is where
+										innovation and camaraderie thrive. We
+										unite individuals passionate about
+										science, technology, and philosophy to
+										share ideas, explore new concepts, and
+										engage in meaningful discussions. We
+										participate in hackathons, foster
+										continuous learning, and build lasting
+										connections. Whether you're a tech
+										enthusiast or a philosophy buff, you'll
+										find inspiration and collaboration here.
+										Join us today to be part of our vibrant
+										network.
+									</p>
+									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
+										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
+											Join Now!
+										</button>
+									</Link>
+									<Meteors number={20} />
+								</div>
+							</div>
+						</div>
+					)}
+				</section>
+				<section className="h-full flex flex-col justify-center items-center ">
+					{isParallaxEnabled ? (
+						<motion.div
+							style={{
+								scale: teamSectionScale,
+								opacity: teamSectionOpacity
+							}}
+							className="fixed h-screen w-screen top-0 z-50 flex flex-col items-center justify-around"
+						>
+							<div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
+								{/* Radial gradient for the container to give a faded look */}
+								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+								<div className="flex flex-col justify-center w-full p-20 gap-10">
+									<div className="flex justify-center">
+										<p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-10 mb-10">
+											Our Team
+										</p>
+									</div>
+									<div className="flex md:flex-row xs:flex-col xs:gap-2 items-center justify-center mb-10 w-full md:gap-10">
+										<AnimatedTooltip items={shuffledTeam} />
+									</div>
+								</div>
+							</div>
+							<div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
+								<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+									2024 Existence. All Rights Reserved.
+								</span>
+								<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+									<a
+										href="mailto:existence.master@gmail.com"
+										className="hover:underline flex flex-row gap-2"
+									>
+										<Image
+											src="/mail.svg"
+											width={20}
+											height={20}
+											alt="Mail Icon"
+										/>
+										existence.master@gmail.com
+									</a>
+								</span>
+								<ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
+									<li>
+										<a
+											href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/whatsapp.svg"
+												width={20}
+												height={20}
+												alt="Whatsapp Community"
+											/>
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://github.com/existence-master"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/github.svg"
+												width={22}
+												height={22}
+												alt="GitHub"
+											/>
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://www.linkedin.com/company/existence-3/"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/linkedin.svg"
+												width={22}
+												height={22}
+												alt="LinkedIn"
+											/>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</motion.div>
+					) : (
+						<>
+							<div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
+								{/* Radial gradient for the container to give a faded look */}
+								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+								<div className="flex flex-col justify-center w-full p-20 gap-10">
+									<div className="flex justify-center">
+										<p className="lg:text-6xl md:text-5xl sm:text-4xl xs:text-3xl xs:w-full font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:-mt-10 mb-10">
+											Our Team
+										</p>
+									</div>
+									<div className="flex md:flex-row xs:flex-col xs:gap-2 items-center justify-center mb-10 w-full md:gap-10">
+										<AnimatedTooltip items={shuffledTeam} />
+									</div>
+								</div>
+							</div>
+							<div className="w-full mx-auto max-w-screen-xl p-4 flex xs:max-md:flex-col xs:max-md:gap-5 items-center justify-between">
+								<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+									2024 Existence. All Rights Reserved.
+								</span>
+								<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 font-mono">
+									<a
+										href="mailto:existence.master@gmail.com"
+										className="hover:underline flex flex-row gap-2"
+									>
+										<Image
+											src="/mail.svg"
+											width={20}
+											height={20}
+											alt="Mail Icon"
+										/>
+										existence.master@gmail.com
+									</a>
+								</span>
+								<ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 xs:max-md:gap-5 gap-20">
+									<li>
+										<a
+											href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/whatsapp.svg"
+												width={20}
+												height={20}
+												alt="Whatsapp Community"
+											/>
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://github.com/existence-master"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/github.svg"
+												width={22}
+												height={22}
+												alt="GitHub"
+											/>
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://www.linkedin.com/company/existence-3/"
+											className="hover:underline me-4 md:me-6"
+										>
+											<Image
+												src="/linkedin.svg"
+												width={22}
+												height={22}
+												alt="LinkedIn"
+											/>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</>
+					)}
+				</section>
+			</div>
+		</>
+  )
 };
 
 export default Home;
