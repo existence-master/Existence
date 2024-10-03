@@ -1,181 +1,170 @@
-"use client";
+"use client"
 
-import { BackgroundBeams } from "@components/BackgroundBeams";
-import { EvervaultCard } from "@components/HoverCard";
-import { PinContainer } from "@components/Animated3DPin";
-import { AnimatedTooltip } from "@components/AnimatedTip";
-import { Meteors } from "@components/AnimatedMeteors";
-import { shuffleArray } from "@utils/helpers";
-import Image from "next/image";
-import Link from "next/link";
-import DotBackground from "@components/DotBackground";
-import {
-  GlowingStarsBackgroundCard,
-  GlowingStarsDescription,
-  GlowingStarsTitle,
-} from "@components/GlowingStarsCard";
-import ThreeDModel from "@components/3DModel";
-import { useScroll, motion, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import ScrollIndicator from "@components/ScrollIndicator";
+import { BackgroundBeams } from "@components/BackgroundBeams"
+import { EvervaultCard } from "@components/HoverCard"
+import { PinContainer } from "@components/Animated3DPin"
+import { AnimatedTooltip } from "@components/AnimatedTip"
+import { Meteors } from "@components/AnimatedMeteors"
+import { shuffleArray } from "@utils/helpers"
+import Image from "next/image"
+import Link from "next/link"
+import DotBackground from "@components/DotBackground"
+import ThreeDModel from "@components/3DModel"
+import { useScroll, motion, useTransform } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+import ScrollIndicator from "@components/ScrollIndicator"
 
 const Home = () => {
-  const pageRef = useRef();
-  const pageScrollProgress = useScroll(pageRef);
+	const pageRef = useRef()
+	const pageScrollProgress = useScroll(pageRef)
 
-  const heroSectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.0, 0.0714, 0.1429],
-    [1, 0.5, 0]
-  );
+	const heroSectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.0, 0.0714, 0.1429],
+		[1, 0.5, 0]
+	)
 
-  const heroSectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.0, 0.0714, 0.1429],
-    [1, 2.5, 2.5]
-  );
+	const heroSectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.0, 0.0714, 0.1429],
+		[1, 2.5, 2.5]
+	)
 
-  const philosophySectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.1029, 0.2143, 0.2857],
-    [0, 1, 0]
-  );
+	const philosophySectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.1029, 0.2143, 0.2857],
+		[0, 1, 0]
+	)
 
-  const philosophySectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.1029, 0.2143, 0.2857],
-    [0, 1, 2.5]
-  );
+	const philosophySectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.1029, 0.2143, 0.2857],
+		[0, 1, 2.5]
+	)
 
-  const missionSectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.2457, 0.3571, 0.4286],
-    [0, 1, 0]
-  );
+	const missionSectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.2457, 0.3571, 0.4286],
+		[0, 1, 0]
+	)
 
-  const missionSectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.2457, 0.3571, 0.4286],
-    [0, 1, 2.5]
-  );
+	const missionSectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.2457, 0.3571, 0.4286],
+		[0, 1, 2.5]
+	)
 
-  const productsSectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.3886, 0.5, 0.5714],
-    [0, 1, 0]
-  );
+	const productsSectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.3886, 0.5, 0.5714],
+		[0, 1, 0]
+	)
 
-  const productsSectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.3886, 0.5, 0.5714],
-    [0, 1, 2.5]
-  );
+	const productsSectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.3886, 0.5, 0.5714],
+		[0, 1, 2.5]
+	)
 
-  const servicesSectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.5314, 0.6429, 0.7143],
-    [0, 1, 0]
-  );
+	const servicesSectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.5314, 0.6429, 0.7143],
+		[0, 1, 0]
+	)
 
-  const servicesSectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.5314, 0.6429, 0.7143],
-    [0, 1, 2.5]
-  );
+	const servicesSectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.5314, 0.6429, 0.7143],
+		[0, 1, 2.5]
+	)
 
-  const communitySectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.6743, 0.7857, 0.8571],
-    [0, 1, 0]
-  );
+	const communitySectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.6743, 0.7857, 0.8571],
+		[0, 1, 0]
+	)
 
-  const communitySectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.6743, 0.7857, 0.8571],
-    [0, 1, 2.5]
-  );
+	const communitySectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.6743, 0.7857, 0.8571],
+		[0, 1, 2.5]
+	)
 
-  const teamSectionOpacity = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.8171, 0.9286, 1.0],
-    [0, 1, 1]
-  );
+	const teamSectionOpacity = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.8171, 0.9286, 1.0],
+		[0, 1, 1]
+	)
 
-  const teamSectionScale = useTransform(
-    pageScrollProgress.scrollYProgress,
-    [0.8171, 0.9286, 1.0],
-    [0, 1, 1]
-  );
+	const teamSectionScale = useTransform(
+		pageScrollProgress.scrollYProgress,
+		[0.8171, 0.9286, 1.0],
+		[0, 1, 1]
+	)
 
-  const team = [
-    {
-      id: 1,
-      name: "Sarthak Karandikar",
-      designation: "Co-Founder",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQHRJYw1qo6xJQ/profile-displayphoto-shrink_800_800/0/1680586521971?e=1722470400&v=beta&t=NxgH4gMnSyWStc8OiZFNqJ-Mr__u0hIWbwxMeBtxczM",
-      link: "https://www.linkedin.com/in/sarthak-karandikar-0223b7228/",
-    },
-    {
-      id: 2,
-      name: "Kabeer Ahmed Merchant",
-      designation: "Co-Founder",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQEMuNC-u2rRMg/profile-displayphoto-shrink_400_400/0/1713373786015?e=1722470400&v=beta&t=zsqlhEdspr1xekmWePSUmde9SL5hXp9GWmFM2AHVXtU",
-      link: "https://www.linkedin.com/in/kabeer-ahmed-merchant/",
-    },
-    {
-      id: 3,
-      name: "Abhijeet Suryawanshi",
-      designation: "Data Scientist",
-      image:
-        "https://media.licdn.com/dms/image/C4D03AQGQwbIUH8_J4Q/profile-displayphoto-shrink_400_400/0/1655274054114?e=1722470400&v=beta&t=_TgDdVyB191SY97_rqBm6mrvMMJfFvSPBK_2bEaVz0E",
-      link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/",
-    },
-    {
-      id: 4,
-      name: "Ojaswini Prabhune",
-      designation: "UI/UX Designer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQHbGVe-IpHK4g/profile-displayphoto-shrink_400_400/0/1684558328615?e=1722470400&v=beta&t=yeViHdvM2h3f5DTazWdHzXJ59hPFK2rhx1ELzM4RLaM",
-      link: "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/",
-    },
-    {
-      id: 5,
-      name: "Varad Deshpande",
-      designation: "Full Stack Developer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
-      link: "https://www.linkedin.com/in/varaddeshpande15/",
-    },
-    {
-      id: 6,
-      name: "Sanjog Bora",
-      designation: "UI/UX Designer",
-      image:
-        "https://media.licdn.com/dms/image/D4D03AQG5DVPlwbjCGA/profile-displayphoto-shrink_400_400/0/1694408160785?e=1727913600&v=beta&t=1aULd1TBuYWd2iJaMkE9UFnwcAucJtym6gzf5lCB-xI",
-      link: "https://www.linkedin.com/in/sanjogbora/",
-    },
-  ];
-  const [isParallaxEnabled, setIsParallaxEnabled] = useState(false);
-  const [shuffledTeam, setShuffledTeam] = useState([]);
-  const [scrollIndicator, setScrollIndicator] = useState(true);
+	const team = [
+		{
+			id: 1,
+			name: "Sarthak Karandikar",
+			designation: "Co-Founder",
+			image: "https://media.licdn.com/dms/image/D4D03AQHRJYw1qo6xJQ/profile-displayphoto-shrink_800_800/0/1680586521971?e=1722470400&v=beta&t=NxgH4gMnSyWStc8OiZFNqJ-Mr__u0hIWbwxMeBtxczM",
+			link: "https://www.linkedin.com/in/sarthak-karandikar-0223b7228/"
+		},
+		{
+			id: 2,
+			name: "Kabeer Ahmed Merchant",
+			designation: "Co-Founder",
+			image: "https://media.licdn.com/dms/image/D4D03AQEMuNC-u2rRMg/profile-displayphoto-shrink_400_400/0/1713373786015?e=1722470400&v=beta&t=zsqlhEdspr1xekmWePSUmde9SL5hXp9GWmFM2AHVXtU",
+			link: "https://www.linkedin.com/in/kabeer-ahmed-merchant/"
+		},
+		{
+			id: 3,
+			name: "Abhijeet Suryawanshi",
+			designation: "Data Scientist",
+			image: "https://media.licdn.com/dms/image/C4D03AQGQwbIUH8_J4Q/profile-displayphoto-shrink_400_400/0/1655274054114?e=1722470400&v=beta&t=_TgDdVyB191SY97_rqBm6mrvMMJfFvSPBK_2bEaVz0E",
+			link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/"
+		},
+		{
+			id: 4,
+			name: "Ojaswini Prabhune",
+			designation: "UI/UX Designer",
+			image: "https://media.licdn.com/dms/image/D4D03AQHbGVe-IpHK4g/profile-displayphoto-shrink_400_400/0/1684558328615?e=1722470400&v=beta&t=yeViHdvM2h3f5DTazWdHzXJ59hPFK2rhx1ELzM4RLaM",
+			link: "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/"
+		},
+		{
+			id: 5,
+			name: "Varad Deshpande",
+			designation: "Full Stack Developer",
+			image: "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
+			link: "https://www.linkedin.com/in/varaddeshpande15/"
+		},
+		{
+			id: 6,
+			name: "Sanjog Bora",
+			designation: "UI/UX Designer",
+			image: "https://media.licdn.com/dms/image/D4D03AQG5DVPlwbjCGA/profile-displayphoto-shrink_400_400/0/1694408160785?e=1727913600&v=beta&t=1aULd1TBuYWd2iJaMkE9UFnwcAucJtym6gzf5lCB-xI",
+			link: "https://www.linkedin.com/in/sanjogbora/"
+		}
+	]
+	const [isParallaxEnabled, setIsParallaxEnabled] = useState(false)
+	const [shuffledTeam, setShuffledTeam] = useState([])
+	const [scrollIndicator, setScrollIndicator] = useState(true)
 
-  useEffect(() => {
-    setShuffledTeam(shuffleArray([...team]));
-  }, []);
+	useEffect(() => {
+		setShuffledTeam(shuffleArray([...team]))
+	}, [])
 
-  useEffect(() => {
-    return pageScrollProgress.scrollYProgress.on("change", (value) => {
-      if (value > 0.8171) {
-        setScrollIndicator(false);
-      } else {
-        setScrollIndicator(true);
-      }
-    });
-  }, [pageScrollProgress.scrollYProgress]);
+	useEffect(() => {
+		return pageScrollProgress.scrollYProgress.on("change", (value) => {
+			if (value > 0.8171) {
+				setScrollIndicator(false)
+			} else {
+				setScrollIndicator(true)
+			}
+		})
+	}, [pageScrollProgress.scrollYProgress])
 
-  return (
+	return (
 		<>
 			<div
 				className={`${
@@ -344,102 +333,25 @@ const Home = () => {
 							}}
 							className="fixed h-screen w-screen xs:max-md:-top-[30px] top-[30px] flex flex-col items-center justify-center"
 						>
-							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20">
+							<p
+								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20"
+								style={{ zIndex: 100 }}
+							>
 								Our Products
 							</p>
+							{/* <p
+								className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10"
+								style={{ zIndex: 100 }}
+							>
+								Click{" "}
+								<a href="/products" className="underline">
+									here
+								</a>{" "}
+								to learn more.
+							</p> */}
 							<div className="flex flex-col justify-center w-full h-1/2 p-20">
 								<div className="w-full flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
 									<div className="flex flex-col items-center gap-10">
-										<Link href="https://existence-bloomify.vercel.app/">
-											<PinContainer
-												title="🌎 bloomify.app (mvp)"
-												href="https://existence-bloomify.vercel.app/"
-												className=""
-											>
-												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-														Bloomify
-													</h3>
-													<div className="text-base !m-0 !p-0 font-normal">
-														<span className="text-slate-500 font-mono">
-															Elevating assessment
-															to an art form with
-															AI-driven precision,
-															fostering academic
-															excellence.
-														</span>
-													</div>
-													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-														<Image
-															src="/bloomify.svg"
-															width={125}
-															height={125}
-															className="glow-effect-image"
-														/>
-													</div>
-												</div>
-											</PinContainer>
-										</Link>
-										<Link href="https://existence-mindsync.vercel.app/">
-											<PinContainer
-												title="🌎 mindsync.app (alpha)"
-												href="https://existence-mindsync.vercel.app"
-												className=""
-											>
-												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-														MindSync
-													</h3>
-													<div className="text-base !m-0 !p-0 font-normal">
-														<span className="text-slate-500 font-mono">
-															Transforming ideas
-															into beautiful mind
-															maps instantly with
-															the power of AI.
-														</span>
-													</div>
-													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-														<Image
-															src="/mindsync.svg"
-															width={125}
-															height={125}
-															className="glow-effect-image"
-														/>
-													</div>
-												</div>
-											</PinContainer>
-										</Link>
-									</div>
-									<div className="flex flex-col items-center gap-10">
-										<Link href="https://existence-sentient.vercel.app/">
-											<PinContainer
-												title="🌎 sentient.app (mvp)"
-												href="https://existence-sentient.vercel.app"
-												className=""
-											>
-												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-														Sentient
-													</h3>
-													<div className="text-base !m-0 !p-0 font-normal">
-														<span className="text-slate-500 font-mono">
-															A completely private
-															decentralized and
-															interactive AI
-															companion
-														</span>
-													</div>
-													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-														<Image
-															src="/sentient.svg"
-															width={125}
-															height={125}
-															className="glow-effect-image"
-														/>
-													</div>
-												</div>
-											</PinContainer>
-										</Link>
 										<Link href="https://existence-finadvise.vercel.app/">
 											<PinContainer
 												title="🌎 finadvise.app (mvp)"
@@ -474,131 +386,52 @@ const Home = () => {
 						</motion.div>
 					) : (
 						<div className="h-screen w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
-							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]">
+							<p
+								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]"
+								style={{ zIndex: 100 }}
+							>
 								Our Products
 							</p>
+							{/* <p
+								className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10"
+								style={{ zIndex: 100 }}
+							>
+								Click{" "}
+								<a href="/products" className="underline">
+									here
+								</a>{" "}
+								to learn more.
+							</p> */}
 							{/* Radial gradient for the container to give a faded look */}
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-							<div className="w-full flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
-								<div className="flex flex-col items-center gap-10">
-									<Link href="https://existence-bloomify.vercel.app/">
-										<PinContainer
-											title="🌎 bloomify.app (mvp)"
-											href="https://existence-bloomify.vercel.app/"
-											className=""
-										>
-											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-													Bloomify
-												</h3>
-												<div className="text-base !m-0 !p-0 font-normal">
-													<span className="text-slate-500 font-mono">
-														Elevating assessment to
-														an art form with
-														AI-driven precision,
-														fostering academic
-														excellence.
-													</span>
-												</div>
-												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-													<Image
-														src="/bloomify.svg"
-														width={125}
-														height={125}
-														className="glow-effect-image"
-													/>
-												</div>
+							<div className="w-full h-[500px] flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
+								<Link href="https://existence-finadvise.vercel.app/">
+									<PinContainer
+										title="🌎 finadvise.app (mvp)"
+										href="https://existence-finadvise.vercel.app"
+										className=""
+									>
+										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+												FinAdvise
+											</h3>
+											<div className="text-base !m-0 !p-0 font-normal">
+												<span className="text-slate-500 font-mono">
+													Your AI based pesonalized
+													financial advisor
+												</span>
 											</div>
-										</PinContainer>
-									</Link>
-									<Link href="https://existence-mindsync.vercel.app/">
-										<PinContainer
-											title="🌎 mindsync.app (alpha)"
-											href="https://existence-mindsync.vercel.app"
-											className=""
-										>
-											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-													MindSync
-												</h3>
-												<div className="text-base !m-0 !p-0 font-normal">
-													<span className="text-slate-500 font-mono">
-														Transforming ideas into
-														beautiful mind maps
-														instantly with the power
-														of AI.
-													</span>
-												</div>
-												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-													<Image
-														src="/mindsync.svg"
-														width={125}
-														height={125}
-														className="glow-effect-image"
-													/>
-												</div>
+											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+												<Image
+													src="/finadvise.svg"
+													width={125}
+													height={125}
+													className="glow-effect-image"
+												/>
 											</div>
-										</PinContainer>
-									</Link>
-								</div>
-								<div className="flex flex-col items-center gap-10">
-									<Link href="https://existence-sentient.vercel.app/">
-										<PinContainer
-											title="🌎 sentient.app (mvp)"
-											href="https://existence-sentient.vercel.app"
-											className=""
-										>
-											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-													Sentient
-												</h3>
-												<div className="text-base !m-0 !p-0 font-normal">
-													<span className="text-slate-500 font-mono">
-														A completely private
-														decentralized and
-														interactive AI companion
-													</span>
-												</div>
-												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-													<Image
-														src="/sentient.svg"
-														width={125}
-														height={125}
-														className="glow-effect-image"
-													/>
-												</div>
-											</div>
-										</PinContainer>
-									</Link>
-									<Link href="https://existence-finadvise.vercel.app/">
-										<PinContainer
-											title="🌎 finadvise.app (mvp)"
-											href="https://existence-finadvise.vercel.app"
-											className=""
-										>
-											<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-												<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-													FinAdvise
-												</h3>
-												<div className="text-base !m-0 !p-0 font-normal">
-													<span className="text-slate-500 font-mono">
-														Your AI based
-														pesonalized financial
-														advisor
-													</span>
-												</div>
-												<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-													<Image
-														src="/finadvise.svg"
-														width={125}
-														height={125}
-														className="glow-effect-image"
-													/>
-												</div>
-											</div>
-										</PinContainer>
-									</Link>
-								</div>
+										</div>
+									</PinContainer>
+								</Link>
 							</div>
 						</div>
 					)}
@@ -612,96 +445,96 @@ const Home = () => {
 							}}
 							className="fixed h-screen w-screen xs:max-md:top-0 top-[30px] flex flex-col items-center justify-center"
 						>
-							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
+							<p
+								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20"
+								style={{ zIndex: 100 }}
+							>
 								Our Services
 							</p>
-							<p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-10 mb-20">
-								Click here to learn more.
-							</p>
-							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are consistent.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											We provide tailored web development
-											solutions to suit your business
-											needs.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are agile.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											Elevate your business with our
-											mobile app development services.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are trendy.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											Harness the power of AI with our
-											cutting-edge solutions.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
-							</div>
-						</motion.div>
-					) : (
-						<div className="h-full w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
-							<p className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-5">
-								Our Services
-							</p>
-							<p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
+							{/* <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
 								Click{" "}
 								<a href="/services" className="underline">
 									here
 								</a>{" "}
 								to learn more.
-							</p>
+							</p> */}
 							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are consistent.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											We provide tailored web development
-											solutions to suit your business
-											needs.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are agile.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											Elevate your business with our
-											mobile app development services.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
-								<GlowingStarsBackgroundCard>
-									<GlowingStarsTitle>
-										We are trendy.
-									</GlowingStarsTitle>
-									<div className="flex justify-between items-end">
-										<GlowingStarsDescription>
-											Harness the power of AI with our
-											cutting-edge solutions.
-										</GlowingStarsDescription>
-									</div>
-								</GlowingStarsBackgroundCard>
+								<Link href="https://existence-bloomify.vercel.app/">
+									<PinContainer
+										title="🌎 bloomify.app (mvp)"
+										href="https://existence-bloomify.vercel.app/"
+										className=""
+									>
+										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+												Bloomify
+											</h3>
+											<div className="text-base !m-0 !p-0 font-normal">
+												<span className="text-slate-500 font-mono">
+													Elevating assessment to an
+													art form with AI-driven
+													precision, fostering
+													academic excellence.
+												</span>
+											</div>
+											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+												<Image
+													src="/bloomify.svg"
+													width={125}
+													height={125}
+													className="glow-effect-image"
+												/>
+											</div>
+										</div>
+									</PinContainer>
+								</Link>
+							</div>
+						</motion.div>
+					) : (
+						<div className="h-full w-screen flex flex-col items-center justify-center xs:pb-28 md:pb-0">
+							<p
+								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-5 mb-5"
+								style={{ zIndex: 100 }}
+							>
+								Our Services
+							</p>
+							{/* <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
+								Click{" "}
+								<a href="/services" className="underline">
+									here
+								</a>{" "}
+								to learn more.
+							</p> */}
+							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
+								<Link href="https://existence-bloomify.vercel.app/">
+									<PinContainer
+										title="🌎 bloomify.app (mvp)"
+										href="https://existence-bloomify.vercel.app/"
+										className=""
+									>
+										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
+												Bloomify
+											</h3>
+											<div className="text-base !m-0 !p-0 font-normal">
+												<span className="text-slate-500 font-mono">
+													Elevating assessment to an
+													art form with AI-driven
+													precision, fostering
+													academic excellence.
+												</span>
+											</div>
+											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
+												<Image
+													src="/bloomify.svg"
+													width={125}
+													height={125}
+													className="glow-effect-image"
+												/>
+											</div>
+										</div>
+									</PinContainer>
+								</Link>
 							</div>
 						</div>
 					)}
@@ -987,7 +820,7 @@ const Home = () => {
 				</section>
 			</div>
 		</>
-  )
-};
+	)
+}
 
-export default Home;
+export default Home
