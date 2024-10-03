@@ -107,43 +107,29 @@ const Home = () => {
 			id: 1,
 			name: "Sarthak Karandikar",
 			designation: "Co-Founder",
-			image: "https://media.licdn.com/dms/image/D4D03AQHRJYw1qo6xJQ/profile-displayphoto-shrink_800_800/0/1680586521971?e=1722470400&v=beta&t=NxgH4gMnSyWStc8OiZFNqJ-Mr__u0hIWbwxMeBtxczM",
+			image: "/sarthak.jpeg",
 			link: "https://www.linkedin.com/in/sarthak-karandikar-0223b7228/"
 		},
 		{
 			id: 2,
 			name: "Kabeer Ahmed Merchant",
 			designation: "Co-Founder",
-			image: "https://media.licdn.com/dms/image/D4D03AQEMuNC-u2rRMg/profile-displayphoto-shrink_400_400/0/1713373786015?e=1722470400&v=beta&t=zsqlhEdspr1xekmWePSUmde9SL5hXp9GWmFM2AHVXtU",
+			image: "/kabeer.jpeg",
 			link: "https://www.linkedin.com/in/kabeer-ahmed-merchant/"
 		},
 		{
 			id: 3,
 			name: "Abhijeet Suryawanshi",
 			designation: "Data Scientist",
-			image: "https://media.licdn.com/dms/image/C4D03AQGQwbIUH8_J4Q/profile-displayphoto-shrink_400_400/0/1655274054114?e=1722470400&v=beta&t=_TgDdVyB191SY97_rqBm6mrvMMJfFvSPBK_2bEaVz0E",
+			image: "/abhijeet.jpeg",
 			link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/"
 		},
 		{
 			id: 4,
-			name: "Ojaswini Prabhune",
-			designation: "UI/UX Designer",
-			image: "https://media.licdn.com/dms/image/D4D03AQHbGVe-IpHK4g/profile-displayphoto-shrink_400_400/0/1684558328615?e=1722470400&v=beta&t=yeViHdvM2h3f5DTazWdHzXJ59hPFK2rhx1ELzM4RLaM",
-			link: "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/"
-		},
-		{
-			id: 5,
 			name: "Varad Deshpande",
 			designation: "Full Stack Developer",
-			image: "https://media.licdn.com/dms/image/D4D03AQEDX-GUuDARoA/profile-displayphoto-shrink_400_400/0/1699323392187?e=1722470400&v=beta&t=426quJeaKKk-ufE_o4nVdTybvBhRKLnBp2XiqwoFYzI",
+			image: "/varad.jpeg",
 			link: "https://www.linkedin.com/in/varaddeshpande15/"
-		},
-		{
-			id: 6,
-			name: "Sanjog Bora",
-			designation: "UI/UX Designer",
-			image: "https://media.licdn.com/dms/image/D4D03AQG5DVPlwbjCGA/profile-displayphoto-shrink_400_400/0/1694408160785?e=1727913600&v=beta&t=1aULd1TBuYWd2iJaMkE9UFnwcAucJtym6gzf5lCB-xI",
-			link: "https://www.linkedin.com/in/sanjogbora/"
 		}
 	]
 	const [isParallaxEnabled, setIsParallaxEnabled] = useState(false)
