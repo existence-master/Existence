@@ -8,11 +8,7 @@ import TextTicker from "@components/TextTicker";
 import { TypeAnimation } from "react-type-animation";
 import { FloatingNav } from "@components/FloatingNavbar";
 import { useState } from "react";
-import {
-  GlowingStarsBackgroundCard,
-  GlowingStarsDescription,
-  GlowingStarsTitle,
-} from "@components/GlowingStarsCard";
+import { CardSpotlight } from "@components/CardSpotlight";
 
 const Services = () => {
   const [buttonText, setButtonText] = useState("Submit");
@@ -257,7 +253,7 @@ const Services = () => {
 			</section>
 			<section
 				id="services-types"
-				className="bg-black w-screen md:h-[500px] xs:h-[1200px] relative flex flex-col"
+				className="bg-black w-screen md:h-[500px] xs:h-[1200px] relative flex flex-col mt-10"
 			>
 				<div className="w-full h-[80px]">
 					<p
@@ -272,14 +268,13 @@ const Services = () => {
 						<Link href="https://existence-bloomify.vercel.app">
 							<div className="max-w-sm">
 								<h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-									Bloomify makes assessment creation easy for
-									educators everywhere.
+									Bloomify
 								</h2>
 								<p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
 									Powered by AI, Bloomify makes it easy for
 									educators to create balanced assessments
-									that test various cognitive abilities of a
-									student.
+									based on Bloom's taxonomy. Ride the wave and
+									get it setup for your university now
 								</p>
 							</div>
 							<Image
@@ -302,43 +297,27 @@ const Services = () => {
 						className="h-[80px] text-[100px] xs:text-5xl xs:mt-4 xs:ml-4 md:ml-24 md:mt-8 text-white font-mono xs:text-center md:text-left"
 						style={{ zIndex: 10 }}
 					>
-						Our Projects
+						Our Past Projects
 					</p>
 				</div>
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full p-4">
-					<WobbleCard
-						containerClassName="col-span-1 lg:col-span-2 h-full bg-gray-800 min-h-[500px] lg:min-h-[300px]"
-						className=""
-					>
-						<Link href="https://existence-mindsync.vercel.app">
-							<div className="max-w-xs">
-								<h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-									Mindsync makes mindmapping easy.
-								</h2>
-								<p className="mt-4 text-left  text-base/6 text-neutral-200">
-									Go from text, images, audio and video to
-									mindmaps in seconds. Easily edit your
-									mindmaps with our AI Editor.
-								</p>
-							</div>
-							<Image
-								src="/MindSyncExample.png"
-								width={500}
-								height={500}
-								alt="linear demo image"
-								className="absolute -right-4 lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-							/>
-						</Link>
-					</WobbleCard>
-					<WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gray-600">
-						<h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-							Future Projects
-						</h2>
-						<p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-							We have several other product ideas in the
-							development pipeline.
+					<CardSpotlight className="h-96 w-96">
+						<img
+							src="/mindsync.svg" // Replace with your logo image path
+							alt="WebWeave Logo"
+							className="h-20 w-20 mx-auto"
+						/>
+						<p className="text-xl font-bold relative z-20 mt-4 text-white text-center">
+							WebWeave: Crafting Websites That Weave Success
 						</p>
-					</WobbleCard>
+						<div className="text-neutral-200 mt-2 relative z-20 text-center">
+							We build beautiful, functional, and results-driven
+							websites tailored to your unique needs.
+						</div>
+						<button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out relative z-20">
+							Learn More
+						</button>
+					</CardSpotlight>
 				</div>
 			</section>
 			<section

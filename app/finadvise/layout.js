@@ -1,5 +1,3 @@
-import { Metadata } from "next"
-
 export const metadata = {
 	title: "Existence | FinAdvise",
 	description: "FinAdvise - AI Powered Financial Management",
