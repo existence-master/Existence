@@ -359,7 +359,7 @@ const Home = () => {
 											className="w-full mt-4"
 										>
 											<Image
-												src="/sentient-full.svg"
+												src="/sentient.svg"
 												height="1000"
 												width="1000"
 												className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -412,7 +412,7 @@ const Home = () => {
 											className="w-full mt-4"
 										>
 											<Image
-												src="/sentient-full.svg"
+												src="/sentient.svg"
 												height="1000"
 												width="1000"
 												className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -471,7 +471,7 @@ const Home = () => {
 											</div>
 											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
 												<Image
-													src="/bloomify.svg"
+													src="/webweave.svg"
 													width={125}
 													height={125}
 													className="glow-effect-image"
@@ -510,7 +510,7 @@ const Home = () => {
 											</div>
 											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
 												<Image
-													src="/bloomify.svg"
+													src="/webweave.svg"
 													width={125}
 													height={125}
 													className="glow-effect-image"
@@ -559,7 +559,7 @@ const Home = () => {
 										</svg>
 									</div>
 									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-										Join the Existence Community!
+										Our Community!
 									</h1>
 									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
 										At Existence, our community is where
@@ -578,7 +578,7 @@ const Home = () => {
 									</p>
 									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
 										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-											Join Now!
+											Join Now
 										</button>
 									</Link>
 									<Meteors number={20} />
@@ -611,7 +611,7 @@ const Home = () => {
 										</svg>
 									</div>
 									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-										Join the Existence Community!
+										Our Community
 									</h1>
 									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
 										At Existence, our community is where
@@ -630,7 +630,7 @@ const Home = () => {
 									</p>
 									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
 										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-											Join Now!
+											Join Now
 										</button>
 									</Link>
 									<Meteors number={20} />
@@ -649,7 +649,6 @@ const Home = () => {
 							className="fixed h-screen w-screen top-0 z-50 flex flex-col items-center justify-around"
 						>
 							<div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
-								{/* Radial gradient for the container to give a faded look */}
 								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 								<div className="flex flex-col justify-center w-full p-20 gap-10">
 									<div className="flex justify-center">
