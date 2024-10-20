@@ -33,6 +33,7 @@ export const CardContainer = ({ children, className, containerClassName }) => {
 		setIsMouseEntered(false)
 		containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`
 	}
+
 	return (
 		<MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
 			<div
@@ -50,7 +51,8 @@ export const CardContainer = ({ children, className, containerClassName }) => {
 					onMouseMove={handleMouseMove}
 					onMouseLeave={handleMouseLeave}
 					className={cn(
-						"flex items-center justify-center relative transition-all duration-200 ease-linear",
+						"flex items-center justify-center relative transition-all duration-200 ease-linear border-4 border-white rounded-lg",
+						isMouseEntered ? "shadow-glow" : "shadow-none",
 						className
 					)}
 					style={{
