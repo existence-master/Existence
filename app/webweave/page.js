@@ -10,7 +10,7 @@ const FinAdvise = () => {
 	useEffect(() => {
 		// Show loading screen for a short duration before redirecting
 		const timer = setTimeout(() => {
-			router.push("https://existence-finadvise.vercel.app")
+			router.push("https://existence-webweave.vercel.app/")
 		}, 3000) // 3 second delay for loading screen
 
 		return () => clearTimeout(timer)
@@ -26,10 +26,10 @@ const FinAdvise = () => {
 				transition={{ repeat: Infinity, duration: 3 }}
 			/>
 			<p className="text-white font-mono text-3xl mt-8">
-				Loading FinAdvise...
+				Loading WebWeave...
 			</p>
 		</div>
 	)
 }
 
-export default FinAdvise
+export default WebWeave

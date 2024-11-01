@@ -13,6 +13,7 @@ import ThreeDModel from "@components/3DModel"
 import { useScroll, motion, useTransform } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import ScrollIndicator from "@components/ScrollIndicator"
+import { CardBody, CardContainer, CardItem } from "@components/3DCard"
 
 const Home = () => {
 	const pageRef = useRef()
@@ -271,11 +272,12 @@ const Home = () => {
 							className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
 						>
 							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
-								At Existence, our mission is twofold: to craft
-								groundbreaking products that redefine industries
-								and to provide unparalleled services that
-								empower our clients to thrive in a dynamic
-								marketplace.
+								At Existence, our mission is threefold: to craft
+								groundbreaking products that redefine
+								industries, to provide unparalleled services
+								that empower our clients to thrive in a dynamic
+								marketplace and to give back to the wonderful
+								people out there with our community
 							</p>
 							<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
 								<EvervaultCard
@@ -284,20 +286,25 @@ const Home = () => {
 								/>
 								<EvervaultCard
 									text="Service Excellence"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
+								<EvervaultCard
+									text="Community Empowerment"
 									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
 								/>
 							</div>
 						</motion.div>
 					) : (
 						<div className="h-screen w-screen flex flex-col items-center justify-center relative">
-							<p className="lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
-								At Existence, our mission is twofold: to craft
-								groundbreaking products that redefine industries
-								and to provide unparalleled services that
-								empower our clients to thrive in a dynamic
-								marketplace.
+							<p className="lg:text-3xl md:text-2xl sm:text-xl xs:text-lg xs:w-[90%] xs:p-0 font-mono text-gray-400 xs:max-md:text-justify text-center p-3 w-1/2 mb-10">
+								At Existence, our mission is threefold: to craft
+								groundbreaking products that redefine
+								industries, to provide unparalleled services
+								that empower our clients to thrive in a dynamic
+								marketplace and to give back to the wonderful
+								people out there with our community
 							</p>
-							<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5">
+							<div className="flex xs:max-md:flex-col items-center justify-center w-full h-1/2 p-20 md:gap-20 xs:gap-5 mt-10">
 								<EvervaultCard
 									text="Product Innovation"
 									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
@@ -306,11 +313,15 @@ const Home = () => {
 									text="Service Excellence"
 									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
 								/>
+								<EvervaultCard
+									text="Community Empowerment"
+									className="xs:max-md:w-[350px] w-[400px] h-[400px] text-center border border-gray-500 rounded-3xl"
+								/>
 							</div>
 						</div>
 					)}
 				</section>
-				<section className="h-full flex flex-col justify-center items-center">
+				<section className="md:h-[1100px] flex flex-col justify-center items-center">
 					{isParallaxEnabled ? (
 						<motion.div
 							style={{
@@ -325,104 +336,107 @@ const Home = () => {
 							>
 								Our Products
 							</p>
-							{/* <p
-								className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10"
-								style={{ zIndex: 100 }}
-							>
-								Click{" "}
-								<a href="/products" className="underline">
-									here
-								</a>{" "}
-								to learn more.
-							</p> */}
-							<div className="flex flex-col justify-center w-full h-1/2 p-20">
-								<div className="w-full flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
-									<div className="flex flex-col items-center gap-10">
-										<Link href="https://existence-finadvise.vercel.app/">
-											<PinContainer
-												title="🌎 finadvise.app (mvp)"
-												href="https://existence-finadvise.vercel.app"
-												className=""
+							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+							<div className="flex">
+								<CardContainer className="inter-var">
+									<CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+										<CardItem
+											translateZ="50"
+											className="text-xl font-bold text-neutral-600 dark:text-white"
+										>
+											Sentient
+										</CardItem>
+										<CardItem
+											as="p"
+											translateZ="60"
+											className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+										>
+											A completely private, decentralized
+											& interactive AI companion
+										</CardItem>
+										<CardItem
+											translateZ="100"
+											className="w-full mt-4"
+										>
+											<Image
+												src="/sentient.svg"
+												height="1000"
+												width="1000"
+												className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+												alt="thumbnail"
+											/>
+										</CardItem>
+										<div className="flex justify-between items-center mt-20">
+											<CardItem
+												translateZ={20}
+												as={Link}
+												href="https://existence.technology/sentient"
+												target="__blank"
+												className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
 											>
-												<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-													<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-														FinAdvise
-													</h3>
-													<div className="text-base !m-0 !p-0 font-normal">
-														<span className="text-slate-500 font-mono">
-															Your AI based
-															pesonalized
-															financial advisor
-														</span>
-													</div>
-													<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-														<Image
-															src="/finadvise.svg"
-															width={125}
-															height={125}
-															className="glow-effect-image"
-														/>
-													</div>
-												</div>
-											</PinContainer>
-										</Link>
-									</div>
-								</div>
+												Learn More
+											</CardItem>
+										</div>
+									</CardBody>
+								</CardContainer>
 							</div>
 						</motion.div>
 					) : (
-						<div className="h-screen w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
+						<div className="h-full w-screen bg-grid-white/[0.2] relative flex flex-col items-center justify-center xs:pb-20 md:pb-0">
 							<p
 								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]"
 								style={{ zIndex: 100 }}
 							>
 								Our Products
 							</p>
-							{/* <p
-								className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10"
-								style={{ zIndex: 100 }}
-							>
-								Click{" "}
-								<a href="/products" className="underline">
-									here
-								</a>{" "}
-								to learn more.
-							</p> */}
-							{/* Radial gradient for the container to give a faded look */}
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-							<div className="w-full h-[500px] flex flex-col items-center justify-center gap-20 xs:gap-10 sm:flex-row">
-								<Link href="https://existence-finadvise.vercel.app/">
-									<PinContainer
-										title="🌎 finadvise.app (mvp)"
-										href="https://existence-finadvise.vercel.app"
-										className=""
-									>
-										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-												FinAdvise
-											</h3>
-											<div className="text-base !m-0 !p-0 font-normal">
-												<span className="text-slate-500 font-mono">
-													Your AI based pesonalized
-													financial advisor
-												</span>
-											</div>
-											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
-												<Image
-													src="/finadvise.svg"
-													width={125}
-													height={125}
-													className="glow-effect-image"
-												/>
-											</div>
+							<div className="flex">
+								<CardContainer className="inter-var">
+									<CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+										<CardItem
+											translateZ="50"
+											className="text-xl font-bold text-neutral-600 dark:text-white"
+										>
+											Sentient
+										</CardItem>
+										<CardItem
+											as="p"
+											translateZ="60"
+											className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+										>
+											A completely private, decentralized
+											& interactive AI companion
+										</CardItem>
+										<CardItem
+											translateZ="100"
+											className="w-full mt-4"
+										>
+											<Image
+												src="/sentient.svg"
+												height="1000"
+												width="1000"
+												className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+												alt="thumbnail"
+											/>
+										</CardItem>
+										<div className="flex justify-between items-center mt-20">
+											<CardItem
+												translateZ={20}
+												as={Link}
+												href="https://existence.technology/sentient"
+												target="__blank"
+												className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+											>
+												Learn More
+											</CardItem>
 										</div>
-									</PinContainer>
-								</Link>
+									</CardBody>
+								</CardContainer>
 							</div>
 						</div>
 					)}
 				</section>
-				<section className="xs:h-[1200px] md:h-[600px] flex justify-center items-center">
+				<section className="md:h-[1000px] flex justify-center items-center">
 					{isParallaxEnabled ? (
 						<motion.div
 							style={{
@@ -437,35 +451,27 @@ const Home = () => {
 							>
 								Our Services
 							</p>
-							{/* <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
-								Click{" "}
-								<a href="/services" className="underline">
-									here
-								</a>{" "}
-								to learn more.
-							</p> */}
-							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-								<Link href="https://existence-bloomify.vercel.app/">
+							<div className="flex flex-col mt-10">
+								<Link href="https://existence.technology/webweave">
 									<PinContainer
-										title="🌎 bloomify.app (mvp)"
-										href="https://existence-bloomify.vercel.app/"
+										title="book a call"
+										href="https://existence.technology/webweave"
 										className=""
 									>
-										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem]">
 											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-												Bloomify
+												WebWeave
 											</h3>
 											<div className="text-base !m-0 !p-0 font-normal">
 												<span className="text-slate-500 font-mono">
-													Elevating assessment to an
-													art form with AI-driven
-													precision, fostering
-													academic excellence.
+													Your one-stop shop for
+													beautiful, functional, and
+													results-driven websites.
 												</span>
 											</div>
 											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
 												<Image
-													src="/bloomify.svg"
+													src="/webweave.svg"
 													width={125}
 													height={125}
 													className="glow-effect-image"
@@ -484,35 +490,27 @@ const Home = () => {
 							>
 								Our Services
 							</p>
-							{/* <p className="lg:text-3xl md:text-xl sm:text-md xs:text-sm xs:w-2/3 font-mono text-gray-600 text-center mb-10">
-								Click{" "}
-								<a href="/services" className="underline">
-									here
-								</a>{" "}
-								to learn more.
-							</p> */}
-							<div className="flex xs:flex-col xs:gap-y-3 md:flex-row md:gap-x-6 items-center justify-center antialiased">
-								<Link href="https://existence-bloomify.vercel.app/">
+							<div className="flex flex-col mt-10">
+								<Link href="https://existence.technology/webweave">
 									<PinContainer
-										title="🌎 bloomify.app (mvp)"
-										href="https://existence-bloomify.vercel.app/"
+										title="book a call"
+										href="https://existence.technology/webweave"
 										className=""
 									>
-										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+										<div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem]">
 											<h3 className="max-w-xs !pb-2 !m-0 font-bold font-mono text-base text-slate-100">
-												Bloomify
+												WebWeave
 											</h3>
 											<div className="text-base !m-0 !p-0 font-normal">
 												<span className="text-slate-500 font-mono">
-													Elevating assessment to an
-													art form with AI-driven
-													precision, fostering
-													academic excellence.
+													Your one-stop shop for
+													beautiful, functional, and
+													results-driven websites.
 												</span>
 											</div>
 											<div className="flex flex-1 w-full rounded-lg mt-4 justify-center items-center bg-gradient-to-br from-gray-800 via-gray-600 to-gray-400">
 												<Image
-													src="/bloomify.svg"
+													src="/webweave.svg"
 													width={125}
 													height={125}
 													className="glow-effect-image"
@@ -561,7 +559,7 @@ const Home = () => {
 										</svg>
 									</div>
 									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-										Join the Existence Community!
+										Our Community!
 									</h1>
 									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
 										At Existence, our community is where
@@ -580,7 +578,7 @@ const Home = () => {
 									</p>
 									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
 										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-											Join Now!
+											Join Now
 										</button>
 									</Link>
 									<Meteors number={20} />
@@ -613,7 +611,7 @@ const Home = () => {
 										</svg>
 									</div>
 									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-										Join the Existence Community!
+										Our Community
 									</h1>
 									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
 										At Existence, our community is where
@@ -632,7 +630,7 @@ const Home = () => {
 									</p>
 									<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
 										<button className="border px-4 py-1 rounded-lg border-gray-500 text-white font-mono">
-											Join Now!
+											Join Now
 										</button>
 									</Link>
 									<Meteors number={20} />
@@ -651,7 +649,6 @@ const Home = () => {
 							className="fixed h-screen w-screen top-0 z-50 flex flex-col items-center justify-around"
 						>
 							<div className="h-full w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center">
-								{/* Radial gradient for the container to give a faded look */}
 								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 								<div className="flex flex-col justify-center w-full p-20 gap-10">
 									<div className="flex justify-center">
