@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 
-const FinAdvise = () => {
+const WebWeave = () => {
 	const router = useRouter()
 
 	useEffect(() => {
