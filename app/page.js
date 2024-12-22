@@ -122,17 +122,10 @@ const Home = () => {
 		{
 			id: 3,
 			name: "Abhijeet Suryawanshi",
-			designation: "Data Scientist",
+			designation: "AI Engineer",
 			image: "/abhijeet.jpeg",
 			link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/"
 		},
-		{
-			id: 4,
-			name: "Varad Deshpande",
-			designation: "Full Stack Developer",
-			image: "/varad.jpeg",
-			link: "https://www.linkedin.com/in/varaddeshpande15/"
-		}
 	]
 	const [isParallaxEnabled, setIsParallaxEnabled] = useState(false)
 	const [shuffledTeam, setShuffledTeam] = useState([])
