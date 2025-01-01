@@ -269,10 +269,10 @@ const Home = () => {
 								scale: productsSectionScale,
 								opacity: productsSectionOpacity
 							}}
-							className="fixed h-screen w-screen xs:max-md:-top-[30px] top-[30px] flex flex-col items-center justify-center"
+							className="fixed h-screen w-screen top-0 flex flex-col items-center justify-center"
 						>
 							<p
-								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-xl xs:w-2/3 font-mono text-gray-400 text-center p-5 w-1/2 xs:max-md:mb-[125px] mb-20"
+								className="lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl xs:w-2/3 font-mono text-gray-200 text-center w-1/2 xs:mb-[150px] md:mb-[50px]"
 								style={{ zIndex: 100 }}
 							>
 								Our Products
@@ -280,7 +280,7 @@ const Home = () => {
 							<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 							<div className="flex">
 								<CardContainer className="inter-var">
-									<CardBody className="bg-gray-50  group/card relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-[300px] rounded-xl p-6 border">
+									<CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
 										<CardItem
 											translateZ="50"
 											className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -297,14 +297,24 @@ const Home = () => {
 										</CardItem>
 										<CardItem
 											translateZ="100"
-											className="w-full h-full mt-2"
+											className="w-full mt-4 flex justify-center"
 										>
-											<Image
+											<motion.img
 												src="/sentient.svg"
-												height="1"
-												width="1"
-												className="h-3/4 w-3/4 object-cover rounded-xl group-hover/card:shadow-xl"
-												alt="thumbnail"
+												alt="Logo"
+												animate={{
+													scale: [1, 1.5, 1],
+													translateY: [0, 10, 0]
+												}}
+												transition={{
+													duration: 3,
+													repeat: Infinity
+												}}
+												className="h-40 mt-8 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+												style={{
+													maxHeight: "50%",
+													maxWidth: "50%"
+												}}
 											/>
 										</CardItem>
 										<div className="flex justify-between items-center mt-20">
@@ -406,89 +416,80 @@ const Home = () => {
 								className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
 								style={{ position: "relative" }}
 							>
-								<div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-								<DotBackground />
-								<div
-									className="xs:max-md:h-3/4 h-2/3 md:w-1/2 xs:w-3/4 relative xs:ml-5 md:ml-5"
-									style={{ position: "relative" }}
-								>
-									<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-										<div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												fill="none"
-												viewBox="0 0 24 24"
-												strokeWidth="1.5"
-												stroke="currentColor"
-												className="h-2 w-2 text-gray-300 xs:max-md:hidden"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-												/>
-											</svg>
-										</div>
-
-										<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
-											Our Community
-										</h1>
-
-										<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
-											At Existence, our community
-											CodeStreak is where innovation and
-											camaraderie thrive. We unite
-											individuals passionate about
-											technology to share ideas, explore
-											new concepts, and engage in
-											meaningful discussions. We
-											participate in hackathons, foster
-											continuous learning, and build
-											lasting connections. Whether you're
-											a tech enthusiast or a hacker,
-											you'll find inspiration and
-											collaboration here. Join us today to
-											be part of our vibrant network.
-										</p>
-
-										<div className="flex space-x-4 mb-4">
-											<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
-												<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
-													<Image
-														src="/whatsapp.svg"
-														width={20}
-														height={20}
-														alt="Whatsapp"
-													/>
-													<span>WhatsApp</span>
-												</button>
-											</Link>
-											<Link href="https://www.instagram.com/codestreak.dev/">
-												<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
-													<Image
-														src="/instagram.svg"
-														width={20}
-														height={20}
-														alt="Instagram"
-													/>
-													<span>Instagram</span>
-												</button>
-											</Link>
-											<Link href="https://www.youtube.com/@codestreak">
-												<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
-													<Image
-														src="/youtube.svg"
-														width={20}
-														height={20}
-														alt="YouTube"
-													/>
-													<span>YouTube</span>
-												</button>
-											</Link>
-										</div>
-
-										<Meteors number={20} />
+								<div className="relative shadow-xl bg-black border border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+									<div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											strokeWidth="1.5"
+											stroke="currentColor"
+											className="h-2 w-2 text-gray-300 xs:max-md:hidden"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+											/>
+										</svg>
 									</div>
+
+									<h1 className="font-mono font-bold lg:text-2xl md:text-xl sm:text-xl xs:text-xl p-2 text-white mb-4 relative z-50">
+										Our Community
+									</h1>
+
+									<p className="font-mono lg:text-xl md:text-xl sm:text-xl xs:text-sm text-white text-justify p-2 md:mb-8 xs:mb-4 relative z-50">
+										At Existence, our community CodeStreak
+										is where innovation and camaraderie
+										thrive. We unite individuals passionate
+										about technology to share ideas, explore
+										new concepts, and engage in meaningful
+										discussions. We participate in
+										hackathons, foster continuous learning,
+										and build lasting connections. Whether
+										you're a tech enthusiast or a hacker,
+										you'll find inspiration and
+										collaboration here. Join us today to be
+										part of our vibrant network.
+									</p>
+
+									<div className="flex space-x-4 mb-4">
+										<Link href="https://chat.whatsapp.com/Kf5oylkq2TaClGNM74TZjt">
+											<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
+												<Image
+													src="/whatsapp.svg"
+													width={20}
+													height={20}
+													alt="Whatsapp"
+												/>
+												<span>WhatsApp</span>
+											</button>
+										</Link>
+										<Link href="https://www.instagram.com/codestreak.dev/">
+											<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
+												<Image
+													src="/instagram.svg"
+													width={20}
+													height={20}
+													alt="Instagram"
+												/>
+												<span>Instagram</span>
+											</button>
+										</Link>
+										<Link href="https://www.youtube.com/@codestreak">
+											<button className="flex items-center border px-4 py-1 rounded-lg border-gray-500 text-white font-mono space-x-2">
+												<Image
+													src="/youtube.svg"
+													width={20}
+													height={20}
+													alt="YouTube"
+												/>
+												<span>YouTube</span>
+											</button>
+										</Link>
+									</div>
+
+									<Meteors number={20} />
 								</div>
 							</div>
 						</motion.div>
