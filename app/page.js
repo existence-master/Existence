@@ -124,6 +124,13 @@ const Home = () => {
 			image: "/abhijeet.jpeg",
 			link: "https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/"
 		},
+		{
+			id: 4,
+			name: "Shubham Badhe",
+			designation: "Operations Manager",
+			image: "/shubham.jpg",
+			link: "https://www.linkedin.com/in/shubham-badhe-516827330/"
+		},
 	]
 	const [isParallaxEnabled, setIsParallaxEnabled] = useState(false)
 	const [shuffledTeam, setShuffledTeam] = useState([])
