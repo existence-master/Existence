@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: "Existence | Sentient",
     description: "Sentient - Personalized AI Companion",
-    url: "https://existence-sentient.vercel.app",
+    url: "https://existence-sentient.up.railway.app",
     type: "website",
     images: "/existencering.png",
   },
