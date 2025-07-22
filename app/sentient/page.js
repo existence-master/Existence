@@ -10,7 +10,7 @@ const Sentient = () => {
   useEffect(() => {
     // Show loading screen for a short duration before redirecting
     const timer = setTimeout(() => {
-      router.push("https://existence-sentient.vercel.app");
+      router.push("https://existence-sentient.up.railway.app");
     }, 3000); // 1 second delay for loading screen
 
     return () => clearTimeout(timer);
