@@ -1,0 +1,27 @@
+{
+	"version": "0.0.1",
+	"configurations": [
+		{
+			"name": "existence-dev",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run",
+				"dev"
+			],
+			"port": 3000,
+			"autoPort": true
+		},
+		{
+			"name": "existence-prod",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run",
+				"start",
+				"--",
+				"-p",
+				"3100"
+			],
+			"port": 3100
+		}
+	]
+}
