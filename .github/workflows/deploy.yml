@@ -1,0 +1,64 @@
+name: Deploy
+
+# Builds with the Vercel CLI inside GitHub Actions and uploads the prebuilt output.
+# A push to master deploys to production. Each pull request from this repository gets a preview.
+# Needs three repository secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  TARGET: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+  PROD_FLAG: ${{ github.event_name == 'pull_request' && '' || '--prod' }}
+
+jobs:
+  deploy:
+    # Pull requests from forks cannot read secrets, so they are skipped rather than failing.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Check secrets
+        run: |
+          for name in VERCEL_TOKEN VERCEL_ORG_ID VERCEL_PROJECT_ID; do
+            if [ -z "${!name}" ]; then echo "::error::Repository secret $name is not set"; exit 1; fi
+          done
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install the Vercel CLI
+        run: npm install --global vercel@54
+
+      - name: Pull project settings
+        run: vercel pull --yes --environment=$TARGET --token=$VERCEL_TOKEN
+
+      - name: Build
+        run: vercel build $PROD_FLAG --token=$VERCEL_TOKEN
+
+      - name: Deploy
+        id: deploy
+        run: |
+          out=$(vercel deploy --prebuilt $PROD_FLAG --token=$VERCEL_TOKEN)
+          echo "$out"
+          url=$(echo "$out" | grep -oE 'https://[a-zA-Z0-9.-]+\.vercel\.app' | head -1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed ($TARGET): $url" >> "$GITHUB_STEP_SUMMARY"
