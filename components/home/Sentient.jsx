@@ -20,7 +20,7 @@ export default function Sentient() {
 
 	return (
 		<section id="sentient" ref={ref} data-theme-section="ink" className="relative h-[280vh]">
-			<div className="sticky top-0 flex h-[100svh] flex-col justify-between overflow-hidden px-6 pb-8 pt-28 sm:px-10">
+			<div className="gutter sticky top-0 flex h-[100svh] flex-col justify-between overflow-hidden pb-[max(2rem,env(safe-area-inset-bottom))] pt-[clamp(4.5rem,14svh,7rem)]">
 				<div className="flex items-center gap-4">
 					<span className="label !opacity-100">02</span>
 					<span className="h-px w-10 bg-current opacity-40" />
@@ -30,12 +30,12 @@ export default function Sentient() {
 				<div className="relative">
 					{/* outlined name with the solid name poured in over it */}
 					<div className="relative">
-						<h2 className="mega outline text-[23vw] leading-[0.8] sm:text-[19vw]" aria-hidden="true">
+						<h2 className="mega outline text-[21vw] leading-[0.8] sm:text-[min(19vw,36svh)]" aria-hidden="true">
 							Sentient
 						</h2>
 						<motion.h2
 							style={{ clipPath: fill }}
-							className="mega absolute inset-0 text-[23vw] leading-[0.8] sm:text-[19vw]"
+							className="mega absolute inset-0 text-[21vw] leading-[0.8] sm:text-[min(19vw,36svh)]"
 						>
 							Sentient
 						</motion.h2>
@@ -44,7 +44,7 @@ export default function Sentient() {
 					{/* the sentence, sliding under the name */}
 					<motion.p
 						style={{ x: slide }}
-						className="mt-6 whitespace-nowrap font-grotesk text-[6vw] leading-none tracking-[-0.03em] sm:text-[3.4vw]"
+						className="mt-6 whitespace-nowrap font-grotesk text-[6vw] leading-none tracking-[-0.03em] sm:text-[clamp(1.5rem,3.4vw,4.5rem)] short:mt-3"
 					>
 						Your personal AI assistant,{" "}
 						<span className="serif-it text-[1.15em]">running on your own computer.</span>
@@ -57,7 +57,7 @@ export default function Sentient() {
 
 				<motion.div style={{ opacity: subOpacity, y: subY }} className="flex items-end justify-between gap-6">
 					<div className="flex items-center gap-5">
-						<div className="relative h-20 w-20 sm:h-28 sm:w-28">
+						<div className="relative h-20 w-20 sm:h-28 sm:w-28 short:h-14 short:w-14">
 							<motion.svg style={{ rotate: badgeRotate }} viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
 								<defs>
 									<path id="badge" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
@@ -70,7 +70,7 @@ export default function Sentient() {
 								<Image src="/sentient.svg" alt="" fill sizes="40px" className="object-contain mix-blend-screen" />
 							</span>
 						</div>
-						<p className="label hidden max-w-[16rem] !normal-case !tracking-normal sm:block">
+						<p className="label hidden max-w-[16rem] !normal-case !tracking-normal sm:block short:hidden">
 							Long-running tasks, real memory, proactive help, voice, phones and smart glasses.
 						</p>
 					</div>

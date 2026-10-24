@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* devices with a real mouse or trackpad; touch screens of any size never match */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+/* landscape phones and other very short screens */
+@custom-variant short (@media (max-height: 520px));
+
 @theme {
 	--color-ink: #0a0a0a;
 	--color-paper: #efece4;
@@ -44,6 +49,16 @@
 	--line: rgba(239, 236, 228, 0.14);
 	color-scheme: dark;
 }
+/* one side margin for the whole site, widened on notched phones held sideways */
+:root {
+	--gutter: 1.5rem;
+}
+@media (min-width: 640px) {
+	:root {
+		--gutter: 2.5rem;
+	}
+}
+
 html[data-theme="paper"] {
 	--bg: #efece4;
 	--fg: #0a0a0a;
@@ -71,6 +86,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
+	-webkit-tap-highlight-color: transparent;
+	text-size-adjust: 100%;
 	transition:
 		background-color 0.9s var(--ease-out-expo),
 		color 0.9s var(--ease-out-expo);
@@ -81,6 +98,11 @@ body {
 	body button {
 		cursor: none;
 	}
+}
+
+a,
+button {
+	touch-action: manipulation;
 }
 
 ::selection {
@@ -159,11 +181,25 @@ body {
 		transition: transform 0.6s var(--ease-out-expo);
 		z-index: -1;
 	}
-	.pill:hover {
+	/* hover fills only on mouse devices, so a tap never leaves a button stuck in its hover state */
+	@media (hover: hover) and (pointer: fine) {
+		.pill:hover {
+			color: var(--bg);
+		}
+		.pill:hover::before {
+			transform: translateY(0);
+		}
+	}
+	.pill:active {
 		color: var(--bg);
 	}
-	.pill:hover::before {
+	.pill:active::before {
 		transform: translateY(0);
+		transition-duration: 0.15s;
+	}
+	.gutter {
+		padding-left: max(var(--gutter), env(safe-area-inset-left));
+		padding-right: max(var(--gutter), env(safe-area-inset-right));
 	}
 	.mask-line {
 		display: block;
@@ -184,8 +220,10 @@ body {
 		flex: 1 1 0%;
 		transition: flex 0.9s var(--ease-out-expo);
 	}
-	.door:hover {
-		flex: 2.4 1 0%;
+	@media (hover: hover) and (pointer: fine) {
+		.door:hover {
+			flex: 2.4 1 0%;
+		}
 	}
 	.vertical {
 		writing-mode: vertical-rl;

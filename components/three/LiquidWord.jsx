@@ -94,7 +94,9 @@ function drawWord(text, fontFamily, width, height) {
 
 function Plane({ word, fontFamily, ready }) {
 	const { size } = useThree()
-	const mouse = useRef({ x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, vx: 0, vy: 0 })
+	const mouse = useRef({ x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, vx: 0, vy: 0, lastInput: -Infinity })
+	// touch screens have no cursor to ripple under, so the ripple point drifts on its own there
+	const drifts = useRef(false)
 	const intro = useRef(0)
 	const start = useRef(null)
 
@@ -136,9 +138,11 @@ function Plane({ word, fontFamily, ready }) {
 	}, [texture, material])
 
 	useEffect(() => {
+		drifts.current = !window.matchMedia("(hover: hover) and (pointer: fine)").matches
 		const onMove = (e) => {
 			mouse.current.tx = e.clientX / window.innerWidth
 			mouse.current.ty = 1 - e.clientY / window.innerHeight
+			mouse.current.lastInput = performance.now()
 		}
 		window.addEventListener("pointermove", onMove, { passive: true })
 		return () => window.removeEventListener("pointermove", onMove)
@@ -156,6 +160,12 @@ function Plane({ word, fontFamily, ready }) {
 			u.uIntro.value = 1 - Math.pow(1 - intro.current, 3)
 		}
 		const m = mouse.current
+		// a slow figure-eight across the word, paused for a few seconds after a finger drags it
+		if (drifts.current && performance.now() - m.lastInput > 2500) {
+			const t = state.clock.elapsedTime
+			m.tx = 0.5 + Math.sin(t * 0.42) * 0.34
+			m.ty = 0.5 + Math.sin(t * 0.84 + 1.2) * 0.12
+		}
 		const nx = m.x + (m.tx - m.x) * Math.min(1, dt * 6)
 		const ny = m.y + (m.ty - m.y) * Math.min(1, dt * 6)
 		m.vx = (nx - m.x) / Math.max(dt, 0.001)

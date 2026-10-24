@@ -30,14 +30,14 @@ export default function Vision() {
 				</svg>
 			</motion.div>
 
-			<div className="relative px-6 sm:px-10">
+			<div className="gutter relative">
 				<div className="mb-10 flex items-center gap-4 sm:mb-16">
 					<span className="label !opacity-100">01</span>
 					<span className="h-px w-10 bg-current opacity-40" />
 					<span className="label">Vision</span>
 				</div>
 
-				<h2 className="mega text-[13.5vw] sm:text-[10.5vw]">
+				<h2 className="mega text-[13.5vw] sm:text-[clamp(4rem,10.5vw,14rem)]">
 					<Rise>Technology</Rise>
 					<Rise delay={0.08}>at the</Rise>
 					<Rise delay={0.16}>
@@ -52,7 +52,7 @@ export default function Vision() {
 			<div className="mt-[18vh] border-y border-[var(--line)] py-3">
 				<Marquee>
 					{[0, 1, 2].map((i) => (
-						<span key={i} className="mega outline whitespace-nowrap px-6 text-[9vw] sm:text-[6vw]">
+						<span key={i} className="mega outline whitespace-nowrap px-6 text-[9vw] sm:text-[clamp(3rem,6vw,8rem)]">
 							Make the impossible ordinary
 							<span className="mx-6 inline-block h-[0.5em] w-[0.5em] rounded-full bg-current align-middle opacity-70" />
 						</span>
