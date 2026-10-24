@@ -56,10 +56,16 @@ jobs:
       - name: Build
         run: vercel build $PROD_FLAG --token=$VERCEL_TOKEN
 
+      # Vercel's Hobby plan blocks deployments whose Git commit author is not a member of the
+      # Vercel account (TEAM_ACCESS_REQUIRED). The CLI reads the author from .git, so remove it
+      # before uploading, and attach the commit as plain metadata instead.
+      - name: Strip Git metadata
+        run: rm -rf .git
+
       - name: Deploy
         id: deploy
         run: |
-          out=$(vercel deploy --prebuilt $PROD_FLAG --token=$VERCEL_TOKEN)
+          out=$(vercel deploy --prebuilt $PROD_FLAG --meta commit=$GITHUB_SHA --meta ref=$GITHUB_REF_NAME --token=$VERCEL_TOKEN)
           echo "$out"
           url=$(echo "$out" | grep -oE 'https://[a-zA-Z0-9.-]+\.vercel\.app' | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
