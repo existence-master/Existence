@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
 import { Magnetic } from "./ui"
+import SoundToggle from "./SoundToggle"
 
 const LINKS = [
 	["#vision", "Vision"],
@@ -21,8 +22,9 @@ function goTo(href) {
 	else el.scrollIntoView({ behavior: "smooth" })
 }
 
-/* The pill on phones: its label rolls from Menu to Close, and its two lines cross into an X. */
+/* On phones: two thin lines that cross into an X. No words, no frame. */
 function MenuButton({ open, onClick, buttonRef }) {
+	const line = "absolute left-1/2 h-[1.5px] w-[22px] -translate-x-1/2 bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
 	return (
 		<button
 			ref={buttonRef}
@@ -31,37 +33,10 @@ function MenuButton({ open, onClick, buttonRef }) {
 			aria-expanded={open}
 			aria-controls="mobile-menu"
 			aria-label={open ? "Close menu" : "Open menu"}
-			className="flex h-11 items-center gap-3 rounded-full border border-white/50 pl-4 pr-3.5 font-mono text-[0.68rem] uppercase leading-none tracking-[0.2em] sm:hidden"
+			className="relative h-11 w-11 sm:hidden"
 		>
-			<span className="relative block overflow-hidden" aria-hidden="true">
-				<span className="invisible block">Close</span>
-				<span
-					className={`absolute inset-0 block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						open ? "-translate-y-full" : "translate-y-0"
-					}`}
-				>
-					Menu
-				</span>
-				<span
-					className={`absolute inset-0 block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						open ? "translate-y-0" : "translate-y-full"
-					}`}
-				>
-					Close
-				</span>
-			</span>
-			<span className="relative block h-3 w-4" aria-hidden="true">
-				<span
-					className={`absolute left-0 h-px w-full bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						open ? "top-1.5 rotate-45" : "top-0.5"
-					}`}
-				/>
-				<span
-					className={`absolute left-0 h-px w-full bg-current transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						open ? "top-1.5 -rotate-45" : "top-2.5"
-					}`}
-				/>
-			</span>
+			<span className={`${line} ${open ? "top-1/2 rotate-45" : "top-[calc(50%-4px)]"}`} aria-hidden="true" />
+			<span className={`${line} ${open ? "top-1/2 -rotate-45" : "top-[calc(50%+3px)]"}`} aria-hidden="true" />
 		</button>
 	)
 }
@@ -178,17 +153,20 @@ export default function Nav() {
 						<span className="hidden font-mono text-[0.7rem] uppercase tracking-[0.32em] sm:inline">Existence</span>
 					</a>
 
-					<nav className="hidden items-center gap-6 sm:flex" aria-label="Sections">
-						{LINKS.map(([href, label]) => (
-							<Magnetic key={href} strength={0.25}>
-								<a href={href} className="label block px-2 py-3 !opacity-90 hover:!opacity-100">
-									{label}
-								</a>
-							</Magnetic>
-						))}
-					</nav>
-
-					<MenuButton open={open} onClick={() => setOpen((v) => !v)} buttonRef={buttonRef} />
+					<div className="flex items-center gap-2 sm:gap-6">
+						<nav className="hidden items-center gap-6 sm:flex" aria-label="Sections">
+							{LINKS.map(([href, label]) => (
+								<Magnetic key={href} strength={0.25}>
+									<a href={href} className="label block px-2 py-3 !opacity-90 hover:!opacity-100">
+										{label}
+									</a>
+								</Magnetic>
+							))}
+						</nav>
+						<span className="hidden h-4 w-px bg-white/30 sm:block" aria-hidden="true" />
+						<SoundToggle />
+						<MenuButton open={open} onClick={() => setOpen((v) => !v)} buttonRef={buttonRef} />
+					</div>
 				</div>
 			</header>
 
