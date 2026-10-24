@@ -26,14 +26,17 @@ export default function Hero() {
 
 			{/* corners */}
 			<div className="pointer-events-none absolute inset-x-6 bottom-6 flex items-end justify-between sm:inset-x-10 sm:bottom-8">
-				<motion.p
-					className="label max-w-[14rem] !normal-case !tracking-normal !opacity-70"
+				<motion.figure
+					className="max-w-[17rem]"
 					initial={{ opacity: 0, y: 12 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 2.2, duration: 1 }}
 				>
-					Move the cursor. The word is liquid.
-				</motion.p>
+					<blockquote className="serif-it text-[1.15rem] leading-snug opacity-90">
+						&ldquo;The best way to predict the future is to invent it.&rdquo;
+					</blockquote>
+					<figcaption className="label mt-3">Alan Kay</figcaption>
+				</motion.figure>
 				<motion.div
 					className="flex flex-col items-center gap-3"
 					initial={{ opacity: 0 }}
