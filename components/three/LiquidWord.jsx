@@ -92,7 +92,7 @@ function drawWord(text, fontFamily, width, height) {
 	return canvas
 }
 
-function Plane({ word, fontFamily, ready }) {
+function Plane({ word, fontFamily, ready, play }) {
 	const { size } = useThree()
 	const mouse = useRef({ x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, vx: 0, vy: 0, lastInput: -Infinity })
 	// touch screens have no cursor to ripple under, so the ripple point drifts on its own there
@@ -152,7 +152,7 @@ function Plane({ word, fontFamily, ready }) {
 		const u = material.uniforms
 		u.uTime.value = state.clock.elapsedTime
 		u.uAspect.value = size.width / size.height
-		if (ready) {
+		if (ready && play) {
 			if (start.current === null) start.current = state.clock.elapsedTime
 			const t = state.clock.elapsedTime - start.current
 			intro.current = Math.min(1, t / 2.4)
@@ -183,7 +183,7 @@ function Plane({ word, fontFamily, ready }) {
 	)
 }
 
-export default function LiquidWord({ word = "EXISTENCE", onReady }) {
+export default function LiquidWord({ word = "EXISTENCE", onReady, play = true }) {
 	const [font, setFont] = useState(null)
 
 	useEffect(() => {
@@ -210,7 +210,7 @@ export default function LiquidWord({ word = "EXISTENCE", onReady }) {
 			gl={{ antialias: false, alpha: true, premultipliedAlpha: false }}
 			style={{ position: "absolute", inset: 0 }}
 		>
-			<Plane word={word} fontFamily={font || "sans-serif"} ready={!!font} />
+			<Plane word={word} fontFamily={font || "sans-serif"} ready={!!font} play={play} />
 		</Canvas>
 	)
 }

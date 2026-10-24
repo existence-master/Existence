@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "motion/react"
 
 const LiquidWord = dynamic(() => import("@components/three/LiquidWord"), { ssr: false })
 
-export default function Hero() {
+export default function Hero({ entered = true }) {
 	const ref = useRef(null)
 	const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
 	const y = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
@@ -21,7 +21,8 @@ export default function Hero() {
 			className="relative flex h-[100svh] items-center justify-center overflow-hidden"
 		>
 			<motion.div style={{ y, opacity, scale }} className="absolute inset-0">
-				<LiquidWord word="EXISTENCE" />
+				{/* the word settles out of chaos only once the visitor is actually looking at it */}
+				<LiquidWord word="EXISTENCE" play={entered} />
 			</motion.div>
 
 			{/* corners */}
@@ -29,8 +30,8 @@ export default function Hero() {
 				<motion.figure
 					className="max-w-[17rem]"
 					initial={{ opacity: 0, y: 12 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 2.2, duration: 1 }}
+					animate={entered ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+					transition={{ delay: 1.8, duration: 1 }}
 				>
 					<blockquote className="serif-it text-[1.15rem] leading-snug opacity-90">
 						&ldquo;The best way to predict the future is to invent it.&rdquo;
@@ -40,8 +41,8 @@ export default function Hero() {
 				<motion.div
 					className="hidden flex-col items-center gap-3 sm:flex"
 					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2.4, duration: 1 }}
+					animate={{ opacity: entered ? 1 : 0 }}
+					transition={{ delay: 2, duration: 1 }}
 				>
 					<span className="label">Scroll</span>
 					<span className="relative block h-12 w-px overflow-hidden bg-[var(--line)]">
