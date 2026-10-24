@@ -42,7 +42,20 @@ components/
   three/
     LiquidWord.jsx the hero shader
 public/            the ring mark, the Sentient mark, favicon
+.github/workflows/
+  deploy.yml       CI/CD to Vercel
+vercel.json        turns off Vercel's own Git deploys
 ```
+
+## Deploy
+
+The site is hosted on Vercel under the Existence account. Deploys run from GitHub Actions with the Vercel CLI, not from Vercel's Git integration (`vercel.json` turns that off).
+
+- A push to `master` deploys to production.
+- Each pull request from this repository gets a preview deployment. Previews sit behind Vercel's login.
+- The workflow is `.github/workflows/deploy.yml` and needs three repository secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`.
+
+To deploy by hand from your machine, log in to the Existence Vercel account and run `vercel deploy --prod`.
 
 ## Contact
 
