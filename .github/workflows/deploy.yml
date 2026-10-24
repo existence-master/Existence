@@ -22,13 +22,15 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   TARGET: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
-  PROD_FLAG: ${{ github.event_name == 'pull_request' && '' || '--prod' }}
+  # Note: `cond && '' || x` always yields x in Actions, so the empty case must come last.
+  PROD_FLAG: ${{ github.event_name != 'pull_request' && '--prod' || '' }}
 
 jobs:
   deploy:
     # Pull requests from forks cannot read secrets, so they are skipped rather than failing.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
       url: ${{ steps.deploy.outputs.url }}
@@ -39,14 +41,14 @@ jobs:
             if [ -z "${!name}" ]; then echo "::error::Repository secret $name is not set"; exit 1; fi
           done
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Install the Vercel CLI
-        run: npm install --global vercel@54
+        run: npm install --global vercel@63
 
       - name: Pull project settings
         run: vercel pull --yes --environment=$TARGET --token=$VERCEL_TOKEN
