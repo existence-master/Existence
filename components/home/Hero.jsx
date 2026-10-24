@@ -25,7 +25,7 @@ export default function Hero() {
 			</motion.div>
 
 			{/* corners */}
-			<div className="pointer-events-none absolute inset-x-6 bottom-6 flex items-end justify-between sm:inset-x-10 sm:bottom-8">
+			<div className="gutter pointer-events-none absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] flex items-end justify-between sm:bottom-[max(2rem,env(safe-area-inset-bottom))]">
 				<motion.figure
 					className="max-w-[17rem]"
 					initial={{ opacity: 0, y: 12 }}
@@ -38,7 +38,7 @@ export default function Hero() {
 					<figcaption className="label mt-3">Alan Kay</figcaption>
 				</motion.figure>
 				<motion.div
-					className="flex flex-col items-center gap-3"
+					className="hidden flex-col items-center gap-3 sm:flex"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 2.4, duration: 1 }}

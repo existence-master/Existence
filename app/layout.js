@@ -44,7 +44,11 @@ export const metadata = {
 	icons: { icon: "/favicon.ico" }
 }
 
-export const viewport = { themeColor: "#0a0a0a" }
+export const viewport = {
+	themeColor: "#0a0a0a",
+	// draw under the notch and home bar; the layout pads itself with safe-area insets
+	viewportFit: "cover"
+}
 
 export default function RootLayout({ children }) {
 	return (

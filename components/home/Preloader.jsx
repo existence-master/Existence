@@ -33,7 +33,7 @@ export default function Preloader({ onDone }) {
 			{!gone && (
 				<motion.div
 					key="curtain"
-					className="fixed inset-0 z-[100] flex items-end justify-between bg-ink px-6 pb-6 text-paper sm:px-10 sm:pb-8"
+					className="gutter fixed inset-0 z-[100] flex items-end justify-between bg-ink pb-[max(1.5rem,env(safe-area-inset-bottom))] text-paper sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
 					exit={{ y: "-100%" }}
 					transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
 				>
