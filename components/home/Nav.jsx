@@ -27,16 +27,6 @@ export default function Nav() {
 							</a>
 						</Magnetic>
 					))}
-					<Magnetic strength={0.25}>
-						<a
-							href="https://github.com/existence-master"
-							target="_blank"
-							rel="noreferrer"
-							className="label hidden !opacity-90 hover:!opacity-100 sm:block"
-						>
-							GitHub ↗
-						</a>
-					</Magnetic>
 				</nav>
 			</div>
 		</header>

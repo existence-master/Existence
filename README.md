@@ -60,4 +60,4 @@ To deploy by hand from your machine, log in to the Existence Vercel account and 
 ## Contact
 
 - GitHub: [github.com/existence-master](https://github.com/existence-master)
-- Mail: existence.master@gmail.com
+- Mail: founders@existence.technology
