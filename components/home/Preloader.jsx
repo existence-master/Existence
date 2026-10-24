@@ -330,57 +330,125 @@ export default function Preloader({ onEnter }) {
 						autoDraw()
 					}
 				}}
-				className="gutter group fixed inset-0 z-[100] touch-none select-none bg-ink text-paper outline-none"
+				className="group fixed inset-0 z-[100] touch-none select-none bg-ink text-paper outline-none"
 				style={phase === "leaving" ? { WebkitMaskImage: mask, maskImage: mask } : undefined}
 			>
-				{/* the ghost enso: traces itself while loading, brightens as the visitor's circle comes round */}
-				<div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-					<div ref={guide} className="relative aspect-square w-[min(66vw,52svh,24rem)]">
-						<svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
-							<defs>
-								<mask id="enso-reveal">
-									<circle
-										cx="200"
-										cy="200"
-										r="150"
-										fill="none"
-										stroke="#fff"
-										strokeWidth="44"
-										pathLength="1"
-										strokeDasharray="1"
-										strokeDashoffset={1 - count / 100}
-										transform="rotate(-100 200 200)"
-									/>
-								</mask>
-							</defs>
-							<motion.path
-								d={ghost}
-								mask="url(#enso-reveal)"
-								animate={{
-									fill: done || glow ? GOLD : "#ede8dc",
-									opacity: phase === "loading" ? 0.22 : 0.12 + 0.6 * progress,
-									scale: 1 + 0.035 * progress
-								}}
-								transition={{ duration: 0.5, ease: EASE_OUT }}
-								style={{ transformOrigin: "200px 200px" }}
-							/>
-						</svg>
-						<AnimatePresence>
-							{phase === "loading" && (
-								<motion.span
-									key="count"
-									className="label num absolute inset-0 flex items-center justify-center !opacity-70"
-									exit={{ opacity: 0, filter: "blur(6px)" }}
-									transition={{ duration: 0.4 }}
-								>
-									{String(count).padStart(3, "0")}
-								</motion.span>
-							)}
-						</AnimatePresence>
-					</div>
-				</div>
+				{/*
+				 * One column, so nothing can overlap at any size: the middle holds the words and the ring,
+				 * the bottom holds the quote and the corner marks. Phones and upright tablets stack the words
+				 * above and below the ring; laptops and phones held sideways put them either side of it.
+				 */}
+				<motion.div
+					className="gutter pointer-events-none absolute inset-0 flex flex-col pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
+					animate={{ opacity: phase === "leaving" ? 0 : 1 }}
+					transition={{ duration: 0.35 }}
+				>
+					{/* the middle */}
+					<div className="flex min-h-0 flex-1 items-center justify-center py-4">
+						<div className="flex flex-col items-center gap-[clamp(1rem,4svh,2.5rem)] lg:flex-row lg:gap-14 short:flex-row short:gap-8">
+							<motion.p
+								className="label w-max text-center lg:w-60 lg:text-right short:w-36 short:text-right"
+								animate={{ opacity: ready ? 0.9 : 0 }}
+								transition={{ duration: 0.9, ease: EASE_OUT }}
+							>
+								Draw the circle
+							</motion.p>
 
-				{/* the ink */}
+							{/* the ghost enso: traces itself while loading, brightens as the visitor's circle comes round */}
+							<div
+								ref={guide}
+								className="relative aspect-square w-[min(66vw,34svh,24rem)] shrink-0 lg:w-[min(30vw,50svh,24rem)] short:w-[min(36vw,50svh)]"
+							>
+								<svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
+									<defs>
+										<mask id="enso-reveal">
+											<circle
+												cx="200"
+												cy="200"
+												r="150"
+												fill="none"
+												stroke="#fff"
+												strokeWidth="44"
+												pathLength="1"
+												strokeDasharray="1"
+												strokeDashoffset={1 - count / 100}
+												transform="rotate(-100 200 200)"
+											/>
+										</mask>
+									</defs>
+									<motion.path
+										d={ghost}
+										mask="url(#enso-reveal)"
+										animate={{
+											fill: done || glow ? GOLD : "#ede8dc",
+											opacity: phase === "loading" ? 0.22 : 0.12 + 0.6 * progress,
+											scale: 1 + 0.035 * progress
+										}}
+										transition={{ duration: 0.5, ease: EASE_OUT }}
+										style={{ transformOrigin: "200px 200px" }}
+									/>
+								</svg>
+								<AnimatePresence>
+									{phase === "loading" && (
+										<motion.span
+											key="count"
+											className="label num absolute inset-0 flex items-center justify-center !opacity-70"
+											exit={{ opacity: 0, filter: "blur(6px)" }}
+											transition={{ duration: 0.4 }}
+										>
+											{String(count).padStart(3, "0")}
+										</motion.span>
+									)}
+								</AnimatePresence>
+							</div>
+
+							<div className="min-h-[1.2rem] w-max max-w-[80vw] text-center lg:w-60 lg:text-left short:w-36 short:text-left">
+								{ready && (
+									<motion.p
+										key={hint}
+										className={`label ${done ? "!text-sol !opacity-100" : "!opacity-55"}`}
+										initial={{ opacity: 0, y: 6 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.4 }}
+									>
+										{hint}
+									</motion.p>
+								)}
+							</div>
+						</div>
+					</div>
+
+					{/* the bottom: quote above the corner marks on narrow screens, centred between them on wide ones */}
+					<div className="flex flex-col gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-end lg:gap-8">
+						<motion.figure
+							className="max-w-[26rem] lg:col-start-2 lg:row-start-1 lg:w-[26rem] lg:text-center short:hidden"
+							initial={{ opacity: 0, y: 8 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.4, duration: 1.2, ease: EASE_OUT }}
+						>
+							<blockquote className="serif-it text-[1rem] leading-snug opacity-85 sm:text-[1.15rem]">
+								&ldquo;Nature is an infinite sphere whose center is everywhere and whose circumference is nowhere.&rdquo;
+							</blockquote>
+							<figcaption className="label mt-2.5">Blaise Pascal</figcaption>
+						</motion.figure>
+
+						<div className="flex items-end justify-between lg:contents">
+							<div className="flex items-center gap-4 lg:col-start-1 lg:row-start-1">
+								{/* the blend sits on the spinning wrapper: a transformed element only blends with what is inside it */}
+								<span className="relative block h-9 w-9 animate-spin-slow mix-blend-screen">
+									<Image src="/existencering.png" alt="" fill sizes="36px" className="object-contain" priority />
+								</span>
+								<span className="label !opacity-80">Existence</span>
+							</div>
+							<span className={`flex items-center gap-3 lg:col-start-3 lg:row-start-1 lg:justify-self-end ${soundOn ? "sound-on" : ""}`}>
+								<Wave />
+								<span className="label !opacity-80">{soundOn ? "Sound on" : "Sound off"}</span>
+							</span>
+						</div>
+					</div>
+				</motion.div>
+
+				{/* the ink, above everything else on the screen */}
 				<canvas
 					ref={canvas}
 					className="pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] duration-700"
@@ -389,72 +457,6 @@ export default function Preloader({ onEnter }) {
 						filter: glow ? "drop-shadow(0 0 14px rgba(232,178,84,0.55))" : "none"
 					}}
 				/>
-
-				<motion.div
-					className="pointer-events-none absolute inset-0"
-					animate={{ opacity: phase === "leaving" ? 0 : 1 }}
-					transition={{ duration: 0.35 }}
-				>
-					{/* the words: Draw the circle on the left of the ring, the hint on its right */}
-					<AnimatePresence>
-						{ready && (
-							<motion.div
-								key="words"
-								className="absolute inset-0 flex items-center justify-center"
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.9, ease: EASE_OUT }}
-							>
-								<div className="relative aspect-square w-[min(66vw,52svh,24rem)]">
-									{/* "Draw the circle": above the ring on narrow screens, to its left on wide or short ones */}
-									<p className="label absolute bottom-full left-1/2 mb-10 w-max max-w-[80vw] -translate-x-1/2 text-center !opacity-90 lg:bottom-auto lg:left-auto lg:right-full lg:top-1/2 lg:mb-0 lg:mr-14 lg:-translate-y-1/2 lg:translate-x-0 lg:text-right short:bottom-auto short:left-auto short:right-full short:top-1/2 short:mb-0 short:mr-10 short:-translate-y-1/2 short:translate-x-0 short:text-right">
-										Draw the circle
-									</p>
-									{/* the hint: below the ring on narrow screens, to its right on wide or short ones */}
-									<div className="absolute left-1/2 top-full mt-10 w-max max-w-[80vw] -translate-x-1/2 text-center lg:left-full lg:top-1/2 lg:ml-14 lg:mt-0 lg:-translate-y-1/2 lg:translate-x-0 lg:text-left short:left-full short:top-1/2 short:ml-10 short:mt-0 short:-translate-y-1/2 short:translate-x-0 short:text-left">
-										<motion.p
-											key={hint}
-											className={`label ${done ? "!text-sol !opacity-100" : "!opacity-55"}`}
-											initial={{ opacity: 0, y: 6 }}
-											animate={{ opacity: 1, y: 0 }}
-											transition={{ duration: 0.4 }}
-										>
-											{hint}
-										</motion.p>
-									</div>
-								</div>
-							</motion.div>
-						)}
-					</AnimatePresence>
-
-					{/* the quote at the bottom: above the bottom row on phones, centred in it on wide screens */}
-					<motion.figure
-						className="gutter absolute inset-x-0 bottom-[calc(max(1.5rem,env(safe-area-inset-bottom))+3.75rem)] max-w-[26rem] sm:bottom-[calc(max(2rem,env(safe-area-inset-bottom))+3.75rem)] lg:inset-x-auto lg:left-1/2 lg:bottom-[max(2rem,env(safe-area-inset-bottom))] lg:w-[26rem] lg:-translate-x-1/2 lg:px-0 lg:text-center short:hidden"
-						initial={{ opacity: 0, y: 8 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4, duration: 1.2, ease: EASE_OUT }}
-					>
-						<blockquote className="serif-it text-[1.05rem] leading-snug opacity-85 sm:text-[1.15rem]">
-							&ldquo;Nature is an infinite sphere whose center is everywhere and whose circumference is nowhere.&rdquo;
-						</blockquote>
-						<figcaption className="label mt-3">Blaise Pascal</figcaption>
-					</motion.figure>
-
-					{/* bottom: the mark, and the sound state */}
-					<div className="gutter absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] flex items-end justify-between sm:bottom-[max(2rem,env(safe-area-inset-bottom))]">
-						<div className="flex items-center gap-4">
-							<span className="relative block h-9 w-9 animate-spin-slow">
-								<Image src="/existencering.png" alt="" fill sizes="36px" className="object-contain mix-blend-screen" priority />
-							</span>
-							<span className="label !opacity-80">Existence</span>
-						</div>
-						<span className={`flex items-center gap-3 ${soundOn ? "sound-on" : ""}`}>
-							<Wave />
-							<span className="label !opacity-80">{soundOn ? "Sound on" : "Sound off"}</span>
-						</span>
-					</div>
-				</motion.div>
 			</motion.div>
 
 			{/* the ring on the iris edge; outside the mask so the mask cannot hide it */}
