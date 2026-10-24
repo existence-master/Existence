@@ -37,7 +37,7 @@ export function Cursor() {
 	return (
 		<motion.div
 			style={{ x: sx, y: sy }}
-			className="pointer-events-none fixed left-0 top-0 z-[90] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+			className="pointer-events-none fixed left-0 top-0 z-[110] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
 			aria-hidden="true"
 		>
 			<motion.div

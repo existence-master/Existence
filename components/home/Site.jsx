@@ -10,16 +10,17 @@ import Contact from "./Contact"
 import { Cursor, useTheme } from "./ui"
 
 export default function Site() {
-	const [loaded, setLoaded] = useState(false)
+	// nothing scrolls, and the hero waits, until the visitor walks through the enter screen
+	const [entered, setEntered] = useState(false)
 	useTheme()
 
 	return (
 		<>
-			<Preloader onDone={() => setLoaded(true)} />
+			<Preloader onEnter={() => setEntered(true)} />
 			<Cursor />
 			<Nav />
-			<main className={loaded ? "" : "h-screen overflow-hidden"}>
-				<Hero />
+			<main className={entered ? "" : "h-screen overflow-hidden"}>
+				<Hero entered={entered} />
 				<Vision />
 				<Sentient />
 				<Contact />

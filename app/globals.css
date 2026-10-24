@@ -23,6 +23,7 @@
 	--animate-marquee: marquee 30s linear infinite;
 	--animate-marquee-rev: marquee-rev 36s linear infinite;
 	--animate-spin-slow: spin 24s linear infinite;
+	--animate-breathe: breathe 4.5s ease-in-out infinite;
 
 	@keyframes marquee {
 		from {
@@ -30,6 +31,17 @@
 		}
 		to {
 			transform: translateX(-50%);
+		}
+	}
+	@keyframes breathe {
+		0%,
+		100% {
+			transform: scale(0.97);
+			opacity: 0.85;
+		}
+		50% {
+			transform: scale(1.03);
+			opacity: 1;
 		}
 	}
 	@keyframes wave-run {
