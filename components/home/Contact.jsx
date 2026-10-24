@@ -31,7 +31,17 @@ function Door({ href, external, name, value, hint, tone, children }) {
 			<div className="relative flex w-full flex-col justify-between pb-6 pl-[24vw] pr-6 pt-20 sm:pb-8 sm:pl-[16vw] sm:pr-8 sm:pt-24 sm:opacity-0 sm:transition-all sm:duration-700 sm:[transition-delay:0.15s] sm:group-hover:opacity-100">
 				<div className="flex justify-end">{children}</div>
 				<div>
-					<p className="font-grotesk text-[7vw] leading-[0.95] tracking-[-0.04em] sm:text-[3.6vw]">{value}</p>
+					<p className="font-grotesk text-[6vw] leading-[0.95] tracking-[-0.04em] sm:text-[3.6vw]">
+						{/* an address has no spaces, so offer a line break after the @ for narrow screens */}
+						{value.includes("@") ? (
+							<>
+								{value.split("@")[0]}@<wbr />
+								{value.split("@")[1]}
+							</>
+						) : (
+							value
+						)}
+					</p>
 					<p className="label mt-5 flex items-center gap-3">
 						<span className="inline-block h-px w-8 bg-current transition-all duration-700 group-hover:w-16" />
 						{external ? "Opens in a new tab" : "Opens your mail app"}
@@ -61,10 +71,10 @@ export default function Contact() {
 
 			<div className="mt-10 flex flex-col border-y border-[var(--line)] sm:mt-14 sm:h-[78vh] sm:flex-row">
 				<Door
-					href="mailto:existence.master@gmail.com"
+					href="mailto:founders@existence.technology"
 					name="Mail"
 					hint="01 · Write to us"
-					value="existence.master@gmail.com"
+					value="founders@existence.technology"
 					tone="paper"
 				>
 					<svg viewBox="0 0 48 48" className="h-14 w-14 sm:h-20 sm:w-20" fill="none" stroke="currentColor" strokeWidth="1.2">
